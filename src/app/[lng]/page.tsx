@@ -107,10 +107,9 @@ const BottomImagesGallery = [
             <h1 className="section-header">
               <span className="welcome-icon">
                 <ImageGallery 
-                  imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/welcome-icon.svg" 
+                  imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/welcome-icon.svg"
                   height={10}
-                  width={36}
-                />
+                  width={36} imageName={undefined} customClass={undefined}                />
               </span>
               {(dict.home.welcome)}
             </h1>
