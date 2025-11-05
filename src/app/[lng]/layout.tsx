@@ -117,9 +117,16 @@ const montserrat = Montserrat({
 // 1. Redefine LayoutProps:
 //    - 'params' is NOT a Promise when passed to the layout function.
 //    - 'lng' MUST be typed as 'string' here to match Next.js internal constraints.
+// type LayoutProps = {
+//   children: ReactNode;
+//   params: { lng: string }; 
+// };
+
 type LayoutProps = {
-  children: ReactNode;
-  params: { lng: string }; 
+  children: React.ReactNode;
+  params: {
+    lng: 'en' | 'kiny'; // Use the specific union type
+  };
 };
 // >>> CRITICAL FIX END <<<
 
@@ -130,11 +137,13 @@ export default async function RootLayout({
 }: LayoutProps) {
   
   // 2. Access 'lng' directly from params. We cast it to your specific 'Locale' type now.
-  const lng = params.lng as Locale; 
+  // const lng = params.lng as Locale; 
+
+  const { lng } = params;
   const dict = await getDictionary(lng);
 
   return (
-    <html lang={lng} dir={dir(lng)}>
+    <html lang={lng}>
       <body className={`${montserrat.variable} font-sans`}>
         <TranslationProvider dict={dict}>
           {children}
