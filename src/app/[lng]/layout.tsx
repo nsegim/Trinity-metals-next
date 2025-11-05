@@ -14,19 +14,21 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 });
 
-// ✅ CORRECT: Use the specific Locale type from your config
-type LayoutProps = {
+// ✅ CORRECT: params is a Promise in Next.js 14+
+interface LayoutProps {
   children: ReactNode;
-  params: { 
-    lng: Locale; // This should match your Locale type from config
-  };
-};
+  params: Promise<{
+    lng: Locale;
+  }>;
+}
 
 export default async function RootLayout({
   children,
   params,
 }: LayoutProps) {
-  const { lng } = params;
+  // ✅ AWAIT the params
+  const { lng } = await params;
+  
   const dict = await getDictionary(lng);
 
   return (
@@ -40,9 +42,6 @@ export default async function RootLayout({
   );
 }
 
-// ✅ This ensures static generation knows about the valid locales
 export async function generateStaticParams() {
-  return locales.map((lng) => ({
-    lng: lng,
-  }));
+  return locales.map((lng) => ({ lng }));
 }
