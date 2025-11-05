@@ -4,9 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./globals.css";
 import { Montserrat } from "next/font/google";
 import { getDictionary } from '../i18n/dictionaries';
-import { Locale, locales } from '../i18n/config';
+import { Locale, locales, defaultLocale } from '../i18n/config';
 import { TranslationProvider } from '../context/TranslationContext';
-import { notFound } from 'next/navigation';
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -18,21 +17,21 @@ export async function generateStaticParams() {
   return locales.map((lng) => ({ lng }));
 }
 
-// ✅ Simple props interface that matches Next.js expectations
 interface Props {
   children: React.ReactNode;
-  params: Promise<{ lng: string }>;
+  params: Promise<{ lng?: string }>; // Make lng optional
 }
 
 export default async function RootLayout({ children, params }: Props) {
   const { lng } = await params;
   
-  // ✅ Validate and cast the locale
-  if (!locales.includes(lng as Locale)) {
-    notFound(); // or redirect to default locale
+  // ✅ Use default locale if lng is missing or invalid
+  let locale: Locale = defaultLocale;
+  
+  if (lng && locales.includes(lng as Locale)) {
+    locale = lng as Locale;
   }
   
-  const locale = lng as Locale;
   const dict = await getDictionary(locale);
 
   return (
