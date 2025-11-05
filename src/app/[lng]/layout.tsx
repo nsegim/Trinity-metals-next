@@ -118,7 +118,7 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ lng: "en" | "kiny" | "fr" }>; // ← Promise!
+  params: { lng: "en" | "kiny" | "fr" }; 
 }) {
   const { lng } = await params; // ← await it!
   const dict = await getDictionary(lng);
