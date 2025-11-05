@@ -14,18 +14,17 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 });
 
-type LayoutProps = {
-  children: ReactNode;
-  params: Promise<{ lng: Locale }>; // 👈 params is now a Promise!
-};
-
+// Remove custom type, let Next.js infer it
 export default async function RootLayout({
   children,
   params,
-}: LayoutProps) {
-  const { lng } = await params; // 👈 Await params here!
-  const dict = await getDictionary(lng);
-
+}: {
+  children: ReactNode;
+  params: Promise<{ lng: string }>; // 👈 Keep as string for Next.js
+}) {
+  const { lng } = await params;
+  const dict = await getDictionary(lng as Locale); // 👈 Cast when using
+  
   return (
     <html lang={lng} dir={dir(lng)}>
       <body className={`${montserrat.variable} font-sans`}>
@@ -37,6 +36,6 @@ export default async function RootLayout({
   );
 }
 
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<{ lng: Locale }[]> {
   return locales.map((lng) => ({ lng }));
 }
