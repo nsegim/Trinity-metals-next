@@ -95,6 +95,8 @@
 
 
 
+
+// app/[lng]/layout.tsx ==== locale types for Vercel build
 import { dir } from 'i18next';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./globals.css";
@@ -110,17 +112,15 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 });
 
-// ✅ FIXED: Proper type definition for Next.js 15 async params
 type LayoutProps = {
   children: ReactNode;
-  params: Promise<{ lng: Locale }>; // ← params is a Promise now
-}
+  params: Promise<{ lng: Locale }>;
+};
 
 export default async function RootLayout({
   children,
   params,
 }: LayoutProps) {
-  // ✅ Await the params
   const { lng } = await params;
   const dict = await getDictionary(lng);
 
@@ -135,9 +135,9 @@ export default async function RootLayout({
   );
 }
 
-// ✅ Generate static params for all locales
+// THIS IS THE FIX
 export async function generateStaticParams() {
   return locales.map((lng) => ({
-    lng: lng,
+    lng: lng, // ← TypeScript now knows lng is "en" | "kiny" | "fr"
   }));
 }
