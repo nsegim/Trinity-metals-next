@@ -4,10 +4,10 @@
 import 'server-only';
 import { locales, defaultLocale } from './config';
 
-const dictionaries = {
+const dictionaries: Record<string, () => Promise<any>> = {
   en: () => import('./locales/en/translation.json').then(m => m.default),
   kiny: () => import('./locales/kiny/translation.json').then(m => m.default),
-  fr: () => import('./locales/en/translation.json').then(m => m.default),
+  
 };
 
 export const getDictionary = async (locale: string) => {
