@@ -1,0 +1,462 @@
+{
+  "header" : {
+
+      "email": "Email",
+      "home":"Home",
+      "about-us": "About Us",
+      "about": {
+          
+          "our-history": "History",
+          "our-values":"Values",
+          "our-strategies":"Strategies",
+          "our-products": "Products",
+          "our-leadership":"Leadership"
+      },
+
+      "OurProjects": "Projects",
+      "project":{
+        "rutongo": "Rutongo",
+        "nyakabingo": "Nyakabingo",
+        "musha":"Musha",
+        "lithium-exploration":"Ntunga Lithium Project"
+        
+      },
+      "sustainability": "Sustainability",
+      "investor-relations": "Investor Relations",
+      "investor": {
+        "reports": "Reports",
+        "latest-news" : "Latest News",
+        "gallery" : "Gallery",
+        "gallery-sub" :{
+           "photos" : "Photos",
+           "videos": "Videos"
+        }
+
+      },
+      "contact-us": "Contact Us",
+      "careers": "Careers"
+
+  },
+  "home": {
+
+      "meta": {
+      "title": "Home | Trinity Metals Limited",
+      "description": "Trinity Metals Limited is a leading mining company in Rwanda, specializing in tin, tungsten, and tantalum with responsible mining practices"
+      },
+      
+      "welcome": "WELCOME TO TRINITY METALS",
+      "welcome-description": "We are enabling a better future.<br/> 3 Minerals, 3 Mines, One Company",
+      "min-description": "We are a responsible producer of essential Technology metals",
+      "get-stated-button": "Get Started",
+      "view-project-button": "View Project",
+
+
+      "home-about-heading": "A Leader in Mining",
+      "about-tab-who-we-are": "Who We are",
+      "about-tab-vision": "Our Vision",
+      "about-tab-mission": "Our Mission",
+      "who-we-are-content": "Trinity Metals is a responsible producer of tin, tungsten and tantalum. We employ eco-conscious and ethical practices in every area of our business operations.",
+      "our-vision-content": "We make difference in the world by responsibly and reliably sourcing essential technology metals",
+      "our-mission-content": "We are on mission to produce high-quality metals through responsible, eco-conscious operations and business practices",
+      "employees":"Employees",
+      "mine-site": "Mine sites",
+      "read-more-button": "Read More",
+      "rwandan-leadership": "Rwandan Leadership",
+      "rwandan-workforce": "Rwandan Workforce",
+      
+      
+      "latest-work-section": "Latest Works",
+      "our-project": "Our Projects",
+      "trinity-Nyakabingo-mine":"Trinity Nyakabingo Mine",
+      "trinity-musha-mine":"Trinity Musha Mines",
+      "rutongo-mine": "Rutongo Mines",
+
+
+
+      "sustainability" : "Sustainability",
+      "we-are-energy":"We are a part of the energy revolution",
+      "we-are-energy-description": "We take our values seriously and hold ourselves accountable to the communities where we operate and the greater good of the planet. We support the UN’s mission to ensure that by 2030 all people enjoy peace and prosperity and do our part to contribute to the Global Sustainability Development Goals.",
+      "we-are-energy-description1":"We take the lead in responsible mining while delivering lasting value to communities, protecting the environment, and meeting the expectations of our stakeholders.",
+
+
+      "blog-post-section": "Blog Post",
+      "latest-articles": "Latest Articles",
+      "date_format": "DD MMMM, YYYY",
+
+
+      "media-section":"Media",
+      "our-gallery": "Our Gallery",
+      "view-gallery-btn": "View Gallery"
+
+
+  },
+
+
+  "about-us-page":{
+      "about-us-title": "About Us",
+
+
+      "our-history-section-title": "Our History",
+      "our-history-top-description": "Trinity Musha Mines Limited [formerly Piran Rwanda Ltd], Trinity Nyakabingo Mine Limited [formerly Eurotrade International Ltd], and Rutongo Mines Limited are established as three separate, privately held companies. They all have a strong track record of mining and exploration of tin, tungsten and/or tantalum in Rwanda and are committed to incorporating responsible mining practices into assets previously acquired from the Rwandan government.",
+      "our-history-sub-desc": "In May 2022, the three companies’ shareholders joined forces to form Trinity Metals Limited (“The Group”) under equity backing from Techmet, a UK-based private industrial company working to secure the technology metal supply chain in a world with rapidly increasing demand. ",
+      "our-history-popup-top-desc": "Trinity Musha Mines Limited [formerly Piran Rwanda Ltd], Trinity Nyakabingo Mine Limited [formerly Eurotrade International Ltd], and Rutongo Mines Limited are established as three separate, privately held companies. They all have a strong track record of mining and exploration of tin, tungsten and/or tantalum in Rwanda and are committed to incorporating responsible mining practices into assets previously acquired from the Rwandan government.",
+      "our-history-popup-desc" : "In May 2022, the three companies’ shareholders joined forces to form Trinity Metals Limited (“The Group”) under equity backing from Techmet, a UK-based private industrial company working to secure the technology metal supply chain in a world with rapidly increasing demand.  Techmet, Trinity Metals’ majority shareholder, works with a number of investment partners including the US Development Finance Corporation (DFC) to fund its portfolio. Additional shareholders include Piran Resources, the parent company of Piran Rwanda Limited and the Rwandan Government, represented by Ngali Holdings Limited. ",
+      "our-history-popup-desc1": "The consolidation of the three companies led Trinity Metals to its position as a leading mining company and private sector employer. The board of directors was appointed in May 2022 with representation from the major shareholders to oversee the company’s strategy and governance in Rwanda.",
+      "our-history-popup-desc2": "The three-way alliance, by design, builds upon the strengths of each of the three companies to achieve operational synergies such as increased production capacity, greater supply chain leverage, improved career growth opportunities for employees and stronger community and government relations.",
+      
+
+
+      "our-mission-title": "Our Mission",
+      "our-mission-description": "We are on a mission to produce high-quality metals through responsible, eco-conscious operations and business practices",
+      "our-vision-title": "Our Vision",
+      "our-vision-description" : "We make a difference in the world by responsibly and reliably sourcing essential technology metals.",
+
+
+      "our-values-section-title": "Our Values",
+      "we-empower": "We empower & impact",
+      "we-empower-description": "We champion economic empowerment, investing in programmes that develop the next generation of industry talent. We create vehicles for economic progress for the people in the communities where we are based.",
+      "we-do-no-warm": "We do no harm",
+      "we-do-no-warm-description": "We are committed to safe, ethical, profitable, and eco-friendly mining operations. We’ve made it our mission to find new and better ways to mine responsibly and ensure that our work doesn’t have an adverse effect on the communities where we operate, our people or the planet.",
+      "we-set-standard": "We set the standard",
+      "we-set-standard-description": "As a leading mining organization, we operate according to international industry standards and take a continuous improvement approach to our work. ",
+      "we-hold-ourselves-accountable": "We hold ourselves accountable",
+      "we-hold-ourselves-accountable-description": "Each one of us understands our role in delivering on our mission and upholding our values. We respect and abide by all legislation, proactively self-assess and adjust to stay on track, abide by a strict code of conduct and speak up when there are issues to resolve.",
+
+
+
+      "our-strategy-section-title": "Our Strategy",
+      "our-strategy-section-description": "We are dedicated to achieving sustainable growth through a strategic approach that balances profitability, ethical practices, and environmental stewardship.",
+
+      "our-strategies-business": "Our Business",
+      "our-strategies-business-description": "We prioritize optimized business planning to ensure safe, ethical, profitable, and efficient mining operations across all our processes.",
+
+      "our-strategies-people": "Our People",
+      "our-strategies-people-description": "We are dedicated to motivating our team to deliver outstanding results and reach their full potential.",
+
+      "our-strategies-relationships": "Our Relationships",
+      "our-strategies-relationships-description": "We prioritize managing relationships with external stakeholders as a fundamental aspect of our business operations",
+
+      "our-strategies-future": "Our Future",
+      "our-strategies-future-description": "We actively pursue organic and greenfield growth opportunities to secure a prosperous future.",
+
+
+
+
+      "executive-management-team-section-title": "Executive Management Team",
+      "view-all-team-button": "View All Team",
+
+
+
+
+      "our-product-section-title": "Our Products",
+      "our-product-section-description": "The '3Ts'—Tantalum, Tungsten, and Tin—are critical minerals essential most known for being in electronics, chances are, we are using more products made with these minerals on a daily basis than we realize. As demand for advanced technologies and renewable energy grows, their strategic importance increases. This makes them vital for economic and technological development.",
+
+      "our-product-TIN": "TIN",
+      "our-product-TIN-description": "Primarily used in solder. Demand set to increase with electronics a main downstream market and developing application in Li-ion batteries",
+
+      "our-product-TANTALUM": "TANTALUM",
+      "our-product-TANTALUM-description": "50-70% of tantalum supply is used in the electronics industry (mainly capacitators and semiconductors); other uses in medical industry",
+
+      "our-product-TUNGSTEN": "TUNGSTEN",
+      "our-product-TUNGSTEN-description": "Used mostly for cemented carbide (industrial cutting material), high-speed steels and super alloys and mill products (e.g.light bulb filaments). Demand reached 10-year high in 2022; most at risk of depletion."
+
+
+
+  },
+
+  "our-leadership":{
+    "our-leadership-title": "Our Leadership",
+    "board-members": "Trinity Metals Group Board Members",
+    "executive-management": "Executive Management Team"
+  },
+
+  "our-project-page": {
+
+        "projects-title": "Projects",
+        "projects-sub-title": "Projects",
+        "project-description-1": "Trinity Metals has three mining projects operated as subsidiaries in Rwanda – Rutongo Mines, Nyakabingo Mine, and Musha Mines. <br>They compromise of three primary mining sites with several satellite mining sites located in close proximity to the primary sites.",
+        "project-description-2": "Our mining sites operate to national and international mining regulations and uphold strict ESG standards. We do not use toxic or environmentally damaging chemical processes on our mines, nor do the mines produce any such material.",
+        "project-description-3": "Our production is certified “conflict-free” – our mines are fully compliant with conflict minerals audit requirements under OECD guidelines.",
+
+
+
+        "project-sites": {
+            "trinity-nyakabingo-mine": "Trinity Nyakabingo Mine",
+            "trinity-musha-mines": "Trinity Musha Mines",
+            "trinity-rutongo-mines": "Rutongo Mines",
+            "LITHIUM-EXPLORATION": "LITHIUM EXPLORATION"
+
+
+        },
+
+        "rutongo-mines": {
+            "rutongo-title" :"Rutongo Mines",
+            "satellite-mines": "Rutongo Satellite Mines",
+            "satellite-mines-achievement": "6 Mines",
+
+            "tin-production": "Tin Production",
+            "tin-production-achievement": "40-70tons per month",
+
+            "workforce": "Workforce",
+            "Workforce-achievement": "2,500+",
+
+            "location": "Location",
+            "location-achievement": "Rutongo Mines sit 26km north",
+            "location-achievement1": "of Kigali, Rwanda",
+
+
+            "rutongo-bold-title": "Rutongo Mines is a Tin Mine with a mining concession of 9,600 ha, located 26km north of Kigali, comprising six underground tin mines – Gisanze, Masoro, Nyamyumba, Gasambya, Karambo and Mahaza. Together, they contain one of the biggest cassiterite deposits in Africa.",
+            "rutongo-description": "The Rutongo mines operate under a 25-year license that began in 2015. They are estimated to contain approximately 54,000 tonnes of recoverable tin and currently produce between 40 to 70 tons per month, projected to increase to 200 tonnes per month in the next five years.",
+
+            "rutongo-description1": "Tin exploitation at Rutongo began in 1931, and from the 1940s, the mines consistently exported 800 tonnes a year of cassiterite. By the 1950s, SOMUKI, a Belgian mining company, had developed the mine into the largest tin concentrate producer in Rwanda. In 1973, the fusion of former colonial mining sites gave rise to SOMIRWA (Société Des Mines Du Rwanda), a joint venture between the Government of Rwanda and GEOMINES. This Belgium-based mining company operated on site until its liquidation in 1986. At this time, the mines were nationalised and operated under REDEMI (Regie d’Exploitation et de Developpement des Mines).",
+            "rutongo-description2": "The mines closed in 1994 when the genocide against the Tutsi occurred. In 1995 they reopened under REDEMI as a miners’ co-operative and operated as such until 2008, when the government re-privatized them.",
+            "rutongo-description3": "In May 2022, the mine was incorporated into the newly established Trinity Metals Group.",
+            "rutongo-description4" : "The mine has significant growth potential - future plans consist of increasing mining volumes by opening up new reserves at depth through the development of a decline below 33 level, introducing new bulk mining, utilization of larger mining equipment and the design and construction of a number of mineral processing facilities to process run of mine material and legacy stockpiled material. These plans give the mine the opportunity to more than double production over the next 5 years."
+        },
+
+
+        
+        "nyakabingo-mines": {
+            "nyakabingo-mines-title": "Trinity Nyakabingo Mine",
+            "tungsten-production": "Tungsten Production",
+            "tungsten-production-achievement": "100-110 tons per month",
+            "workforce": "Workforce",
+            "workforce-achievement": "1,800+",
+            "location": "Location",
+            "location-achievement":"19km northwest",
+            "location-achievement1": " of Kigali, Rwanda",
+
+
+            "brief-history": "Brief history",
+            "brief-history-desc":"Trinity Nyakabingo Mine is a Tungsten ore mine with a mining concession of 1,600 ha. The mine is estimated to contain approximately 115,502 tons of recoverable Tungsten with potential to grow the resource substantially at depth. Current production is between 100 to 110 tons of wolframite per month, containing 66-70% Tungsten, under a 25-year license that commenced in 2015.",
+
+            "history-timeline": "Presented on a history timeline",
+            "history-timeline-desc": "Trinity Nyakabingo Mine is a Tungsten ore mine with a mining concession of 1,600 ha. The mine is estimated to contain approximately 115,502 tons of recoverable Tungsten with potential to grow the resource substantially at depth. Current production is between 100 to 110 tons of wolframite per month, containing 66-70% Tungsten, under a 25-year license that commenced in 2015.",
+            "history-timeline-desc1": "Exploration of the mine’s alluvial deposits began in the late 1930s, but it was only after WWII that systematic open cast mining began. In the late 1960’s underground mining started through adits, followed by drives along quartz veins situated in bedding planes (known as concordant parallel veins). The first Companies to mine the deposit were Belgium using semi-mechanized methods until 1986. At this time, the mines were nationalized and operated under REDEMI (Regie d’Exploitation et de Developpement des Mines). The mines closed in 1994 when the genocide against the Tutsi occurred. In 1995 they reopened under REDEMI as a miners’ co-operative and operated as such until 2007, when Euro Trade International took ownership. In May 2022 the mine was incorporated into the newly established Trinity Metals Group and renamed Trinity Nyakabingo Mine.",
+            "history-timeline-desc2": "Trinity Nyakabingo Mine is the African continent’s largest Tungsten producer.",
+            "history-timeline-desc3": "The mine has significant growth potential - future plans consist of increasing mining volumes by opening up new reserves at depth through the development of a decline below 22 level, introducing new bulk mining, utilization of larger mining equipment and the design and construction of mineral processing facilities to process run of mine material and legacy stockpiled material. These plans give the mine the opportunity to at least double current production levels."
+
+        },  
+        
+
+        "musha-mines": {
+           "musha-mines-title": "Trinity Musha Mines",
+            "tin-production": "Tin Production",
+            "tin-production-achievement": "30-40 tons per month",
+            "workforce": "Workforce",
+            "workforce-achievement": "2,200+",
+            "location": "Location",
+            "location-achievement": "Musha Mines sit 45km from Kigali in the",
+             "location-achievement1": "Eastern Province",
+
+            "brief-history":"Brief history",
+            "brief-history-desc": "Trinity Musha Mine is a tin and tantalum mine with lithium prospects operating on a 6,094 ha concession, located in Rwanda’s prolific tin region – Rwamagana District – 45 km from Kigali in the Eastern Province. The mine consists of a number of sub-mines.",
+            "brief-history-desc1": "Trinity Musha Mine’s tin deposits were initially exploited from the 1920s to the 1970s. In 1985, the mine was nationalized and operated by SOMIRWA (Société des Mines du Rwanda). However, due to depressed tin prices and the 1994 genocide against the Tutsi, which deterred external investment, the operation remained artisanal and never realized its growth potential. Between 2014 and 2016, Pella Rwanda Ltd was granted a 25-year mining license for the Musha-Ntunga Mines. In 2017, ownership was transferred to Piran Resources, which operated the mine until May 2022, when it was incorporated into the newly established Trinity Metals Group.",
+            "brief-history-desc2": "The mine is Rwanda’s second largest tin producer after Rutongo Mine.",
+            "brief-history-desc3": "The mine has significant growth potential - future plans consist of increasing mining volumes by opening up new reserves at depth through the development of a decline below level 4, introducing new bulk mining, utilization of larger mining equipment and the design and construction of a number of mineral processing facilities to process run of mine material and legacy stockpiled material. These plans give the mine the opportunity to more than double production over the next 5 years. The Ntunga mining area has significant reserves of tantalum that will be mined as a by-product to the tin."
+        },
+
+         "LITHIUM-EXPLORATION": {
+          "LITHIUM-EXPLORATION-title": "Ntunga Lithium Project",
+          "LITHIUM-EXPLORATION-subtitle": "The Ntunga pegmatite offers robust development opportunities for Trinity Metals. ",
+          "description1": "In 2018, PIRAN Rwanda Ltd began a bold exploration campaign at its Ntunga property—and the results were promising. Initial shallow drilling (up to 250 meters) revealed encouraging grades of 0.02% Ta₂O₅ and 0.12% Sn in weathered pegmatites, along with lithium mineralization—primarily spodumene—appearing in fresh pegmatites from depths of 80 meters and beyond.",
+          "description2": "Fast forward to 2023, with the global surge in lithium demand, we took our exploration to the next level. A new phase of deeper drilling (300–780 meters) was launched to test theorebody’s depth potential—and it delivered. Over 39 drill holes, we encountered grades reaching up to 4% Li₂O, with standout intercepts including:",
+          "description2-1": "DD_055:",
+            "description2-1-0": "195m @ 1.4% Li₂O",
+          "description2-2": "DD_062:",
+            "description2-2-0": "148m @ 1.46% Li₂O",
+          "description2-3": "DD_064:",
+            "description2-3-0": "16m @ 2.1% Li₂O and 30m @ 1.4% Li₂O",
+          "description2-4": "DD_056:",
+            "description2-4-0": "8m @ 2.1% Li₂O",
+          "description3": "In total, we drilled nearly 12,000 metres across 39 diamond holes, with over 2,700 samples assayed. Notably, high-grade tin and tantalum intercepts remain consistent with the 2018 results, with improved grades trending eastward across the orebody.",
+          "description4": "Based on this limited but highly encouraging drilling, the lithium potential at Ntunga is currently estimated between 35 to 70 million tonnes at >1% Li₂O. Up next: geological structural studies, metallurgical testing, resource estimation, and expanded drilling. This is just the beginning of unlocking Ntunga’s full critical minerals potential."
+
+        }
+
+  },
+
+  "Sustainability":{
+    "sustainability-page-title": "Sustainability",
+
+    "sustainability-into-left-header":"We are a part of the energy revolution",
+    "sustainability-into-left-header-desc": "At Trinity Metals, we take our values seriously and hold ourselves accountable to the communities where we operate and the greater good of the planet. We support the UN’s mission to ensure that by 2030 all people enjoy peace and prosperity and do our part to contribute to the Global Sustainability Development Goals.",
+
+    "sustainability-into-right-header": "Our Approach",
+    "sustainability-into-right-header-desc":"We take the lead in responsible mining while delivering lasting value to communities, protecting the environment, and meeting the expectations of our stakeholders. Throughout the project lifecycle, we work in close partnership with stakeholders to ensure our activities contribute meaningfully to social progress, economic empowerment, and ecological integrity.",
+    
+
+     "water-management-title": "Water management",
+     "water-management-desc": "We recognize our responsibility to manage water with care, efficiency and transparency. Our goal is to operate within regulatory standards while contributing to watershed health and long-term community resilience, focusing on minimizing freshwater withdrawal, improving water recycling and reuse, and preventing contamination of surface and groundwater sources.",
+     
+     "approach-to-Tailings-title": "Tailings and waste storage",
+      "approach-to-Tailings-desc": "Responsible tailings management is a core part of our environmental stewardship. Tailings—the residues left after mineral extraction—can pose significant risks if not properly handled. That’s why we adhere to globally recognized best practices, invest in risk mitigation technologies, and maintain open dialogue with surrounding communities. Our approach goes beyond compliance; it reflects our deep commitment to safety, sustainability, and building trust at every stage of our operations.",
+
+      "approach-to-closure-management-title": "Closure management",
+      "approach-to-closure-management-desc1": "We plan for closure with a focus on long-term environmental stability, community resilience and sustainable land use. Our approach is built on early engagement, progressive rehabilitation and collaboration with host communities to ensure that post-mining landscapes are safe, productive, and beneficial. We integrate closure planning into every phase of the mine life cycle, aligning with international best practices and local expectations.",
+      "approach-to-closure-management-desc2": "Our approach is built on early engagement, progressive rehabilitation and collaboration with host communities to ensure that post-mining landscapes are safe, productive, and beneficial. We integrate closure planning into every phase of the mine life cycle, aligning with international best practices and local expectations.",
+
+
+    "environment-title": "Environment",
+    "environment-min-title": "We are a part of the energy revolution",
+    "environment-desc": "We take our values seriously and hold ourselves accountable to the communities where we operate and the greater good of the planet. We support the UN’s mission to ensure that by 2030 all people enjoy peace and prosperity and do our part to contribute to the Global Sustainability Development Goals.",
+    "environment-desc1": "We have taken steps to track, actively reduce and offset our carbon emissions and utilise eco-conscious mining methods and technology. We employ a replacement strategy for trees affected by our mining operations and have planted in excess of  657,000 trees across the three mine sites. We work collaboratively with the local environment, forestry and water management authorities to ensure that our efforts add net value to the environment. ",
+    "environment-desc2-title": "We promote biodiversity",
+    "environment-desc2": "Bees play a critical role in ecological balance and restoration. At Nyakabingo mine, we have launched a community beekeeping project in our rehabilitated forests, a sustainable project that provides livelihood opportunities for local community members. This project has been and will continue to be a significant income generation mechanism for the community. ",
+
+
+    "community-title": "Community",
+    "community-description1": "At Trinity, we believe mining can be a catalyst for inclusive economic growth and stronger communities. With a workforce that is 99% local, we are committed to empowering our people to lead and participate in initiatives that strengthen the well-being of their communities. We engage with community members at every stage of the mining lifecycle, ensuring our presence contributes positively to people’s lives. ",
+    "community-description2": "Our approach emphasizes opening pathways into formal employment, supporting diverse and sustainable livelihood opportunities, and promoting health, safety, and well-being. We also work to expand opportunities for women, youth, and vulnerable groups to ensure that the benefits of mining are shared broadly across communities. Through strong partnerships and open dialogue, we aim to reflect local priorities, foster long-term resilience, and uphold transparency, accountability, and continuous improvement so that our operations leave lasting, positive impacts.",
+    "community-subtitle": "We are a part of the energy revolution",
+    "community-desc": "We believe the mining industry is vital in generating job growth and inclusive economic opportunities. Our workforce, which is 99% local,  is empowered and enabled to lead and participate in programs that impact  the well-being of people in their communities. We consider community members at every phase of our mining lifecycle and have launched initiatives to ensure their lives are better off because of our presence. ",
+    "community-list1": "Integrated Unauthorised Miner Strategy:",
+    "community-list1-2": "Partnering with local government and security organs, we have approached and mobilized illegal miners to join our mining companies to be trained and work professionally  to secure their future and their families' future.",
+    "community-list2": "Sustainable Livelihood Programs:",
+    "community-list2-2": "Investing in agriculture, entrepreneurship, and vocational training to create alternative, long-term income streams for communities.",
+    "community-list3": "Education and Capacity Building: ",
+    "community-list3-2": "Supporting students in our communities with scholarships, STEM education, to unlock opportunities for youth and future generations.",
+     "community-list4": "Healthcare and Well-being:",
+     "community-list4-2": "Partnering with local stakeholders to improve access to healthcare, sanitation, and mental health resources.",
+     "community-list5": "Infrastructure Development: ",
+     "community-list5-2": "Co-developing essential infrastructure — including roads, water systems, and electrification — that enhances quality of life.",
+     "community-list6": "Community Development Planning:",
+     "community-list6-2": "Working directly with community representatives to design and implement projects that reflect local priorities, culture, and aspirations.",
+     "community-list7": "Monitoring and Accountability:",
+     "community-list7-2": "Establishing clear metrics, feedback mechanisms, and transparent reporting to measure impact and continuously improve.",
+
+
+     
+    "Occupational-Health-title": "Occupational Health and Safety",
+    "Occupational-Health-desc": "We are committed to becoming a leader in occupational health and safety through an ISO-compliant SHEC (Safety, Health, Environmental, and Community) system based on risk assessments and impact evaluations. The company has trained thousands of employees through both external and internal programs to strengthen safety practices across operations. With established ISO-aligned procedures, including risk management and incident response, Trinity has significantly reduced its Lost Time Injury Frequency Rate (LTIFR). Equipped with on-site medical facilities and supported by partnerships with local hospitals, the company remains focused on its ZERO HARM goal while promoting safety awareness in both the workplace and surrounding communities.",
+    "Occupational-statement-title": "We believe in ZERO HARM",
+    "Occupational-statement-desc": "we are dedicated to ensuring safe mining operations and adhere to the principle of ZERO HARM for our employees and stakeholders. Our primary objective is to conduct our activities without injuries to personnel or damage to equipment, property, or the work environment.",
+
+
+    "governance": "Governance",
+    "governance-subtitle1": "Corporate Governance",
+   
+    "governance-desc1": "At Trinity Metals, we believe strong corporate governance is more than a responsibility, it’s a driving force behind our ethical business practices and long-term success. We lead with integrity, ensuring transparency and accountability in everything we do. Our governance framework reflects our deep commitment to our core values, empowering sound decision-making that supports sustainable growth and protects the interests of our people, partners, communities, and planet. By integrating Environmental, Social, and Governance (ESG) principles into our operations, we go beyond compliance—creating real, lasting value and reinforcing our role as a trusted and responsible industry leader.",
+    "governance-subtitle2":"Traceability",
+    "governance-desc2":"We take pride in ensuring that every mineral we produce is 100% conflict-free, fully traceable, and responsibly sourced from our own licensed concessions. From the moment it leaves the ground to the point it reaches the market, our minerals are never blended or traded from external sources—guaranteeing full transparency and control throughout the supply chain. Our vertically integrated operations give us unmatched oversight, reinforcing our commitment to ethical sourcing. We work closely with RCS Global through its Better Mining Program, an industry-leading initiative recognized by the Responsible Minerals Initiative (RMI). In line with global best practices, we publish annual due diligence reports based on the OECD Framework, underscoring our dedication to integrity, accountability, and sustainable mining.",
+    
+    "governance-subtitle3": "Board of Directors ",
+    "governance-desc3": "Our Board of Directors is a driving force behind our commitment to responsible leadership and ethical excellence. With a clear strategic vision and unwavering oversight, the Board ensures that every aspect of our business meets the highest ethical and regulatory standards. Backed by dedicated committees, the Audit Committee for financial integrity, the Remuneration Committee for fair and performance-driven rewards, and the SHECS Committee for Safety, Health, Environment, Community, and Security, we maintain strong governance that champions accountability, protects our stakeholders, and fuels sustainable growth. This structure empowers us to lead with purpose and deliver meaningful impact across every level of our operations.",
+    
+    "Diligence-report": "Due Diligence Report",
+    "policies-standards": "Policies & Standards"
+     
+  },
+
+  "reports": {
+     "report-page-title": "Reports",
+     "form-placeholder": "Enter your keywords ...",
+     "Download-btn": "Download"
+  },
+  
+  "latest-news": {
+      "latest-news-page-title": "Latest News",
+      "read-more-btn": "Read more"
+  },
+  "sidebar" :{
+      "search": "Search",
+      "search-input": "Enter your keywords...",
+      "featured-posts": "Features Posts",
+      "newsletter": "Newsletter",
+      "newsletter-section": {
+          "section-title": "Enter your e-mail and subscribe to our newsletter.",
+          "input-field": "Your Email",
+          "subscribe-btn": "Subscribe Now"
+      },
+      "category":"Categories List",
+      "our-gallery": "Our Gallery"
+
+
+  },
+
+  "gallery": {
+      "photos": "Photos",
+      "videos": "Videos",
+      "photo-gallery": "Photo Gallery",
+      "video-gallery": "Video Gallery"
+      
+  },
+  "Tabs": {
+      "all": "All",
+      "visitors": "Visitors",
+      "events": "Events",
+      "sports": "Sports"
+
+  },
+  
+  "careers": {
+    "careers-title": "Careers",
+    "top-title": "We are an Employer of Choice",
+    "top-desc1": "We are committed to empowering and uplifting the communities where we operate through job creation,training and social initiatives.",
+    "top-desc2": "We value gender-diversity and are passionate about increasing the number of women in the mining sector, aspiring to a minimum of 30% of our workforce comprising women by 2025..",
+
+    "search-form":{
+      "input-title": "Find Jobs",
+      "input-placeholder":"Job title, Skill, Keyword...",
+      "select-field-title":"Near Location"
+      
+    },
+
+     "No-position": "No Position Available"
+
+
+  },
+
+  "Contact":{
+    "contact-details": "We will get back to you within 24 hours, or you can call us everyday, 08:00am to 5:00pm",
+    "contact-tel":"+250 791 959 034",
+    "get-in-touch": "Get In Touch",
+    "field-wrapper-name-placeholder": "name",
+    "field-wrapper-email-placeholder": "email",
+    "field-wrapper-number-placeholder": "Phone",
+    "field-wrapper-message-placeholder": "name",
+    "field-wrapper-sendbtn": "Send Message",
+
+    "location-rutongo-name": "Rutongo Mines",
+    "location-rutongo-details-email": "Email: rutongo@trinity-metals.com",
+    "location-rutongo-detaisl-address": "Address: P.O Box: 749 , Shyorongi, Rulindo",
+    "location-rutongo-detaisl-phone": "Phone: +250 791 345 409",
+
+    "location-nyakabingo-name": "Nyakabingo Mine",
+    "location-nyakabingo-details-email": "Email: Nyakabingo@trinity-metals.com",
+    "location-nyakabingo-detaisl-address": "Address: P.O Box: 749 , Shyorongi, Rulindo",
+    "location-nyakabingo-detaisl-phone": "Phone: +250 791 345 409",
+  
+     "location-musha-name": "Musha Mines",
+    "location-musha-details-email": "Email: musha@trinity-metals.com",
+    "location-musha-detaisl-address": "Address: P.O Box: 3824  Musha, Rwamagana",
+    "location-musha-detaisl-phone": "Phone: +250 789 312 308"
+   
+    
+    
+  },
+
+  "desclaimer":{
+   "desclaimer-title":"Disclaimer",
+   "desclaimer-desc":"Trinity Metals Limited is committed to keeping its website information up-to-date and accurate and will take the necessary steps to keep the website operating smoothly. Trinity Metals Limited makes no representations or warranties of any kind, express or implied, about the website's completeness, accuracy, reliability, suitability or availability for any purpose.",
+   "desclaimer-desc1": "Trinity Metals accepts no liability for any loss or damage, including, without limitation, indirect or consequential loss or damage, or any loss or damage arising from loss of data or profits arising out of, or in connection with, the use of this website. Use of any personal data you provide to Trinity Metals Limited via your response or request for information will be limited to the guidelines outlined in our privacy statement. All intellectual property rights to content on this website are vested in Trinity Metals Limited. Copying, disseminating, and any other use of these materials is not permitted without the written permission of Trinity Metals Limited, except and only insofar as otherwise stipulated in regulations of mandatory law (such as the right to quote), unless specific content dictates otherwise. If you have any questions or problems with the accessibility of the website, please get in touch with us at the group email address or phone number detailed on the website."
+  },
+  
+  "footer": {
+    "subscribe-newsletter": "Subscribe to Our Newsletter",
+    "your-email": "Your Email Address",
+    "subscribe": "Subscribe",
+    "quick-links": "Quick Links",
+    "mining-projects": "Mining Projects",
+    "call-us": "Call Us",
+    "write-to-us" : "Write to Us",
+
+    "mine-projects":{
+      
+      "Eastern-province": "Eastern Province",
+
+      "Northern-province": "Northern Province"
+
+    }
+  }
+}

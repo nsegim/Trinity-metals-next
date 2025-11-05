@@ -1,0 +1,138 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  margin-bottom: 16px;
+}
+
+.grid-item {
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  background: #fff;
+  text-align: center;
+}
+
+.article .featured-image {
+  width: 100%;
+  height: 390px;
+  object-fit: cover;
+  /* object-position: left; */
+}
+.article_date {
+  padding: 6px 12px 9px 12px;
+  gap: 0px;
+  border-radius: 2px;
+  background-color: var(--trinity-blue);
+  color: var(--trinity-white);
+  position: absolute;
+  top: 4%;
+  left: 8%;
+}
+.rt-holder {
+  padding-top: 10px;
+  padding-bottom: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.article-title {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19.5px;
+  text-align: left;
+  border-bottom: 1px solid #0000000a;
+  padding-bottom: 20px;
+  padding-top: 25px;
+}
+.card-bottom-elements {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17.07px;
+  text-align: left;
+  color: var(--trinity-blue);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.next-btn,
+.prev-btn {
+  padding: 5px 16px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.Ellipse-blue {
+  height: 8px;
+  width: 8px;
+}
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.read-more-btn-wrapper .read-more-btn {
+  text-decoration: none;
+}
+.read-more-btn-wrapper span {
+  color: var(--trinity-dark);
+  border-bottom: 2px solid var(--trinity-blue);
+  font-weight: 700;
+  line-height: 19.5px;
+  text-align: left;
+}
+
+/* Style for the pagination dots */
+.dot-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  align-items: center;
+}
+.article-carousel .carousel-indicators {
+  margin-bottom: 0 !important;
+  align-items: center;
+}
+.article-carousel .carousel-indicators button {
+  width: 1px !important;
+  height: 1px !important;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: var(--trinity-gray);
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px !important;
+  background-image: url("https://contents.trinity-metals.com/wp-content/uploads/2025/02/Ellipse-blue.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10px;
+}
+
+.article-carousel .carousel-indicators button[aria-current="true"] {
+  border: solid 3.3px var(--trinity-blue);
+}
+.article-carousel
+  .carousel-indicators
+  button[aria-current="true"]
+  .Ellipse-blue,
+.swiper-pagination-bullet:hover .Ellipse-blue {
+  height: 9.5px;
+  width: 9.5px;
+}

@@ -1,0 +1,304 @@
+/* Footer Styles */
+.footer{
+  --bs-gutter-x: 0rem!important;
+  
+}
+.footer-content-wrapper,
+.map-section {
+  
+  overflow: hidden;
+}
+.footerMap{
+  margin-top: -70px;
+  height: calc(100% + 70px);
+}
+
+.footer-content-wrapper {
+  background-color: var(--trinity-blue);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.footer-content-wrapper::after{
+  position: absolute;
+  content: "";
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);;
+}
+
+.inner-content-wrapper{
+  justify-content: center;
+  align-items: self-start;
+  padding: 60px 50px;
+  gap: 30px;
+  z-index: 1;
+}
+
+
+.formWrapper,
+.the-newsLetter {
+  width: 100%;
+}
+.footer-heading {
+  color: var(--trinity-white);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30.38px;
+  text-align: left;
+  padding-bottom: 20px;
+}
+
+/* Newsletter styles */
+.newsletter-form {
+  display: flex;
+  gap: 15px;
+}
+.newsletter-form .mb-3 {
+  width: 46%;
+}
+.newsletter-form .email-field {
+  background-color: transparent;
+  border: 1.4px solid #8bcee8!important;
+  padding: 15.5px 20px 13.1px 20px;
+
+  border-radius: 5px;
+}
+.newsletter-form .email-field::placeholder {
+  color: var(--trinity-white);
+  font-size: 13px;
+}
+.newsletterSubmitBtn {
+  background-color: var(--trinity-dark)!important;
+  width: 35%;
+  font-size: 16px;
+  font-weight: 700!important;
+  line-height: 19.5px;
+  text-align: center;
+  height: fit-content;
+  padding: 14.94px 30px 16.5px 30px!important;
+  border-radius: 5px;
+}
+
+.include-location{
+  column-gap: 50px;
+}
+
+/* Quick Links styles */
+.the-links {
+  display: flex;
+  gap: 50px;
+}
+.quick-links {
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-links {
+  text-decoration: none;
+  color: var(--trinity-white);
+
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 15.85px;
+  text-align: left;
+}
+.footer-links:hover{
+  color: var(--trinity-yellow);
+}
+
+.the-links .quick-links{
+  list-style-type: none;
+}
+
+.the-links .quick-links li{
+  position: relative;
+}
+
+.the-links .quick-links li::before{
+  content: '';
+  position: absolute;
+  left: -14%;
+  top: 50%;
+  transform: translateY(-50%); /* Center vertically */
+  width: 6px;
+height: 6px;
+
+border-radius: 3px;
+
+
+  background-image: url('https://contents.trinity-metals.com/wp-content/uploads/2025/02/Footer-links.svg'); /* Set marker image */
+  background-size: cover; 
+}
+
+.contact-info-section {
+  display: flex;
+  width: 100%;
+  gap: 50px;
+}
+
+.mine-site-location{
+  padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 0;
+}
+.mine-site-location h4{
+font-weight: 700;
+font-size: 20px;
+line-height: 24.38px;
+letter-spacing: 0%;
+color: var(--trinity-white);
+}
+.mine-site-location ul{
+  margin-bottom: 0;
+  align-self: end;
+  list-style-type: none;
+  color: var(--trinity-white);
+  font-size: 14px;
+  padding-left: 0;
+}
+
+.contact-info-section .icon-box {
+  display: flex;
+  gap: 25px;
+}
+.text-element {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.text-element .header-element {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19.5px;
+  text-align: left;
+  color: var(--trinity-white);
+  margin-bottom: 10px;
+}
+.text-element .reach-contact {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.5px;
+  text-align: left;
+  color: var(--trinity-white);
+  margin-bottom: 5px;
+  text-decoration: none;
+}
+
+.bottom-section{
+  background-color: var(--trinity-dark);
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+}
+.bottom-section .copyright{
+  display: flex;
+  
+  justify-content: space-evenly;
+}
+
+
+.bottom-section .copyright p{
+  color: var(--trinity-white);
+  margin-bottom: 0;
+  
+font-size: 13px;
+font-weight: 400;
+line-height: 15.85px;
+
+
+}
+ 
+/* Responsiveness on small devices   */
+@media (min-width: 768px) AND (max-width: 1024px) {
+  .inner-content-wrapper{
+    padding: 30px 20px;
+  }
+  .contact-info-section{
+    flex-direction: column;
+    gap: 20px;
+  }
+  .newsletterSubmitBtn {
+    width: 40%;
+  }
+  .newsletter-form .mb-3{
+    width: 60%
+  }
+}
+@media(max-width: 767px){
+
+  /* .footer{
+    flex-direction: column-reverse;
+  } */
+  .footer-content-wrapper,
+.map-section {
+  width: 100%;
+}
+  /* Footer map */
+  .footerMap{
+    min-height: 400px;
+  }
+  .inner-content-wrapper{
+    padding: 50px 15px!important;
+  }
+
+  /* Newsletter form style */
+ 
+  .newsletter-form{
+    gap: 0;
+    flex-direction: column;
+  }
+  .newsletterSubmitBtn{
+    width: 50%;
+  }
+  .newsletter-form .mb-3{
+    width: 100%;
+  }
+  /* Footer links */
+  .the-links{
+    flex-direction: column;
+    gap: 0;
+  }
+  .footer-heading{
+    padding-bottom: 10px;
+  }
+  .quick-links{
+    gap: 15px;
+  }
+
+  /* Contact section  */
+  .contact-info-section{
+    flex-direction: column;
+    gap: 20px;
+  }
+  .include-location{
+    flex-direction: column;
+  }
+  .mine-site-location{
+    gap: 10px;
+    padding: 20px 0 0 0;
+  }
+  .quick-links{
+    padding-left: revert;
+  }
+  .bottom-section .copyright{
+    padding-top: 20px;
+    flex-direction: column;
+    gap: 14px;
+    padding-bottom: 20px;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1334px) {
+  .contact-info-section{
+    gap: 30px;
+    flex-direction: column;
+
+  }
+}

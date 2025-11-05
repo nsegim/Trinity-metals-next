@@ -1,0 +1,128 @@
+.site-menu-container{
+  width: 63%;
+}
+.menu {
+    display: flex;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+   
+  }
+  .site-menu-container .menu .menuWrapper{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    width: 100%;
+    padding-left: 0;
+    margin-bottom: 0;
+  } 
+  
+  .menu-item {
+    position: relative;
+    margin: 0 10px;
+   
+  }
+  
+  .menu-item a {
+    text-decoration: none;
+    color: var(--trinity-dark);
+  }
+  
+  .dropdown {
+    position: absolute!important;
+    top: 100%;
+    left: 0;
+    display: none;
+    list-style: none;
+    background: #fff;
+    padding: 10px;
+    
+    min-width: 205px;
+  }
+  @media(min-width: 1024px){
+    .dropdown{
+        padding-top: 30px;
+    }
+  }
+
+  .the_link-item:hover
+  {
+  color: var(--trinity-blue)!important;
+  margin-top: -10px;
+}
+
+
+.menu-item .the_link-item{
+    position: relative;
+    
+  }
+  .menu-item .the_link-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    
+    bottom: -10px;
+    width: 0%;
+    height: 3px;
+    background: var(--trinity-blue);
+    transition: width ease-in-out 0.4s;
+  }
+  
+  .menu-item .the_link-item:hover::before, .menu-item.active > .the_link-item::before {
+    width: 100%;
+    z-index: 2;
+
+  }
+  .menu-item.active > .the_link-item{
+    color: var(--trinity-blue)!important;
+
+  }
+
+ 
+ 
+  .dropdown .menu-item{
+    padding-bottom: 15px;
+  }
+  
+  /* .menu-item:hover .dropdown{
+    display: block;
+  } */
+  .menu-item.has-children:hover > .dropdown {
+    display: block;
+  }
+  
+  .menu-item.has-children .menu-item.has-children:hover > .dropdown {
+    display: block;
+    left: 100%;
+    top: 0;
+  } 
+  
+  
+  .has-children > .the_link-item::after{
+   
+  content: ""; /* Unicode or text for the chevron icon */
+  
+  position: absolute;
+  right: -24px;
+  top: 50%; 
+  transform: translateY(-50%);
+  pointer-events: none;
+  background-image: url('https://contents.trinity-metals.com/wp-content/uploads/2025/02/ri_arrow-drop-down-line-1.svg');
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 26px;
+    width: 26px;
+    height: 26px;
+  }
+  
+  .menuWrapper > .has-children:last-child > a{
+    pointer-events: none;
+  }
+  /* Responsiveness on small device */
+  @media(max-width: 1024px){
+    .site-menu-container{
+        display: none;
+    }
+  }
+
