@@ -97,12 +97,13 @@
 
 
 // app/[lng]/layout.tsx ==== locale types for Vercel build
+// app/[lng]/layout.tsx
 import { dir } from 'i18next';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./globals.css";
 import { Montserrat } from "next/font/google";
 import { getDictionary } from '../i18n/dictionaries';
-import { locales } from '../i18n/config'; // Make sure this exports your array of locales
+import { Locale, locales } from '../i18n/config';
 import { TranslationProvider } from '../context/TranslationContext';
 import { ReactNode } from 'react';
 
@@ -112,26 +113,20 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 });
 
-// 1. **CRITICAL FIX**: Change the type of 'lng' from 'Locale' to 'string'.
-//    This resolves the TypeScript conflict with Next.js internal types.
 type LayoutProps = {
   children: ReactNode;
-  params: { lng: string }; 
+  params: Promise<{ lng: Locale }>;
 };
-
 
 export default async function RootLayout({
   children,
   params,
 }: LayoutProps) {
-  // Access lng directly from params, it is no longer a Promise
-  const lng = params.lng;
-  
-  // You might want to cast this or validate it if your getDictionary requires the strict type
-  const dict = await getDictionary(lng); 
+  const { lng } = await params;
+  const dict = await getDictionary(lng);
 
   return (
-    <html lang={lng} dir={"rtl"}>
+    <html lang={lng} dir={dir(lng)}>
       <body className={`${montserrat.variable} font-sans`}>
         <TranslationProvider dict={dict}>
           {children}
@@ -141,9 +136,9 @@ export default async function RootLayout({
   );
 }
 
-// 2. This function confirms to Next.js what valid routes exist during the build.
+// THIS IS THE FIX — CAST TO LITERAL TYPE
 export async function generateStaticParams() {
   return locales.map((lng) => ({
-    lng: lng,
+    lng: lng as Locale, // ← FORCE NARROWING
   }));
 }
