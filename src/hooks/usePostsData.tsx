@@ -72,6 +72,7 @@ export const usePostsData = () => {
       setPostImages(newImages);
 
     } catch (error) {
+      setError(error instanceof Error ? error.message : 'An error occurred');
       // setError(error);
       console.error('Failed to fetch posts:', error);
     } finally {
