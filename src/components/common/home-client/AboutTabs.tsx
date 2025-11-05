@@ -4,7 +4,7 @@ import { useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import ImageGallery from '../../common/ImageGallery'
 
-export default function AboutTabs({ dict }) {
+export default function AboutTabs({ dict }: { dict: any }) {
   const [activeTab, setActiveTab] = useState('tab1');
   const { t } = useTranslation();
 
