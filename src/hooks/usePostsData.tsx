@@ -7,7 +7,7 @@ export const usePostsData = () => {
   const [data, setData] = useState([]);
   const [categories, setCategories] = useState({});
   const [postImages, setPostImages] = useState({});
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   const getPosts = useCallback(async () => {
@@ -72,7 +72,7 @@ export const usePostsData = () => {
       setPostImages(newImages);
 
     } catch (error) {
-      setError(error);
+      // setError(error);
       console.error('Failed to fetch posts:', error);
     } finally {
       setLoading(false);
