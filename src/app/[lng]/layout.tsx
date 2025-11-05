@@ -6,6 +6,7 @@ import { Montserrat } from "next/font/google";
 import { getDictionary } from '../i18n/dictionaries';
 import { Locale, locales } from '../i18n/config';
 import { TranslationProvider } from '../context/TranslationContext';
+import { ReactNode } from 'react';
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -13,26 +14,35 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 });
 
-// ✅ Using Next.js types directly
-interface Props {
-  children: React.ReactNode;
+interface LayoutProps {
+  children: ReactNode;
   params: Promise<{
-    lng: Locale;
+    lng: string; // Accept string here to match Next.js inference
   }>;
 }
 
-export default async function RootLayout(props: Props) {
-  // ✅ Destructure after awaiting
-  const params = await props.params;
-  const { lng } = params;
+export default async function RootLayout({
+  children,
+  params,
+}: LayoutProps) {
+  const { lng } = await params;
   
-  const dict = await getDictionary(lng);
+  // ✅ Type assertion to convert string to Locale
+  const locale = lng as Locale;
+  
+  // ✅ Optional: Add runtime validation
+  if (!locales.includes(locale)) {
+    // Handle invalid locale - redirect or show error
+    throw new Error(`Invalid locale: ${locale}`);
+  }
+
+  const dict = await getDictionary(locale);
 
   return (
-    <html lang={lng} dir={dir(lng)}>
+    <html lang={locale} dir={dir(locale)}>
       <body className={`${montserrat.variable} font-sans`}>
         <TranslationProvider dict={dict}>
-          {props.children}
+          {children}
         </TranslationProvider>
       </body>
     </html>
