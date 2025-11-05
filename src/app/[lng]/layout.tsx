@@ -6,7 +6,7 @@ import { Montserrat } from "next/font/google";
 import { getDictionary } from '../i18n/dictionaries';
 import { Locale, locales } from '../i18n/config';
 import { TranslationProvider } from '../context/TranslationContext';
-import { ReactNode } from 'react';
+import { notFound } from 'next/navigation';
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -14,28 +14,25 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 });
 
-interface LayoutProps {
-  children: ReactNode;
-  params: Promise<{
-    lng: string; // Accept string here to match Next.js inference
-  }>;
+export async function generateStaticParams() {
+  return locales.map((lng) => ({ lng }));
 }
 
-export default async function RootLayout({
-  children,
-  params,
-}: LayoutProps) {
+// ✅ Simple props interface that matches Next.js expectations
+interface Props {
+  children: React.ReactNode;
+  params: Promise<{ lng: string }>;
+}
+
+export default async function RootLayout({ children, params }: Props) {
   const { lng } = await params;
   
-  // ✅ Type assertion to convert string to Locale
-  const locale = lng as Locale;
-  
-  // ✅ Optional: Add runtime validation
-  if (!locales.includes(locale)) {
-    // Handle invalid locale - redirect or show error
-    throw new Error(`Invalid locale: ${locale}`);
+  // ✅ Validate and cast the locale
+  if (!locales.includes(lng as Locale)) {
+    notFound(); // or redirect to default locale
   }
-
+  
+  const locale = lng as Locale;
   const dict = await getDictionary(locale);
 
   return (
@@ -47,8 +44,4 @@ export default async function RootLayout({
       </body>
     </html>
   );
-}
-
-export async function generateStaticParams() {
-  return locales.map((lng) => ({ lng }));
 }
