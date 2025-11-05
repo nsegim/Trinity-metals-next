@@ -4,8 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./globals.css";
 import { Montserrat } from "next/font/google";
 import { getDictionary } from '../i18n/dictionaries';
-import { Locale, locales, defaultLocale } from '../i18n/config';
+import { Locale, locales } from '../i18n/config';
 import { TranslationProvider } from '../context/TranslationContext';
+import { ReactNode } from 'react';
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -13,29 +14,20 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 });
 
-export async function generateStaticParams() {
-  return locales.map((lng) => ({ lng }));
-}
+type LayoutProps = {
+  children: ReactNode;
+  params: Promise<{ lng: Locale }>; // 👈 params is now a Promise!
+};
 
-interface Props {
-  children: React.ReactNode;
-  params: Promise<{ lng?: string }>; // Make lng optional
-}
-
-export default async function RootLayout({ children, params }: Props) {
-  const { lng } = await params;
-  
-  // ✅ Use default locale if lng is missing or invalid
-  let locale: Locale = defaultLocale;
-  
-  if (lng && locales.includes(lng as Locale)) {
-    locale = lng as Locale;
-  }
-  
-  const dict = await getDictionary(locale);
+export default async function RootLayout({
+  children,
+  params,
+}: LayoutProps) {
+  const { lng } = await params; // 👈 Await params here!
+  const dict = await getDictionary(lng);
 
   return (
-    <html lang={locale} dir={dir(locale)}>
+    <html lang={lng} dir={dir(lng)}>
       <body className={`${montserrat.variable} font-sans`}>
         <TranslationProvider dict={dict}>
           {children}
@@ -43,4 +35,8 @@ export default async function RootLayout({ children, params }: Props) {
       </body>
     </html>
   );
+}
+
+export async function generateStaticParams() {
+  return locales.map((lng) => ({ lng }));
 }
