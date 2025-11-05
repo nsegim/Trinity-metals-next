@@ -1,10 +1,17 @@
 "use client";
 
-import { createContext, useContext } from "react";
+import { createContext, useContext, ReactNode } from "react";
 
-const TranslationContext = createContext(null);
+type TranslationDict = Record<string, string>;
 
-export function TranslationProvider({ dict, children }) {
+const TranslationContext = createContext<TranslationDict | null>(null);
+
+interface TranslationProviderProps {
+  dict: TranslationDict;
+  children: ReactNode;
+}
+
+export function TranslationProvider({ dict, children }: TranslationProviderProps) {
   return (
     <TranslationContext.Provider value={dict}>
       {children}
@@ -12,7 +19,7 @@ export function TranslationProvider({ dict, children }) {
   );
 }
 
-export function useTranslation() {
+export function useTranslation(): TranslationDict {
   const context = useContext(TranslationContext);
   if (!context) {
     throw new Error("useTranslation must be used inside a TranslationProvider");
