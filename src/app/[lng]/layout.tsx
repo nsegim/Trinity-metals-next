@@ -103,7 +103,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./globals.css";
 import { Montserrat } from "next/font/google";
 import { getDictionary } from '../i18n/dictionaries';
-import { Locale, locales } from '../i18n/config';
+import { Locale, locales } from '../i18n/config'; // Import both the type and the array
 import { TranslationProvider } from '../context/TranslationContext';
 import { ReactNode } from 'react';
 
@@ -113,16 +113,24 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 });
 
+// >>> CRITICAL FIX START <<<
+// 1. Redefine LayoutProps:
+//    - 'params' is NOT a Promise when passed to the layout function.
+//    - 'lng' MUST be typed as 'string' here to match Next.js internal constraints.
 type LayoutProps = {
   children: ReactNode;
-  params: Promise<{ lng: Locale }>;
+  params: { lng: string }; 
 };
+// >>> CRITICAL FIX END <<<
+
 
 export default async function RootLayout({
   children,
   params,
 }: LayoutProps) {
-  const { lng } = await params;
+  
+  // 2. Access 'lng' directly from params. We cast it to your specific 'Locale' type now.
+  const lng = params.lng as Locale; 
   const dict = await getDictionary(lng);
 
   return (
@@ -136,9 +144,9 @@ export default async function RootLayout({
   );
 }
 
-// THIS IS THE FIX — CAST TO LITERAL TYPE
+// 3. Keep generateStaticParams as it is; it correctly narrows the possible values for the build.
 export async function generateStaticParams() {
   return locales.map((lng) => ({
-    lng: lng as Locale, // ← FORCE NARROWING
+    lng: lng,
   }));
 }
