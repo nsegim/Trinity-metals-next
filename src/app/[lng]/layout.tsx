@@ -6,7 +6,6 @@ import { Montserrat } from "next/font/google";
 import { getDictionary } from '../i18n/dictionaries';
 import { Locale, locales } from '../i18n/config';
 import { TranslationProvider } from '../context/TranslationContext';
-import { ReactNode } from 'react';
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -14,20 +13,18 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 });
 
-// ✅ CORRECT: params is a Promise in Next.js 14+
-interface LayoutProps {
-  children: ReactNode;
+// ✅ Using Next.js types directly
+interface Props {
+  children: React.ReactNode;
   params: Promise<{
     lng: Locale;
   }>;
 }
 
-export default async function RootLayout({
-  children,
-  params,
-}: LayoutProps) {
-  // ✅ AWAIT the params
-  const { lng } = await params;
+export default async function RootLayout(props: Props) {
+  // ✅ Destructure after awaiting
+  const params = await props.params;
+  const { lng } = params;
   
   const dict = await getDictionary(lng);
 
@@ -35,7 +32,7 @@ export default async function RootLayout({
     <html lang={lng} dir={dir(lng)}>
       <body className={`${montserrat.variable} font-sans`}>
         <TranslationProvider dict={dict}>
-          {children}
+          {props.children}
         </TranslationProvider>
       </body>
     </html>
