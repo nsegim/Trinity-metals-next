@@ -26,11 +26,11 @@ const SiteHeader = ({dict}) => {
         <div className="container basic-info-wrapper">
           <div className="contact-info">
             <a href="#">
-              <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/phone-icon.svg" width={13.44} height={14} />
+              <ImageGallery imageName={undefined} customClass={undefined} imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/phone-icon.svg" width={13.44} height={14} />
               <span>+250 791 959 034</span>
             </a>
             <a href="#">
-              <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/envelope.svg" width={13} height={14} />
+              <ImageGallery imageName={undefined} customClass={undefined} imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/envelope.svg" width={13} height={14} />
               <span><span>{(dict.header.email)}</span>: info.rw@trinity-metals.com</span>
             </a>
           </div>
@@ -44,7 +44,7 @@ const SiteHeader = ({dict}) => {
                 <ul className="social-icon">
                   <li>
                     <a href="https://x.com/Trinity_Metals" target="_blank">
-                    <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/X-icon.svg" width={14} height={14}  />
+                    <ImageGallery imageName={undefined} customClass={undefined} imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/X-icon.svg" width={14} height={14}  />
                     </a>
                   </li>
                   <li>
@@ -56,7 +56,7 @@ const SiteHeader = ({dict}) => {
                   </li>
                   <li>
                     <a href="https://youtu.be/tfJO_Fxl33c?si=fdC9qCcIe3P-bRro" target="_blank">
-                      <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Youtube-icon.svg" width={14} height={14} />
+                      <ImageGallery imageName={undefined} customClass={undefined} imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Youtube-icon.svg" width={14} height={14} />
                     </a>
                   </li>
             </ul>
@@ -68,7 +68,7 @@ const SiteHeader = ({dict}) => {
       <div className="container the_header">
         <div className="site-logo">
           <Link href="/">
-            <ImageGallery
+            <ImageGallery imageName={undefined}
               imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/site-logo1.png"
               customClass="site-image-logo" width={148.740234375} height={69.51000213623047}
             />
@@ -84,7 +84,7 @@ const SiteHeader = ({dict}) => {
         <div className="contact-btn">
           <Link href="/contact-us" className="hover-green">
             <span> {(dict.header["contact-us"])}</span>
-            <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/contact-us-icon.svg" width={14} height={15} />
+            <ImageGallery imageName={undefined} customClass={undefined} imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/contact-us-icon.svg" width={14} height={15} />
           </Link>
         </div>
 

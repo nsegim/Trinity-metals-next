@@ -158,7 +158,7 @@ const SiteFooter = () => {
                     <div className="icon-box">
                       <a href="tel:+25091959034">
                          <span>
-                           <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Yellow-Phone.svg" width={65} height={65} />
+                           <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Yellow-Phone.svg" imageName={undefined} customClass={undefined} width={65} height={65} />
                          </span>
                       </a>
                      
@@ -172,7 +172,7 @@ const SiteFooter = () => {
                     <div className="icon-box">
                       <span>
                         <a href="mailto:info.rw@trinity-metals.com">
-                          <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Yellow-envelope.svg" width={65} height={65} />
+                          <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Yellow-envelope.svg" imageName={undefined} customClass={undefined} width={65} height={65} />
                         </a>
                       </span>
                       <div className="text-element">
