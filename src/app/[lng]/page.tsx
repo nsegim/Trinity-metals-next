@@ -123,10 +123,9 @@ const BottomImagesGallery = [
                   {(dict.home["get-stated-button"])}
                   <span>
                     <ImageGallery 
-                      imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/arrow-icon.svg" 
-                      height={24} 
-                      width={24}
-                    />
+                      imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/arrow-icon.svg"
+                      height={24}
+                      width={24} imageName={undefined} customClass={undefined}                    />
                   </span>
                 </Link>
               </div>
