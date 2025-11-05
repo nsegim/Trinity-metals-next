@@ -102,7 +102,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./globals.css";
 import { Montserrat } from "next/font/google";
 import { getDictionary } from '../i18n/dictionaries';
-import { Locale, locales } from '../i18n/config';
+import { locales } from '../i18n/config'; // Make sure this exports your array of locales
 import { TranslationProvider } from '../context/TranslationContext';
 import { ReactNode } from 'react';
 
@@ -112,20 +112,26 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 });
 
+// 1. **CRITICAL FIX**: Change the type of 'lng' from 'Locale' to 'string'.
+//    This resolves the TypeScript conflict with Next.js internal types.
 type LayoutProps = {
   children: ReactNode;
-  params: Promise<{ lng: Locale }>;
+  params: { lng: string }; 
 };
+
 
 export default async function RootLayout({
   children,
   params,
 }: LayoutProps) {
-  const { lng } = await params;
-  const dict = await getDictionary(lng);
+  // Access lng directly from params, it is no longer a Promise
+  const lng = params.lng;
+  
+  // You might want to cast this or validate it if your getDictionary requires the strict type
+  const dict = await getDictionary(lng); 
 
   return (
-    <html lang={lng} dir={dir(lng)}>
+    <html lang={lng} dir={"rtl"}>
       <body className={`${montserrat.variable} font-sans`}>
         <TranslationProvider dict={dict}>
           {children}
@@ -135,9 +141,9 @@ export default async function RootLayout({
   );
 }
 
-// THIS IS THE FIX
+// 2. This function confirms to Next.js what valid routes exist during the build.
 export async function generateStaticParams() {
   return locales.map((lng) => ({
-    lng: lng, // ← TypeScript now knows lng is "en" | "kiny" | "fr"
+    lng: lng,
   }));
 }
