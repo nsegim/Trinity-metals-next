@@ -91,7 +91,7 @@ const ReUsablePost = memo(({ item, categories, postImages }) => {
   return (
     <div className="grid-item">
       <img
-        src={imageUrl}
+        src={`${imageUrl}.webp`}
         alt={item?.title?.rendered ? `Image for ${item.title.rendered}` : 'Post image'}
         className="featured-image"
         loading="lazy"

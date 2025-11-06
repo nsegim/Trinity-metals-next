@@ -88,11 +88,11 @@ const BottomImagesGallery = [
             muted 
             loop 
             playsInline
-            preload="none"
-             poster="https://contents.trinity-metals.com/wp-content/uploads/2025/06/Tailings-1.webp"
+            preload="metadata"
+             poster="/asset/Tailings-1.webp"
             className="hero-video"
           >
-            <source src="https://contents.trinity-metals.com/wp-content/uploads/2025/10/homepage-1-compressed.mp4" type="video/mp4" />
+            <source src="/asset/homepage-1-compressed.mp4" type="video/mp4" />
             {/* Fallback image for browsers that don't support video */}
             <img 
               src="https://contents.trinity-metals.com/wp-content/uploads/2025/02/hero-fallback.jpg" 
@@ -222,7 +222,7 @@ const BottomImagesGallery = [
                   <span>
                     <ImageGallery 
                       imageUrl='https://contents.trinity-metals.com/wp-content/uploads/2025/02/arrow-icon.svg'
-                      width={13} height={13} imageName={undefined} customClass={undefined}                    />
+                      width={26} height={25} imageName={undefined} customClass={undefined}                    />
                   </span>
                 </Link>
               </div>
