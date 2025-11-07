@@ -19,7 +19,7 @@ const Menus = () => {
           key={index}
           className={`menu-item ${item.children ? "has-children" : ""} ${isActive ? "active" : ""}`}
         >
-          <Link className="the_link-item" href={item.path}>
+          <Link className="the_link-item" href={item.path.startsWith('/') ? item.path : `#${item.path}`}>
             {item.name}
           </Link>
           {item.children && <ul className="dropdown">{renderMenu(item.children)}</ul>}

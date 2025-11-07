@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 import ImageGallery from "../../common/ImageGallery";
 
 const SiteFooter = () => {
-  const dict = useTranslation()
+  const {dict} = useTranslation()
   const location = usePathname()
   return (
     <>

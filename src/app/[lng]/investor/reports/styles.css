@@ -1,0 +1,41 @@
+.reports{
+    background-image: url('https://contents.trinity-metals.com/wp-content/uploads/2025/02/Mechanic.webp')!important;
+    background-position: center calc(40% - 65px);
+
+}
+.contains-reports{
+    
+padding-top: 60px;
+padding-bottom: 80px;
+
+}
+.contains-reports .container{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+}
+.top-search-container{
+    width: 30%;
+    align-self: flex-end;
+}
+@media(max-width: 768px){
+    .top-search-container{
+        width: 100%;
+    }
+    .reports-container .single-report{
+        flex-direction: column;
+        gap: 20px;
+    }
+    .report-name, .download-section{
+        gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    }
+    .contains-reports{
+        padding-top: 40px;
+        padding-bottom: 40px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}

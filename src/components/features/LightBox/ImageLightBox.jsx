@@ -105,7 +105,7 @@
 import React, { useState } from "react";
 import TheModal from "./Modal";
 
-const ImageLightBox = ({ images }) => {
+const ImageLightBox = ({ images, renderImage }) => {
   const [clickedImg, setClickedImg] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
   const [clickedImageRenderByApi, setClickedImageRenderByApi] = useState(null);
@@ -137,22 +137,29 @@ const ImageLightBox = ({ images }) => {
   return (
     <div>
       {/* Parent Component Controls Layout */}
-      <div className="image-grid-wrapper">
-          <div className="the-image-grid">
-            {images.map((item, index) => (
-              <div key={index} className={`grid-item${index + 1}`}>
-                <img
-                  src={item.link}
-                  alt={item.text}
-                  className="gallery-image"
-                  onClick={() => handleClick(item, index)}
-                  loading="lazy"
-                />
-              </div>
-            ))}
-          </div>
-        </div>  
+        {renderImage && renderImage?.length > 0 
+        
+        ? renderImage(images, handleClick)
+         :
+          <div className="image-grid-wrapper">
+            <div className="the-image-grid">
+              {images.map((item, index) => (
+                <div key={index} className={`grid-item${index + 1}`}>
+                  <img
+                    src={item.link}
+                    alt={item.text}
+                    className="gallery-image"
+                    onClick={() => handleClick(item, index)}
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </div> 
+         } 
+          
 
+          
       {/* Lightbox Modal */}
       {clickedImg && (
         <TheModal

@@ -7,6 +7,8 @@ import { getDictionary } from '../i18n/dictionaries';
 import { Locale, locales } from '../i18n/config';
 import { TranslationProvider } from '../context/TranslationContext';
 import { ReactNode } from 'react';
+import SiteHeader from '@/components/layout/Header/Header';
+import SiteFooter from '@/components/layout/Footer/Footer';
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -24,12 +26,16 @@ export default async function RootLayout({
 }) {
   const { lng } = await params;
   const dict = await getDictionary(lng as Locale); // 👈 Cast when using
-  
+
+
   return (
     <html lang={lng} dir={dir(lng)}>
       <body className={`${montserrat.variable} font-sans`}>
-        <TranslationProvider dict={dict}>
+        <TranslationProvider dict={dict} lang={lng}>
+           <SiteHeader dict={dict} />
           {children}
+           <SiteFooter />
+
         </TranslationProvider>
       </body>
     </html>

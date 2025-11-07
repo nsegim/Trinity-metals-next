@@ -1,0 +1,265 @@
+
+.sidebar-wrapper{
+    background-color: #F2F2F2;
+
+}
+.sidebar-wrapper .contain{
+    display: flex;
+    justify-content: end;
+    padding: 0;
+}
+
+.side-bar-wrapper{
+padding-top: 30px;
+padding-right: 20px;
+padding-bottom: 30px;
+padding-left: 20px;
+
+display: flex;
+flex-direction: column;
+gap: 40px;
+}
+.contain .side-bar-wrapper{
+    background-color: var(--trinity-white)
+}
+.sidebar-headers{
+    border-bottom: 1px solid #00000026;
+    position: relative;
+    padding-bottom: 16px;
+}
+.sidebar-headers::after{
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    width: 14%;
+    height: 3.5px;
+    background-color: var(--trinity-blue);
+}
+.sidebar-headers h5{
+font-weight: 700;
+font-size: 16px;
+line-height: 19.5px;
+letter-spacing: 0%;
+
+}
+.search-form{
+  padding-top: 20px;
+}
+.search-form form{
+    border: 1px solid #EFEFEF;
+    display: flex;
+    justify-content: space-between;
+}
+.search-form input{
+    flex-grow: 1;
+    border-color: transparent;
+   
+padding-top: 11px;
+padding-right: 20px;
+padding-bottom: 11px;
+padding-left: 20px;
+
+}
+ input:focus-visible{
+    outline: none;
+}
+.search-form button{
+    background-color: transparent;
+    flex-grow: 0;
+}
+.search-form button:hover{
+    border-color: transparent;
+}
+
+/* Featured posts styles */
+.a-related-post{
+    padding-top: 20px;
+}
+.a-related-post .related-featured-img{
+    width: 75px;
+    height: 76.37999725341797px;
+    object-fit: cover;
+}
+.a-related-post{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-direction: column;
+   
+}
+
+.featured-post{
+    display: flex;
+    gap: 20px;
+}
+.a-related-post .post-title a{
+    text-decoration: none;
+}
+.a-related-post .post-title p{
+color: var(--trinity-dark); 
+font-weight: 700;
+font-size: 14px;
+line-height: 17.07px;
+letter-spacing: 0%;
+;
+margin-bottom: auto;
+}
+.post-date span{
+  text-transform: uppercase;
+font-weight: 400;
+font-size: 13px;
+line-height: 17px;
+letter-spacing: 0.2px;
+color: var(--trinity-blue);
+}
+
+/* NewsLetter section styles */
+.newsletter-container{
+    background-color: var(--trinity-blue);
+    position: relative;
+    width: 340;
+gap: 24px;
+padding: 20px;
+display: flex;
+flex-direction: column;
+gap: 20px;
+margin-top: 20px;
+
+}
+
+.newsletter-container::before{
+    
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://contents.trinity-metals.com/wp-content/uploads/2025/02/Blue-patern.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.05;
+}
+.newsletter-container h5{
+font-weight: 500;
+font-size: 16px;
+line-height: 19px;
+letter-spacing: 0%;
+color: var(--trinity-white);
+
+}
+.subscribe-form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    z-index: 1;
+}
+.subscribe-form button{
+    background: var(--trinity-green);
+   
+    
+padding-top: 13px;
+color: var(--trinity-white);
+padding-bottom: 14px;
+
+font-weight: 700;
+font-size: 13px;
+line-height: 18.57px;
+letter-spacing: 0%;
+text-align: center;
+
+
+
+}
+
+.subscribe-form input{
+  border-color: transparent;
+padding-top: 12.5px;
+padding-right: 22px;
+padding-bottom: 12.5px;
+padding-left: 22px;
+
+}
+
+/* Categories Section styles */
+.a-category{
+    display: flex;
+    justify-content: space-between;
+  
+padding-top: 12px;
+
+padding-bottom: 10px;
+margin-top: 20px;
+
+
+}
+.with-category-counter{
+  background-color: #F2F3F5;
+ 
+padding-right: 9.14px;
+padding-left: 9.14px;
+
+}
+.category-name-wrapper a{
+    text-decoration: none;
+}
+.category-name, .with-category-counter span{
+    padding-left: 5px;
+font-weight: 700;
+font-size: 14px;
+
+letter-spacing: 0%;
+color: var(--trinity-dark);
+
+}
+.with-category-counter span{
+  line-height: 25px;
+}
+.category-name{
+    line-height: 17.07px;
+}
+
+
+/* Gallery Section styles */
+.sidebar-gallery .the-gallery{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 20px;
+}
+.sidebar-gallery-img{
+    width: 100%;
+    height: 84.62999725341797px;
+    object-fit: cover;
+    
+}
+.sidebar-gallery .the-gallery .view-image{
+    width: 30px;
+    height: 30px;
+}
+
+@media(min-width: 769px) and (max-width: 992px){
+    .about-posts-search .search-form form{
+       display: block;
+    }
+   
+}
+
+@media(max-width: 1199px){
+    .sidebar-wrapper .contain{
+        display: block;
+    }
+     .about-posts-search .search-form input{
+        width: 80%;
+    }
+    
+}
+
+@media (max-width: 600px) {
+    .side-bar-wrapper {
+        padding-inline: 10px;
+    }
+}

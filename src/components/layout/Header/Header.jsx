@@ -8,7 +8,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Menus from "../../common/Menu/Menu";
 import OffcanvasMenu from "../../layout/Offcanvas/OffcanvasMenu";
-// import LanguageSwitcher from "../../common/LanguageSwitcher/LanguageSwitcher";
+import LanguageSwitcher from "../../common/LanguageSwitcher/LanguageSwitcher";
 // import { useTranslation } from "react-i18next";
 
 
@@ -36,7 +36,7 @@ const SiteHeader = ({dict}) => {
           </div>
           
           <div className="right-tools">
-             {/* <LanguageSwitcher /> */}
+             <LanguageSwitcher />
             <div className="social-links">
                 <Link href="/Careers" className="careerBtn">
                   {(dict.header.careers)}

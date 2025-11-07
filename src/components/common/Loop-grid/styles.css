@@ -88,13 +88,7 @@ button:disabled {
 .read-more-btn-wrapper .read-more-btn {
   text-decoration: none;
 }
-.read-more-btn-wrapper span {
-  color: var(--trinity-dark);
-  border-bottom: 2px solid var(--trinity-blue);
-  font-weight: 700;
-  line-height: 19.5px;
-  text-align: left;
-}
+
 
 /* Style for the pagination dots */
 .dot-pagination {

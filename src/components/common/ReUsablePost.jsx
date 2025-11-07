@@ -4,7 +4,7 @@ import React, { memo, useMemo } from 'react';
 import moment from 'moment/min/moment-with-locales';
 import DOMPurify from 'dompurify';
 import Link from "next/link"
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../../app/context/TranslationContext';
 
 // Optimized ImageGallery with lazy loading
 const OptimizedImageGallery = memo(({ imageUrl, customClass, alt = "", loading = "lazy" }) => {
@@ -23,7 +23,7 @@ const OptimizedImageGallery = memo(({ imageUrl, customClass, alt = "", loading =
 const DEFAULT_PLACEHOLDER = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjVmNWY1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkxvYWRpbmcuLi48L3RleHQ+PC9zdmc+';
 
 const ReUsablePost = memo(({ item, categories, postImages }) => {
-  const { t, i18n } = useTranslation();
+  const {dict} = useTranslation();
 
   // Memoized sanitized content renderer
   const reRenderContent = useMemo(() => {
@@ -37,8 +37,8 @@ const ReUsablePost = memo(({ item, categories, postImages }) => {
   // Memoized formatted date
   const formattedDate = useMemo(() => {
     if (!item?.date) return '';
-    return moment(item.date).locale(moment.locale()).format(t("home.date_format"));
-  }, [item?.date, t]);
+    return moment(item.date).locale(moment.locale()).format((dict.home["date_format"]));
+  }, [item?.date, dict]);
 
   // Memoized category name
   const categoryName = useMemo(() => {
@@ -65,19 +65,19 @@ const ReUsablePost = memo(({ item, categories, postImages }) => {
           rel="noopener noreferrer"
           className="read-more-btn"
         >
-          <span>{t("home.read-more-button")}</span>
+          <span>{(dict.home["read-more-button"])}</span>
         </a>
       );
     } else if (hasContent) {
       return (
         <Link href={`/single-post/${item.id}`}>
-          <span>{t("home.read-more-button")}</span>
+          <span>{(dict.home["read-more-button"])}</span>
         </Link>
       );
     }
     
     return null;
-  }, [item, t]);
+  }, [item, dict]);
 
   // Early return if no item
   if (!item) {

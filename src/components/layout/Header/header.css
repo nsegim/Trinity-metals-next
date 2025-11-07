@@ -147,6 +147,7 @@ text-align: left;
 .navbar{
   position: relative;
 }
+/* 
 .show{
   position: absolute;
   background: rgb(255, 255, 255);
@@ -155,7 +156,7 @@ text-align: left;
   top: 60px;
   right: -12px;
 
-}
+} */
 
 .contact-btn {
   padding-right: 25px;

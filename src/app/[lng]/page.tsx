@@ -4,13 +4,13 @@ import Link from 'next/link'
 import { useMediaQuery } from "@mui/material";
 import { redirect } from 'next/navigation';
 import SiteFooter from "../../components/layout/Footer/Footer";
-import SiteHeader from "../../components/layout/Header/Header";
  import ImageGallery from "../../components/common/ImageGallery.jsx";
  import IncreamentCounter from "../../components/common/Counter.jsx"
 // import svg from "./public/asset/SVG"
-
+import { useTranslation } from '../context/TranslationContext';
 import dynamic from 'next/dynamic';
 import { fetchData } from "../../../lib/config/apiConfig";
+import './home.css'
 
 // Only lazy load below-the-fold components
 const LoopGrid = dynamic(() => import("../../components/common/Loop-grid/LoopGrid"));
@@ -78,7 +78,6 @@ const BottomImagesGallery = [
       </Head> 
       
       {/* No suspense for critical above-the-fold components */}
-      <SiteHeader dict={dict} />
 
       {/* Hero Section - Optimized for LCP */}
       <div className="hero-section home-hero">
@@ -89,10 +88,10 @@ const BottomImagesGallery = [
             loop 
             playsInline
             preload="metadata"
-             poster="/asset/Tailings-1.webp"
+             poster="https://contents.trinity-metals.com/wp-content/uploads/2025/06/Tailings-1.webp"
             className="hero-video"
           >
-            <source src="/asset/homepage-1-compressed.mp4" type="video/mp4" />
+            <source src="https://contents.trinity-metals.com/wp-content/uploads/2025/10/homepage-1-compressed.mp4" type="video/mp4" />
             {/* Fallback image for browsers that don't support video */}
             <img 
               src="https://contents.trinity-metals.com/wp-content/uploads/2025/02/hero-fallback.jpg" 
@@ -418,6 +417,7 @@ const BottomImagesGallery = [
             
             <div className="image-wrapper">
               <ImageLightBox
+                
                 images={BottomImagesGallery} 
                 
               />
@@ -425,7 +425,6 @@ const BottomImagesGallery = [
           </div>
         </div>
       </div>
-      <SiteFooter />
 
      </>
     

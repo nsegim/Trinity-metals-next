@@ -58,13 +58,13 @@
     color: var(--trinity-dark);
   }
 
-  .dropdown-toggle::after{
+  .language-switcher .dropdown-toggle::after{
     color: var(--trinity-white)!important;
     border-top: .4em solid!important;;
     border-right: .4em solid transparent!important;;
-    
     border-left: .4em solid transparent!important;;
 }
+
 
 
   

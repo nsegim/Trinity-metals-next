@@ -1,378 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-html {
-  scroll-behavior: smooth;
-}
-
-:root {
-  font-family: "Montserrat", sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  --trinity-blue: #00a4e4;
-  --trinity-dark: #001721;
-  --trinity-white: #ffffff;
-  --trinity-yellow: #f8d100;
-  --trinity-green: #007f01;
-  --trinity-gray: #F2F2F2;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  font-family: "Montserrat", sans-serif;
-}
-
-/* The yellow section styles */
-.yellow-bg{
-    background-color: var(--trinity-yellow);
-    
-   height: 30px
-
-
-
-}
-
-
-.the-project-hero-section-wrapper video{
-    width: 100%;
-    height: 650px;
-    object-fit: cover;
-}
-
-.the-project-hero-section-wrapper{
-    
-    margin-top: -60px;
-    min-height: 650px;
-    /* background-color: var(--trinity-dark); */
-}
-
-
-.inner-wrapper{
-  z-index: 3;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
- .inner-wrapper .heading{
-    z-index: 1;
-    font-size: 64px;
-    font-weight: 700;
-    line-height: 78.02px;
-    text-align: center;
-    color: var(--trinity-white);
-    
-    }
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
-
-
-.custom-hero{
-    background-image: url('https://contents.trinity-metals.com/wp-content/uploads/2025/02/Team-mechanic.webp');
-    background-repeat: no-repeat;
-    background-position: center calc(40% - 0px);
-    background-size: cover;
-    min-height: 500px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: -60px;
-}
-.custom-hero::before{
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-}
-
-.child-item-wrapper h1{
-  color: var(--trinity-white);
-font-weight: 700;
-font-size: 64px;
-line-height: 78.02px;
-letter-spacing: 0%;
-text-align: center;
-}
-
-.search-form{
-  padding-top: 20px;
-}
-.search-form form{
-    border: 1px solid #EFEFEF;
-    display: flex;
-    justify-content: space-between;
-}
-.search-form input{
-    flex-grow: 1;
-    border-color: transparent;
-   
-padding-top: 11px;
-padding-right: 20px;
-padding-bottom: 11px;
-padding-left: 20px;
-
-}
-
- input:focus-visible{
-    outline: none;
-}
-.search-form button{
-    background-color: transparent;
-    flex-grow: 0;
-}
-.search-form button:hover{
-    border-color: transparent;
-}
-
-
-
-.project-content-wrapper{
-    background-color: #F2F2F2;
-}
-
-.project-content-wrapper .information-project{
-   width: 85%;
-   background-color: var(--trinity-white);
-   padding: 40px;
-   display: flex;
-   flex-direction: column;
-   gap: 30px;
-   margin-top: -100px;
-   z-index: 1;
-}
-.project-content-wrapper .project-title-element h1, .no-report-found h1, .project-content-wrapper h2{
-    
-    font-size: 36px;
-    font-weight: 700;
-    line-height: 43.88px;
-    text-align: left;
-}
-.no-report-found h1{
-    text-align: center;
-}
-
-.work-result .stats{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    gap: 11px;
-}
-.work-result .details-element h4{
-    
-font-size: 16px;
-font-weight: 700;
-line-height: 19.5px;
-text-align: left;
-color: var(--trinity-dark);
-text-align: center;
-
-}
-.work-result .details-element p{
-    text-align: center;
-   
-font-size: 14px;
-font-weight: 500;
-line-height: 16px;
-
-
-
-}
-.project-brief h4{
-    padding-bottom: 20px;
-}
-.project-brief h4, .project-brief2 h4{
-font-size: 20px;
-font-weight: 700;
-line-height: 24.38px;
-text-align: left;
-color: var(--trinity-dark);
-
-}
-.project-brief p{
-color: var(--trinity-dark);
-font-size: 16px;
-font-weight: 500;
-line-height: 19px;
-text-align: left;
-
-
-}
-.main-map-parent{
-    background-color: hsla(0, 0%, 95%, 1);
-}
-.map-wrapper{
-    
-    height: 659px;
-   
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-}
-.nyakabingo-map{
-   background-image: url(https://contents.trinity-metals.com/wp-content/uploads/2025/06/Nyakabingo-site-map.png);
-}
-.musha-map{
-    background-image: url(https://contents.trinity-metals.com/wp-content/uploads/2025/06/Musha-site-map.png);
-}
-.rutongo-map{
-    background-image: url(https://contents.trinity-metals.com/wp-content/uploads/2025/06/Rutongo-site-map.png);
-}
-
-@media (max-width: 768px) {
-    .the-project-hero-section-wrapper{
-        min-height: 500px;
-    }
-    .project-content-wrapper .information-project{
-        width: 100%;
-        padding: 30px 20px;
-        margin-top: -70px;
-    }
-   
-    .project-brief h4{
-        padding-top: 10px;
-        padding-bottom: 10px
-
-    }
-   .lithium{
-         background-position: 16% 85%;
-    }
-    .map-wrapper{
-        height: 300px!important;
-        background-size: 120%;
-    }
-    .the-project-hero-section-wrapper video{
-        height: 500px;
-    }
-}
-
-.heading-20{
-    font-size: 20px!important;
-    line-height: 28px!important;
-}
-
-
-    .about-hero-section{
-        margin-top: -60px;
-        min-height: 500px;
-        background-image: url('https://contents.trinity-metals.com/wp-content/uploads/2025/02/about-us-hero.webp');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-    }
-    
-    .about-hero-section::after{
-      position: absolute;
-      content: "";
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-    }
-
-#root {
-  max-width: 100%;
-  margin: 0 auto;
-  font-family: "Montserrat", sans-serif;
-}
-p{
-  font-family: "Montserrat", sans-serif;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-
-
-/* Homepage styles */
 /* Home Page styles */
 .hover-green:hover, .explore-more:hover{
   background-color: var(--trinity-green)!important;
@@ -445,7 +70,7 @@ color: var(--trinity-yellow);
 }
 
 .section-desc{
-  
+ 
 font-size: 36px;
 font-weight: 700;
 line-height: 43.88px;
@@ -519,7 +144,7 @@ text-decoration: none;
 
 .basic-intro-left{
   background-image: url('https://contents.trinity-metals.com/wp-content/uploads/2025/05/3_23-2-1024x751.jpg.webp');
-  /* background-repeat: no-repeat; */
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   width: 50%;
@@ -598,7 +223,7 @@ text-align: center;
   height: 100%;
   background-image: url('https://contents.trinity-metals.com/wp-content/uploads/2025/02/patterns1.png');
   background-size: cover;
-  /* background-repeat: no-repeat; */
+  background-repeat: no-repeat;
   opacity: 0.031;
 
 }
@@ -627,7 +252,7 @@ text-align: center;
   .right-intro-wrapper {
     width: 100%;
   }
-en
+
   .mine-site-count p{
     text-align: center;
   }
@@ -837,7 +462,7 @@ color: var(--trinity-dark);
 .the-top-bg{
   background-image: url('https://contents.trinity-metals.com/wp-content/uploads/2025/06/6aa6e8a89ba55ad7562c41443993211469bc14d6-1.webp');
   background-position: center;
-  /* background-repeat: no-repeat; */
+  background-repeat: no-repeat;
   background-size: cover;
   height: 700px;
   position: relative;
@@ -1045,14 +670,13 @@ color: var(--trinity-dark);
 border-width: 1px;
 color: #001721;
 }
-
 .Sastainability-image{
-  background-image: url('/asset/Container.png'); 
+  background-image: url('../../../public/asset/Container.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   min-height: 557px;
-   border-radius: 10px; 
+  /* border-radius: 10px; */
 }
 .Sastainability-imag::after{
 
@@ -1245,6 +869,13 @@ text-align: center;
   width: 100%;
 }
 
+.the-image-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 15px;
+}
+
 .grid-item3{
   grid-column: span 2;
   
@@ -1276,13 +907,3 @@ text-align: center;
   }
 }
 
-
-
-/* Article view more buttons */
-.read-more-btn-wrapper span {
-  color: var(--trinity-dark);
-  border-bottom: 2px solid var(--trinity-blue);
-  font-weight: 700;
-  line-height: 19.5px;
-  text-align: left;
-}
