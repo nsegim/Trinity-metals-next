@@ -19,7 +19,7 @@ interface SideBarProps {
 
 const SideBar = ({ currentCategories, postTofieldField, onFiltedPost }: SideBarProps) => {
   const { dict } = useTranslation();
-
+ 
   const [categories, setCategories] = useState<any[]>([]);
   const [relatedPosts, setRelatedPosts] = useState<any[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -35,6 +35,7 @@ const SideBar = ({ currentCategories, postTofieldField, onFiltedPost }: SideBarP
       try {
         const response = await fetchData('categories');
         setCategories(response || []);
+
       } catch (error) {
         console.error('Error fetching categories:', error);
       }
@@ -135,7 +136,8 @@ const SideBar = ({ currentCategories, postTofieldField, onFiltedPost }: SideBarP
           {/* Search Form */}
           <div className="about-posts-search">
             <div className="sidebar-headers">
-              <h5>{dict['sidebar']?.['search']}</h5>
+              <h5>{dict['sidebar']?.['search1']}</h5>
+              
             </div>
             <div className="search-form">
               <form onSubmit={handleSubmit}>

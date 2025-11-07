@@ -1,5 +1,4 @@
 // app/[lng]/sustainability/page.tsx
-import ImageGallery from '@/components/common/ImageGallery';
 import { getDictionary } from '@/app/i18n/dictionaries';
 import { Locale, locales } from '@/app/i18n/config';
 import ClientSustainability from './ClientSustainability';

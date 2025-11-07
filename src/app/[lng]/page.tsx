@@ -417,9 +417,9 @@ const BottomImagesGallery = [
             
             <div className="image-wrapper">
               <ImageLightBox
-                
+                  
                 images={BottomImagesGallery} 
-                
+                renderImage={""}
               />
             </div>
           </div>
