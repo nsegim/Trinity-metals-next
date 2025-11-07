@@ -29,9 +29,11 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
   const productsRef = useRef<HTMLDivElement>(null);
 
   // scrollToSection — CORRECT
-  const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
+  
+  const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
     ref.current?.scrollIntoView({ behavior: 'smooth' });
   };
+
 
   useEffect(() => {
     const handleHash = () => {
