@@ -10,8 +10,7 @@ const LanguageSwitcher = () => {
   const router = useRouter()
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
-  const dropdownRef = useRef(null)
-
+const dropdownRef = useRef<HTMLDivElement>(null); // CORRECT
   const languages = {
     en: { 
       label: "Eng", 
