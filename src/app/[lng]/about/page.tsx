@@ -38,7 +38,7 @@ export default async function AboutPage({
 
   return (
       <>
-          <ClientAbout initialData={data} initialError={error} dict={dict} lng={lng} />
+          <ClientAbout initialData={data} initialError={error} lng={lng} />
        </>
   );
 }
