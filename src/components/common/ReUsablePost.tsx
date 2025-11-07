@@ -1,13 +1,24 @@
+// src/components/common/ReUsablePost.tsx
+"use client";
 
-"use client"
 import React, { memo, useMemo } from 'react';
 import moment from 'moment/min/moment-with-locales';
 import DOMPurify from 'dompurify';
-import Link from "next/link"
+import Link from "next/link";
 import { useTranslation } from '../../app/context/TranslationContext';
 
 // Optimized ImageGallery with lazy loading
-const OptimizedImageGallery = memo(({ imageUrl, customClass, alt = "", loading = "lazy" }) => {
+const OptimizedImageGallery = memo(({ 
+  imageUrl, 
+  customClass, 
+  alt = "", 
+  loading = "lazy" 
+}: { 
+  imageUrl: string; 
+  customClass?: string; 
+  alt?: string; 
+  loading?: "lazy" | "eager"; 
+}) => {
   return (
     <img
       src={imageUrl}
@@ -19,15 +30,22 @@ const OptimizedImageGallery = memo(({ imageUrl, customClass, alt = "", loading =
   );
 });
 
-// Default placeholder image - use a small base64 or simple SVG
+// Default placeholder image
 const DEFAULT_PLACEHOLDER = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjVmNWY1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkxvYWRpbmcuLi48L3RleHQ+PC9zdmc+';
 
-const ReUsablePost = memo(({ item, categories, postImages }) => {
-  const {dict} = useTranslation();
+// Define Props Interface
+interface ReUsablePostProps {
+  item: any;
+  categories: { [key: number]: string };
+  postImages: { [key: number]: string };
+}
+
+const ReUsablePost = memo(({ item, categories, postImages }: ReUsablePostProps) => {
+  const { dict } = useTranslation();
 
   // Memoized sanitized content renderer
   const reRenderContent = useMemo(() => {
-    return (content) => {
+    return (content: string) => {
       if (!content) return null;
       const safeContent = DOMPurify.sanitize(content);
       return <div className="article-content" dangerouslySetInnerHTML={{ __html: safeContent }} />;
@@ -37,7 +55,7 @@ const ReUsablePost = memo(({ item, categories, postImages }) => {
   // Memoized formatted date
   const formattedDate = useMemo(() => {
     if (!item?.date) return '';
-    return moment(item.date).locale(moment.locale()).format((dict.home["date_format"]));
+    return moment(item.date).locale(moment.locale()).format(dict.home?.["date_format"] || 'MMMM D, YYYY');
   }, [item?.date, dict]);
 
   // Memoized category name
@@ -53,10 +71,9 @@ const ReUsablePost = memo(({ item, categories, postImages }) => {
   // Memoized link component
   const ReadMoreLink = useMemo(() => {
     if (!item) return null;
-
-    const hasContent = item?.content?.rendered !== "";
+    const hasContent = item?.content?.rendered && item.content.rendered !== "";
     const isExternalLink = !hasContent && item?.meta?._links_to;
-    
+
     if (isExternalLink) {
       return (
         <a
@@ -65,17 +82,16 @@ const ReUsablePost = memo(({ item, categories, postImages }) => {
           rel="noopener noreferrer"
           className="read-more-btn"
         >
-          <span>{(dict.home["read-more-button"])}</span>
+          <span>{dict.home?.["read-more-button"] || 'Read More'}</span>
         </a>
       );
     } else if (hasContent) {
       return (
-        <Link href={`/single-post/${item.id}`}>
-          <span>{(dict.home["read-more-button"])}</span>
+        <Link href={`/single-post/${item.id}`} className="read-more-btn">
+          <span>{dict.home?.["read-more-button"] || 'Read More'}</span>
         </Link>
       );
     }
-    
     return null;
   }, [item, dict]);
 
@@ -92,20 +108,18 @@ const ReUsablePost = memo(({ item, categories, postImages }) => {
     <div className="grid-item">
       <img
         src={`${imageUrl}.webp`}
-        alt={item?.title?.rendered ? `Image for ${item.title.rendered}` : 'Post image'}
+        alt={item?.title?.rendered ? `Image for ${DOMPurify.sanitize(item.title.rendered)}` : 'Post image'}
         className="featured-image"
         loading="lazy"
         decoding="async"
         onError={(e) => {
-          // Fallback if image fails to load
-          if (e.target.src !== DEFAULT_PLACEHOLDER) {
-            e.target.src = DEFAULT_PLACEHOLDER;
+          const target = e.target as HTMLImageElement;
+          if (target.src !== DEFAULT_PLACEHOLDER) {
+            target.src = DEFAULT_PLACEHOLDER;
           }
         }}
       />
-      
       <p className="article_date">{formattedDate}</p>
-
       <div className="rt-holder">
         <h2 className="article-title">
           {reRenderContent(item?.title?.rendered)}
@@ -116,11 +130,8 @@ const ReUsablePost = memo(({ item, categories, postImages }) => {
               imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Category-Icon.svg"
               customClass="category-icon"
               alt="Category"
-              loading="lazy"
             />
-            <span className="category">
-              {categoryName}
-            </span>
+            <span className="category">{categoryName}</span>
           </div>
           <div className="read-more-btn-wrapper">
             {ReadMoreLink}
@@ -131,7 +142,7 @@ const ReUsablePost = memo(({ item, categories, postImages }) => {
   );
 });
 
-// Display name for better debugging
+// Display name for debugging
 ReUsablePost.displayName = 'ReUsablePost';
 OptimizedImageGallery.displayName = 'OptimizedImageGallery';
 
