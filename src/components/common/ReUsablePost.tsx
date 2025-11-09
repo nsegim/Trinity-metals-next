@@ -87,7 +87,7 @@ const ReUsablePost = memo(({ item, categories, postImages }: ReUsablePostProps) 
       );
     } else if (hasContent) {
       return (
-        <Link href={`/single-post/${item.id}`} className="read-more-btn">
+        <Link href={`/post/${item.id}`} className="read-more-btn">
           <span>{dict.home?.["read-more-button"] || 'Read More'}</span>
         </Link>
       );

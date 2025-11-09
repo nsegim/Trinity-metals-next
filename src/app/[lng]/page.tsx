@@ -3,7 +3,6 @@ import Link from 'next/link'
 // import { useState, useRef, useCallback, lazy } from "react";
 import { useMediaQuery } from "@mui/material";
 import { redirect } from 'next/navigation';
-import SiteFooter from "../../components/layout/Footer/Footer";
  import ImageGallery from "../../components/common/ImageGallery.jsx";
  import IncreamentCounter from "../../components/common/Counter.jsx"
 // import svg from "./public/asset/SVG"
@@ -22,7 +21,6 @@ import Head from 'next/head'
 import { getDictionary } from '@/app/i18n/dictionaries';
  import { Locale, locales } from '@/app/i18n/config';
 import { headers } from "next/headers";
-
 
 import "./globals.css";
 
@@ -180,7 +178,7 @@ const BottomImagesGallery = [
                     <AboutTabs dict={dict} />
 
               <div className="buttonElement">
-                <Link href="/about" className="hover-green">
+                <Link href={`${lng}/about`} className="hover-green">
                   <span>{(dict.home["read-more-button"])}</span>
                   <ImageGallery 
                     imageUrl='https://contents.trinity-metals.com/wp-content/uploads/2025/02/Arrow2.svg'

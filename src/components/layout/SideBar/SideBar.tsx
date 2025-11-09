@@ -1,4 +1,4 @@
-// components/SideBar/SideBar.tsx
+// components/layout/SideBar/SideBar.tsx
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -9,17 +9,16 @@ import { fetchData } from '../../../../lib/config/apiConfig';
 import { useTranslation } from '@/app/context/TranslationContext';
 import Link from 'next/link';
 import moment from 'moment';
-import './SideBar.css'
+import './SideBar.css';
 
+// REMOVED onFiltedPost — not needed on single post
 interface SideBarProps {
   currentCategories: { [key: number]: string };
-  postTofieldField: any[];
-  onFiltedPost: (filtered: any[]) => void;
+  postTofieldField?: any[]; // Optional: only used on blog list
 }
 
-const SideBar = ({ currentCategories, postTofieldField, onFiltedPost }: SideBarProps) => {
+const SideBar = ({ currentCategories, postTofieldField = [] }: SideBarProps) => {
   const { dict } = useTranslation();
- 
   const [categories, setCategories] = useState<any[]>([]);
   const [relatedPosts, setRelatedPosts] = useState<any[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -35,7 +34,6 @@ const SideBar = ({ currentCategories, postTofieldField, onFiltedPost }: SideBarP
       try {
         const response = await fetchData('categories');
         setCategories(response || []);
-
       } catch (error) {
         console.error('Error fetching categories:', error);
       }
@@ -43,7 +41,7 @@ const SideBar = ({ currentCategories, postTofieldField, onFiltedPost }: SideBarP
     readCategories();
   }, []);
 
-  // Fetch related posts (same as all posts for simplicity)
+  // Fetch related posts
   useEffect(() => {
     const readRelatedPosts = async () => {
       try {
@@ -56,16 +54,14 @@ const SideBar = ({ currentCategories, postTofieldField, onFiltedPost }: SideBarP
     readRelatedPosts();
   }, []);
 
-  // Fetch featured images for related posts
+  // Fetch featured images
   useEffect(() => {
     if (relatedPosts.length === 0) return;
-
     relatedPosts.forEach(async (item) => {
       if (item?.featured_media) {
         try {
           const media = await fetchData(`media/${item.featured_media}`);
-          const thumb = media?.media_details?.sizes?.thumbnail?.source_url ||
-                        media?.source_url;
+          const thumb = media?.media_details?.sizes?.thumbnail?.source_url || media?.source_url;
           setFeaturedImage((prev) => ({ ...prev, [item.id]: thumb }));
         } catch (err) {
           console.error('Image fetch error:', err);
@@ -82,7 +78,6 @@ const SideBar = ({ currentCategories, postTofieldField, onFiltedPost }: SideBarP
         const response = await fetchData('gallery?per_page=12&_embed');
         if (isMounted && response?.length) {
           setGallery(response);
-
           const images = response.map((item: any) =>
             item?._embedded?.['acf:attachment']?.map((subItem: any) => ({
               link: subItem?.source_url || '',
@@ -105,27 +100,19 @@ const SideBar = ({ currentCategories, postTofieldField, onFiltedPost }: SideBarP
     setAll(flattened.reverse().slice(0, 12));
   }, [allImages]);
 
-  // Check if on single post page
+  // Detect single post page
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setIsSinglePost(window.location.pathname.includes('/single-post'));
+      setIsSinglePost(window.location.pathname.includes('/single-post') || window.location.pathname.includes('/post/'));
     }
   }, []);
 
-  // Search handler
+  // Search handler — NOW LOCAL ONLY
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    displayFilteredPosts();
-  };
-
-  const displayFilteredPosts = () => {
-    if (!postTofieldField || postTofieldField.length === 0) return;
-
-    const filtered = postTofieldField.filter((post: any) =>
-      post.title.rendered.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      post.content.rendered.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    onFiltedPost(filtered);
+    // Optional: You can log or show results in sidebar
+    console.log("Search query:", searchQuery);
+    // No need to filter main list → do nothing
   };
 
   return (
@@ -137,7 +124,6 @@ const SideBar = ({ currentCategories, postTofieldField, onFiltedPost }: SideBarP
           <div className="about-posts-search">
             <div className="sidebar-headers">
               <h5>{dict['sidebar']?.['search1']}</h5>
-              
             </div>
             <div className="search-form">
               <form onSubmit={handleSubmit}>
@@ -148,7 +134,8 @@ const SideBar = ({ currentCategories, postTofieldField, onFiltedPost }: SideBarP
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
                 <button type="submit">
-                  <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Symbol-9.svg"
+                  <ImageGallery
+                    imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Symbol-9.svg"
                     height={16}
                     width={16}
                     customClass="search-icon"
@@ -159,7 +146,7 @@ const SideBar = ({ currentCategories, postTofieldField, onFiltedPost }: SideBarP
             </div>
           </div>
 
-          {/* Featured Posts (only on single post) */}
+          {/* Featured Posts */}
           {isSinglePost && (
             <div className="about-featured-posts">
               <div className="featured-posts">
@@ -175,13 +162,13 @@ const SideBar = ({ currentCategories, postTofieldField, onFiltedPost }: SideBarP
                             imageUrl={featuredImage[item.id] || 'https://contents.trinity-metals.com/wp-content/uploads/2025/02/animated_loader_gif_n6b5x0.gif'}
                             customClass="related-featured-img"
                             height={62}
-                    width={92}
-                    imageName="search Icon"
+                            width={92}
+                            imageName="Featured"
                           />
                         </div>
                         <div className="post-details">
                           <div className="post-title">
-                            <Link href={`/single-post/${item.id}`}>
+                            <Link href={`/post/${item.id}`}>
                               <p dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
                             </Link>
                           </div>
@@ -243,16 +230,15 @@ const SideBar = ({ currentCategories, postTofieldField, onFiltedPost }: SideBarP
                               customClass="gallery-img"
                               height={62}
                               width={92}
-                              imageName="search Icon"
+                              imageName="Gallery"
                             />
                             <div className="view-image" onClick={() => handleClick(item, index)}>
                               <ImageGallery
                                 imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/View-button.svg"
                                 customClass="play-video-player"
                                 height={31}
-                    width={30}
-                    imageName="View Icon"
-
+                                width={30}
+                                imageName="View"
                               />
                             </div>
                           </div>

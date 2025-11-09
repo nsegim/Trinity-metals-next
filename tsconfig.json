@@ -31,6 +31,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ],
+, "src/app/[lng]/about/ClientAbout.jsx", "src/components/common/ReUsablePost.jsx", "src/app/routes/routes.js", "src/app/routes/routes.js", "lib/config/apiConfig.js"  ],
   "exclude": ["node_modules"]
 }

@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 import ImageGallery from "../../common/ImageGallery";
 
 const SiteFooter = () => {
-  const {dict} = useTranslation()
+  const {dict, lang} = useTranslation()
   const location = usePathname()
   return (
     <>
@@ -53,26 +53,26 @@ const SiteFooter = () => {
                         <div className="links001">
                           <ul className="quick-links">
                             <li>
-                              <Link href="/" className="footer-links">{(dict.header.home)}</Link>
+                              <Link href={`/${lang}`} className="footer-links">{(dict.header.home)}</Link>
                             </li>
                             <li>
-                              <Link href="/about" className="footer-links"> {(dict.header["about-us"])}</Link>
+                              <Link href={`/${lang}/about`} className="footer-links"> {(dict.header["about-us"])}</Link>
                             </li>
                             <li>
-                              <Link href="/investor-relations/latest-news" className="footer-links">{(dict.header.investor["latest-news"])}</Link>
+                              <Link href={`/${lang}/investor-relations/latest-news`} className="footer-links">{(dict.header.investor["latest-news"])}</Link>
                             </li>
                           </ul>
                         </div>
                         <div className="links002">
                           <ul className="quick-links">
                             <li>
-                              <Link href="/our-projects" className="footer-links">{(dict.footer["mining-projects"])}</Link>
+                              <Link href={`/${lang}/projects`} className="footer-links">{(dict.footer["mining-projects"])}</Link>
                             </li>
                             <li>
-                              <Link href="/sustainability" className="footer-links"> {(dict.header.sustainability)}</Link>
+                              <Link href={`/${lang}/sustainability`} className="footer-links"> {(dict.header.sustainability)}</Link>
                             </li>
                             <li>
-                              <Link href="/Careers" className="footer-links"> {(dict.header.careers)}</Link>
+                              <Link href={`/${lang}/Careers`} className="footer-links"> {(dict.header.careers)}</Link>
                             </li>
                           </ul>
                         </div>

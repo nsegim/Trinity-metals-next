@@ -1,0 +1,49 @@
+.share-share-button{
+    padding: 0;
+    background-color: transparent;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .social-icons img {
+    width: 40px; /* Adjust icon size */
+    height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .social-icons img:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Share Button */
+  .share-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Share Popup */
+  .share-popup {
+    position: absolute;
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 1000;
+  }
+  
+  .share-popup a img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+  

@@ -1,0 +1,163 @@
+.photo-gallery{
+    background-image: url('https://contents.trinity-metals.com/wp-content/uploads/2025/02/Mine-filter.webp');
+}
+.video-gallery{
+    background-image: url('https://contents.trinity-metals.com/wp-content/uploads/2025/05/4M0B1307-1536x1024.jpg.webp');
+
+}
+
+.gallery-navigation{
+    display: flex;
+    justify-content: center;
+    margin-top: -62px;
+    z-index: 2;
+    position: relative;
+    
+}
+.gallery-nav-wrapper{
+    background: #FFFFFF26;
+
+}
+.gallery-nav{
+    
+gap: 11px;
+border-bottom-width: 4px;
+padding: 20px;
+text-decoration: none;
+display: flex;
+align-items: center;
+gap: 11px;
+}
+.gallery-nav span{
+    color: var(--trinity-white);
+    
+font-weight: 700;
+font-size: 16px;
+line-height: 19.2px;
+letter-spacing: 0%;
+text-align: center;
+
+}
+.gallery-nav.visited{
+    background-color: var(--trinity-yellow);
+}
+.gallery-nav.visited span{
+    color: var(--trinity-dark);
+}
+
+/* Gallery Section Styles */
+.photo-gallery-wrapper, .video-gallery-wrapper{
+   
+padding-top: 60px;
+padding-bottom: 80px;
+
+
+}
+.photo-gallery-wrapper .container, .video-gallery-wrapper .container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.photo-gallery-filters, .video-gallery-filters{
+    display: flex;
+    gap: 10px;
+}
+.photo-gallery-filters button, .video-gallery-filters button{
+   background-color: var(--trinity-white);
+   
+font-weight: 500;
+font-size: 16px;
+line-height: 19px;
+
+color: var(--trinity-dark);
+}
+.photo-gallery-filters button:hover, .video-gallery-filters button:hover{
+   background-color: var(--trinity-green);
+   border-radius: 10px;
+   color: var(--trinity-white);
+   border-color: transparent;
+}
+.photo-gallery-filters .active-button, .video-gallery-filters .active-button{
+    background-color: var(--trinity-blue);
+    border-radius: 10px;
+    color: var(--trinity-white);
+}
+.photos-wrapper .photo-category, .videos-wrapper .video-category{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+
+}
+@media (max-width: 1024px) AND (min-width: 768px){
+    .photos-wrapper .photo-category, .videos-wrapper .video-category{
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+}
+@media (max-width: 767px) {
+    .photos-wrapper .photo-category, .videos-wrapper .video-category{
+        grid-template-columns: repeat(1, 1fr);
+
+    }
+}
+.image-grid{
+    position: relative
+}
+.photos-wrapper .image-grid:hover:after{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #00000099;
+}
+
+.image-grid .gallery-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+}
+.play-video, .view-image{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    
+}
+.play-video {
+    width: 85px;
+    height: 85px;
+}
+.view-image{
+    opacity: 0;
+    width: 60px;
+    height: 60px;
+    z-index: 10;
+}
+.image-grid:hover .view-image{
+    opacity: 1;
+}
+
+.play-video-player{
+    cursor: pointer;
+    width: 100%;
+    object-fit: cover;
+}
+
+.photo-gallery-wrapper .page-number, .photo-gallery-wrapper .pagination-btn{
+  background-color: #F2F2F2;
+}
+
+.photo-gallery-wrapper .page-number.active{
+    background-color: var(--trinity-blue);
+    color: var(--trinity-white);
+
+}
+
+
+/* Youtube video styles */
+.youtube-vid-wrapper img{
+    width: 100%;
+}

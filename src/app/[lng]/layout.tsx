@@ -32,7 +32,7 @@ export default async function RootLayout({
     <html lang={lng} dir={dir(lng)}>
       <body className={`${montserrat.variable} font-sans`}>
         <TranslationProvider dict={dict} lang={lng}>
-           <SiteHeader dict={dict} />
+           <SiteHeader />
           {children}
            <SiteFooter />
 

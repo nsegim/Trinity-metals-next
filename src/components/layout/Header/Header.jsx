@@ -10,14 +10,15 @@ import Menus from "../../common/Menu/Menu";
 import OffcanvasMenu from "../../layout/Offcanvas/OffcanvasMenu";
 import LanguageSwitcher from "../../common/LanguageSwitcher/LanguageSwitcher";
 // import { useTranslation } from "react-i18next";
+import { useTranslation } from "@/app/context/TranslationContext";
 
-
-const SiteHeader = ({dict}) => {
+const SiteHeader = () => {
   const [show, setShow] = useState(null)
   const onHoverListener = (dropDown)=>(setShow(dropDown))
   const onRemovePointer = ()=>(setShow(false))
 
-  // const { t } = useTranslation()
+   const { dict, lang } = useTranslation()
+   const currentLanng = lang
 
 
   return (
@@ -82,7 +83,7 @@ const SiteHeader = ({dict}) => {
         <OffcanvasMenu />
 
         <div className="contact-btn">
-          <Link href="/contact-us" className="hover-green">
+          <Link href={`${currentLanng}/contact-us`} className="hover-green">
             <span> {(dict.header["contact-us"])}</span>
             <ImageGallery imageName={undefined} customClass={undefined} imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/contact-us-icon.svg" width={14} height={15} />
           </Link>

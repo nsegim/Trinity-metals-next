@@ -25,7 +25,7 @@ interface MushaPageProps {
   params: Promise<{ lng: Locale }>;
 }
 
-export default async function MushaPage({ params }: MushaPageProps) {
+export default async function page({ params }: MushaPageProps) {
   const { lng } = await params;
   const dict = await getDictionary(lng);
 
