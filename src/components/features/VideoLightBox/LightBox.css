@@ -1,0 +1,45 @@
+	/* Lightbox Modal */
+    .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 40px;
+        color: white;
+        cursor: pointer;
+        z-index: 1001; /* Ensures the close button is on top of the image */
+      }
+      
+      .lightbox {
+        display: flex;  
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .lightbox-content {
+        position: relative;
+        width: 80%;
+        max-width: 80vw;
+      }
+      
+      .video-container {
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        position: relative;
+      }
+      
+      .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }

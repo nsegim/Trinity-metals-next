@@ -2,12 +2,11 @@
 'use client';
 
 import { useEffect, useState, useRef } from "react";
-import ImageGallery from "@/components/ImageGallery";
-import LightBox from "./VideoLightBox/LightBox";
-import Spinner from "@/components/Spinner/Spinner";
-import SiteHeader from "@/components/header/Header";
-import SiteFooter from "@/components/Footer/Footer";
-import { fetchData } from "@/lib/config/apiConfig";
+import ImageGallery from "@/components/common/ImageGallery";
+import LightBox from "@/components/features/VideoLightBox/LightBox";
+import Spinner from "@/components/ui/Spinner/Spinner";
+
+import { fetchData } from "../../../../../../lib/config/apiConfig";
 import { useTranslation } from "@/app/context/TranslationContext";
 import "../styles.css";
 
@@ -95,7 +94,6 @@ export default function VideoGallery() {
 
   return (
     <>
-      <SiteHeader />
 
       {/* Hero */}
       <div className="custom-hero video-gallery">
@@ -109,11 +107,11 @@ export default function VideoGallery() {
         <div className="gallery-nav-wrapper d-flex">
           <a href="/gallery/photos" className="gallery-nav">
             <img src="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Photo-icon.svg" alt="Photos" />
-            <span>{t("gallery.photo-gallery")}</span>
+            <span>{dict.gallery["photo-gallery"]}</span>
           </a>
           <a href="/gallery/videos" className="gallery-nav visited">
             <img src="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Video-icon.svg" alt="Videos" />
-            <span>{t("gallery.video-gallery")}</span>
+            <span>{dict.gallery["video-gallery"]}</span>
           </a>
         </div>
       </div>
@@ -130,7 +128,7 @@ export default function VideoGallery() {
                 onClick={() => setActiveFilter(`Tab${index + 1}`)}
                 className={`filter-title ${activeFilter === `Tab${index + 1}` ? "active-button" : ""}`}
               >
-                {t(`Tabs.${tab}`)}
+                {dict[`Tabs.${tab}`]}
               </button>
             ))}
           </div>
@@ -148,11 +146,18 @@ export default function VideoGallery() {
                     <ImageGallery
                       imageUrl={item.snippet.thumbnails.medium.url}
                       customClass="gallery-img"
+                       width={85}
+                        height={76}
+                        imageName="Play icon"
                     />
                     <div className="play-video" onClick={(e) => handleVideoPlay(e, item)}>
                       <ImageGallery
                         imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Link-e1739190132637.png"
                         customClass="play-video-player"
+                        width={412}
+                        height={232}
+                        imageName="Play icon"
+
                       />
                     </div>
                   </div>
@@ -174,7 +179,6 @@ export default function VideoGallery() {
         </div>
       </div>
 
-      <SiteFooter />
     </>
   );
 }
