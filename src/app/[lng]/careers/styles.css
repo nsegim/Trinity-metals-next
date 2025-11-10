@@ -1,0 +1,283 @@
+
+.get-in-career-Section .container .row{
+
+    box-shadow: 0px 3px 63px 0px #2828281C;
+    background-color: var(--trinity-white);
+    /* min-height: 683.95px; */
+    padding: 65px;
+    border-radius: 4px;
+    margin-top: -50px;
+    z-index: 1;
+    position: relative;
+    gap: 50px;
+}
+
+.get-in-career {
+    background-image: url("https://contents.trinity-metals.com/wp-content/uploads/2025/02/Team-mechanic.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 400px;
+}
+
+.right-description{
+    color: var(--trinity-dark);
+}
+
+
+
+
+.jobs-section-wrapper {
+    
+    padding-top: 50px;
+    padding-bottom: 80px;
+}
+
+.top-job-search{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding-bottom: 80px;
+    align-items: center;
+}
+.get-in-career-Section .col-md-6 {
+    width: 47%;
+   
+}
+
+.get-in-career-Section .right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.job-search-section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.job-search-section .job-filter{
+    display: flex;
+    justify-content: space-around;
+    width: 87%;
+    gap: 0;
+}
+
+.job-search-section .job-filter button{
+    background-color: var(--trinity-blue);
+    border-radius: 0 5px 5px 0;
+    padding: 20px 34px;
+
+}
+.job-name-field, .select-location-field{
+  width: 50%;
+}
+
+.job-name-field input, .select-location-field input{
+    padding: 10px 0;
+    border: none;
+}
+.near-location{
+    padding-left: 3px!important;
+}
+.select-location-field select{
+    border: none;
+    background-color: var(--trinity-white);
+}
+.select-location-field select:focus-visible{
+    outline: none;
+}
+.search-fields{
+    border: 1px solid #D6C7C7;
+    border-radius: 5px 0 0 5px;
+    padding: 10px 20px;
+    width: 100%;
+}
+
+.search-fields .job-name-field , .search-fields .select-location-field {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.upload-resume{
+    width: 100%;
+}
+
+.job-cards-wrapper .card{
+    border: 1px solid #F2F2F2;
+    padding: 25px 30px;
+}
+
+.job-cards-wrapper .card .upper-card{
+    border-bottom: 1px solid #F2F2F2;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 15px;
+}
+
+.apply-button{
+    border: 1px solid var(--trinity-blue);
+  display: flex; 
+  align-items: center;
+gap: 10px;
+padding-top: 8px;
+padding-right: 30px;
+padding-bottom: 8px;
+padding-left: 30px;
+text-decoration: none;
+height: fit-content;
+color: var(--trinity-blue);
+
+}
+
+
+
+.apply-button span{
+    
+font-weight: 700;
+font-size: 16px;
+line-height: 19.5px;
+letter-spacing: 0%;
+
+}
+.apply-button:hover{
+    background-color: var(--trinity-blue);
+}
+.apply-button:hover span{
+   color: var(--trinity-white)!important;
+}
+.job-name span{
+    width: 106;
+height: 27;
+padding-top: 5px;
+padding-right: 20px;
+padding-bottom: 5px;
+padding-left: 20px;
+background: #F2F2F2;
+
+}
+
+.job-name .job-title{
+   color: var(--trinity-dark);
+font-weight: 700;
+font-size: 20px;
+line-height: 24.38px;
+letter-spacing: 0%;
+
+}
+.job-name {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.job-details{
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+    padding-top: 20px;
+    padding-left: 0;
+}
+.job-details li{
+    padding: 2px 20px;
+}
+.job-details .job-date{
+    padding-right: 10px;
+    color: var(--trinity-dark);
+font-weight: 600;
+font-size: 14px;
+line-height: 24px;
+letter-spacing: -0.28px;
+
+}
+
+.job-details li:first-child{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 0;
+}
+
+/* Responsiveness  */
+@media (max-width: 1200px) {
+    .get-in-career-Section .container .row{
+        gap: 20px;
+    }
+}
+
+@media (min-width: 769px) AND (max-width: 992px) {
+    .get-in-career-Section .container .row{
+        padding: 35px;
+    }
+     .job-search-section .job-filter, .resume-area {
+        width: 100%!important;
+    }
+    .get-in-career-Section .container .row{
+        padding: 35px;
+    }
+}
+
+/* Responsiveness on mobile device */
+@media (max-width: 768px){
+    .get-in-career-Section .col-md-6, .job-search-section .job-filter, .resume-area {
+        width: 100%!important;
+        padding: 0;
+    }
+    
+    .get-in-career-Section .container .row{
+        padding: 30px 15px;
+    }
+    .find-job-wrapper .top-job-search{
+        padding-bottom: 40px!important;
+    }
+   
+}
+
+@media (max-width: 580px) {
+    .jobs-section-wrapper 
+{
+     padding-left: 5px;
+     padding-right: 5px;
+}
+    .search-fields {
+        flex-direction: column;
+        gap: 10px;
+        border-radius: 5px 5px 0 0;
+    }
+    .job-search-section .job-filter{
+        flex-direction: column;
+    }
+    .job-search-section .job-filter button{
+        border-radius: 0px 0px 5px 5px;
+    }
+    .resume-area{
+        flex-direction: column;
+        gap: 20px;
+        padding: 30px 20px!important;
+    }
+    .job-details{
+        flex-direction: column;
+    }
+
+    .job-details li{
+        padding-left: 0;
+    }
+    .apply-button{
+        position: absolute;
+        bottom: 30px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+    .job-cards-wrapper .card{
+        position: relative;
+        padding-bottom: 60px!important;
+    }
+    .job-details{
+        padding-bottom: 30px;
+        padding-top: 10px;
+    }
+ 
+}

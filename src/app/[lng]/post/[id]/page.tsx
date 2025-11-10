@@ -3,8 +3,7 @@ import ImageGallery from "@/components/common/ImageGallery";
 import SocialShare from "@/components/common/SocialShare/SocialShare";
 import SideBar from "@/components/layout/SideBar/SideBar";
 import { fetchData } from "../../../../../lib/config/apiConfig";
-import SiteHeader from "@/components/layout/Header/Header";
-import SiteFooter from "@/components/layout/Footer/Footer";
+
 import moment from "moment";
 import "./styles.css";
 
@@ -108,6 +107,7 @@ export default async function SinglePost({ params }: SInglePostProps) {
   };
 
   const currentPost = post!;
+  // console.log("Test", currentPost)
    
 
   return (

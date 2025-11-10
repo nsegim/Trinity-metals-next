@@ -240,7 +240,9 @@ color: var(--trinity-dark);
     width: 30px;
     height: 30px;
 }
-
+.image-grid{
+    position: relative;
+}
 @media(min-width: 769px) and (max-width: 992px){
     .about-posts-search .search-form form{
        display: block;

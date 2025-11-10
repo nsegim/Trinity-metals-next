@@ -1341,6 +1341,8 @@ color: var(--trinity-dark);
   padding-top: 25px;
 }
 
+
+
 /* Article Grid */
 .grid {
   display: grid;
@@ -1396,3 +1398,9 @@ color: var(--trinity-dark);
   text-align: left;
   color: var(--trinity-blue);
 }
+
+/* sINGLE POST */
+.wp-block-heading{
+  font-size: 30px;
+}
+

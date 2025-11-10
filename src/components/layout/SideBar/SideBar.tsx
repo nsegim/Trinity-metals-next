@@ -1,7 +1,7 @@
 // components/layout/SideBar/SideBar.tsx
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import ImageGallery from '@/components/common/ImageGallery';
 import ImageLightBox from '@/components/features/LightBox/ImageLightBox';
 import Spinner from '@/components/ui/Spinner/Spinner';
@@ -11,39 +11,25 @@ import Link from 'next/link';
 import moment from 'moment';
 import './SideBar.css';
 
-// REMOVED onFiltedPost — not needed on single post
+// Props
 interface SideBarProps {
   currentCategories: { [key: number]: string };
-  // postTofieldField?: any[]; // Optional: only used on blog list
 }
 
-const SideBar = ({ currentCategories = [] }: SideBarProps) => {
+const SideBar = ({ currentCategories = {} }: SideBarProps) => {
   const { dict, lang } = useTranslation();
-  const [categories, setCategories] = useState<any[]>([]);
+
   const [relatedPosts, setRelatedPosts] = useState<any[]>([]);
-  const [searchQuery, setSearchQuery] = useState('');
   const [gallery, setGallery] = useState<any[]>([]);
   const [allImages, setAllImages] = useState<any[]>([]);
   const [All, setAll] = useState<any[]>([]);
   const [isSinglePost, setIsSinglePost] = useState(false);
   const [featuredImage, setFeaturedImage] = useState<{ [key: number]: string }>({});
+  const [searchQuery, setSearchQuery] = useState('');
 
-  // Fetch categories
+  // === FETCH RELATED POSTS ===
   useEffect(() => {
-    const readCategories = async () => {
-      try {
-        const response = await fetchData('categories');
-        setCategories(response || []);
-      } catch (error) {
-        console.error('Error fetching categories:', error);
-      }
-    };
-    readCategories();
-  }, []);
-
-  // Fetch related posts
-  useEffect(() => {
-    const readRelatedPosts = async () => {
+    const fetchPosts = async () => {
       try {
         const response = await fetchData('posts?_embed&per_page=100');
         setRelatedPosts(response || []);
@@ -51,12 +37,13 @@ const SideBar = ({ currentCategories = [] }: SideBarProps) => {
         console.error('Error fetching related posts:', error);
       }
     };
-    readRelatedPosts();
+    fetchPosts();
   }, []);
 
-  // Fetch featured images
+  // === FETCH FEATURED IMAGES ===
   useEffect(() => {
     if (relatedPosts.length === 0) return;
+
     relatedPosts.forEach(async (item) => {
       if (item?.featured_media) {
         try {
@@ -70,7 +57,7 @@ const SideBar = ({ currentCategories = [] }: SideBarProps) => {
     });
   }, [relatedPosts]);
 
-  // Fetch gallery
+  // === FETCH GALLERY ===
   useEffect(() => {
     let isMounted = true;
     const fetchGalleryData = async () => {
@@ -100,19 +87,30 @@ const SideBar = ({ currentCategories = [] }: SideBarProps) => {
     setAll(flattened.reverse().slice(0, 12));
   }, [allImages]);
 
-  // Detect single post page
+  // === DETECT SINGLE POST PAGE ===
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setIsSinglePost(window.location.pathname.includes(`${lang}/post`) || window.location.pathname.includes('/post/'));
+      const path = window.location.pathname;
+      setIsSinglePost(path.includes(`/${lang}/post`) || path.includes('/post/'));
     }
-  }, []);
+  }, [lang]);
 
-  // Search handler — NOW LOCAL ONLY
+  // === FILTER & LIMIT POSTS WITH CONTENT (MAX 3) ===
+  const featuredPostsWithContent = useMemo(() => {
+    if (!Array.isArray(relatedPosts) || relatedPosts.length === 0) return [];
+
+    return relatedPosts
+      .filter((post) => {
+        const content = post?.content?.rendered;
+        return content && content.trim() !== "" && content !== "<p></p>";
+      })
+      .slice(0, 3);
+  }, [relatedPosts]);
+
+  // === SEARCH HANDLER (LOCAL ONLY) ===
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Optional: You can log or show results in sidebar
-    console.log("Search query:", searchQuery);
-    // No need to filter main list → do nothing
+    // console.log("Search query:", searchQuery);
   };
 
   return (
@@ -120,7 +118,7 @@ const SideBar = ({ currentCategories = [] }: SideBarProps) => {
       <div className="contain">
         <div className="side-bar-wrapper">
 
-          {/* Search Form */}
+          {/* SEARCH */}
           <div className="about-posts-search">
             <div className="sidebar-headers">
               <h5>{dict['sidebar']?.['search1']}</h5>
@@ -146,7 +144,7 @@ const SideBar = ({ currentCategories = [] }: SideBarProps) => {
             </div>
           </div>
 
-          {/* Featured Posts */}
+          {/* FEATURED POSTS (ONLY ON SINGLE POST PAGE) */}
           {isSinglePost && (
             <div className="about-featured-posts">
               <div className="featured-posts">
@@ -154,8 +152,8 @@ const SideBar = ({ currentCategories = [] }: SideBarProps) => {
                   <h5>{dict['sidebar']?.['featured-posts']}</h5>
                 </div>
                 <div className="a-related-post">
-                  {relatedPosts.length > 0 ? (
-                    relatedPosts.slice(0, 3).map((item) => (
+                  {featuredPostsWithContent.length > 0 ? (
+                    featuredPostsWithContent.map((item) => (
                       <div key={item.id} className="featured-post">
                         <div className="featured-image">
                           <ImageGallery
@@ -186,7 +184,7 @@ const SideBar = ({ currentCategories = [] }: SideBarProps) => {
             </div>
           )}
 
-          {/* Newsletter */}
+          {/* NEWSLETTER */}
           <div className="about-newsletters">
             <div className="sidebar-headers">
               <h5>{dict['sidebar']?.['newsletter']}</h5>
@@ -209,7 +207,7 @@ const SideBar = ({ currentCategories = [] }: SideBarProps) => {
             </div>
           </div>
 
-          {/* Gallery */}
+          {/* GALLERY */}
           <div className="about-gallery">
             <div className="sidebar-headers">
               <h5>{dict['sidebar']?.['our-gallery']}</h5>
