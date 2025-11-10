@@ -168,7 +168,7 @@ const SideBar = ({ currentCategories = [] }: SideBarProps) => {
                         </div>
                         <div className="post-details">
                           <div className="post-title">
-                            <Link href={`/post/${item.id}`}>
+                            <Link href={`/${lang}/post/${item.id}`}>
                               <p dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
                             </Link>
                           </div>
