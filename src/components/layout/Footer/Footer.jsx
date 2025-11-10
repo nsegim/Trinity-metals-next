@@ -79,7 +79,7 @@ const SiteFooter = () => {
                       </div>
                 </div>
                 
-                  {  location.pathname === "/our-projects/musha" ? (
+                  {  location.pathname === "/projects/musha-mine" ? (
                           
                         <div className="mine-site-location">  
                           <h4> {(dict.footer["trinity-musha-mine"])}</h4>
@@ -101,7 +101,7 @@ const SiteFooter = () => {
                               </li>
                          </ul>
                         </div> 
-                      ) : location.pathname === "/our-projects/nyakabingo" ?(
+                      ) : location.pathname === "/projects/nyakabingo-mine" ?(
                         <div className="mine-site-location">  
                           <h4> {(dict.home["trinity-Nyakabingo-mine"])}</h4>
                           <ul>
@@ -122,7 +122,7 @@ const SiteFooter = () => {
                               </li>
                          </ul>
                         </div>
-                      ): location.pathname === "/our-projects/rutongo" ?(
+                      ): location.pathname === "/projects/rutongo-mine" ?(
                         <div className="mine-site-location">  
                           
                           <h4> {(dict.footer["rutongo-mine"])}</h4>
@@ -195,7 +195,7 @@ const SiteFooter = () => {
       <div className="bottom-section">
         <div className="container copyright">
           <p>Copyright © TRINITY METALS 2025  All Right Reserved </p>
-           <Link href="/disclaimer" className="footer-links">Disclaimer</Link>
+           <Link href={`${lang}/disclaimer`} className="footer-links">Disclaimer</Link>
           
         </div>
       </div>

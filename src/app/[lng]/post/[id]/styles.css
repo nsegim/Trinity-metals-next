@@ -138,9 +138,9 @@ color: #04080D;
             width: 71.1%;
 
         }
-        .single-post-wrapper .row .col-md-4{
+        /* .single-post-wrapper .row .col-md-4{
             width: 28%;
-        }
+        } */
 
         .single-post-wrapper .row{
              flex-wrap: nowrap;

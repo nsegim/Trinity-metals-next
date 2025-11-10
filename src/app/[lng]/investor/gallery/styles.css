@@ -119,7 +119,9 @@ color: var(--trinity-dark);
     object-fit: cover;
     
 }
-.play-video, .view-image{
+
+
+ .play-video, .view-image{
     position: absolute;
     transform: translate(-50%, -50%);
     top: 50%;
@@ -130,6 +132,7 @@ color: var(--trinity-dark);
     width: 85px;
     height: 85px;
 }
+
 .view-image{
     opacity: 0;
     width: 60px;
@@ -138,13 +141,14 @@ color: var(--trinity-dark);
 }
 .image-grid:hover .view-image{
     opacity: 1;
-}
+} 
 
 .play-video-player{
     cursor: pointer;
     width: 100%;
     object-fit: cover;
 }
+
 
 .photo-gallery-wrapper .page-number, .photo-gallery-wrapper .pagination-btn{
   background-color: #F2F2F2;

@@ -2,7 +2,7 @@
 import ImageGallery from "@/components/common/ImageGallery";
 import SocialShare from "@/components/common/SocialShare/SocialShare";
 import SideBar from "@/components/layout/SideBar/SideBar";
-import { fetchData } from "../../../../lib/config/apiConfig";
+import { fetchData } from "../../../../../lib/config/apiConfig";
 import SiteHeader from "@/components/layout/Header/Header";
 import SiteFooter from "@/components/layout/Footer/Footer";
 import moment from "moment";
@@ -51,21 +51,23 @@ interface WPMedia {
 //   }
 // }
 
-export default async function SinglePost({ params }: { params: { id: string } }) {
+interface SInglePostProps{
+  params: Promise<{id:string}>
+}
+
+export default async function SinglePost({ params }: SInglePostProps) {
   let post: WPPost | null = null;
   let featuredImage: string | null = null;
   let allPosts: WPPost[] = [];
   let currentCategories: { [key: number]: string } = {};
 
-   const currentPostId = params.id;  
+   const {id} = await params;  
    
 
 
   try {
     // Fetch current post
-    post = await fetchData(`posts/${currentPostId}`);
-
-      console.log(`posts:`, params.id)
+    post = await fetchData(`posts/${id}`);
 
 
     // Fetch featured image
@@ -76,7 +78,7 @@ export default async function SinglePost({ params }: { params: { id: string } })
         media?.media_details?.sizes?.full?.source_url ||
         media?.source_url;
     }
-
+     
     // Fetch ALL posts for sidebar filtering
     allPosts = await fetchData(`posts?_embed&per_page=100`);
 
@@ -86,7 +88,9 @@ export default async function SinglePost({ params }: { params: { id: string } })
         const cat = await fetchData(`categories/${p.categories[0]}`);
         currentCategories[p.id] = cat?.name || "Uncategorized";
       }
+      
     }
+
   } catch (error) {
     console.error("Error:", error);
     return (
@@ -104,12 +108,67 @@ export default async function SinglePost({ params }: { params: { id: string } })
   };
 
   const currentPost = post!;
+   
 
   return (
     <>
-      {/* <SiteHeader /> */}
-      <div>Hello</div>
-      {/* <SiteFooter /> */}
+       {/* Hero */}
+      <div className="custom-hero single-post" style={heroStyle}>
+        <div className="child-item-wrapper z-1">
+          <h1 className="heading" dangerouslySetInnerHTML={{ __html: currentPost.title.rendered }} />
+          <div className="published-date">
+            <h4>{moment(currentPost.date).format("DD MMMM, YYYY")}</h4>
+          </div>
+        </div>
+      </div>
+
+      <div className="single-post-wrapper">
+        <div className="container">
+          <div className="row">
+            {/* Main Content */}
+            <div className="col-md-8">
+              <div className="post-details">
+                <div className="post-content">
+                  {/* Meta */}
+                  <div className="post-meta-wrapper">
+                    <ul className="post-meta">
+                      <li>
+                        <a href="#">
+                          <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Icon.svg" customClass="Admin-icon" imageName="Author" width={15} height={16} />
+                          <p>Admin</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Document-icon.svg" customClass="Category-icon" imageName="Category" width={15} height={16} />
+                          <p>Industrial</p>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Content */}
+                  <div className="the_content" dangerouslySetInnerHTML={{ __html: currentPost.content.rendered }} />
+
+                  {/* Share */}
+                  <div className="share-the-post">
+                    <SocialShare postUrl={currentPost.link} postTitle={currentPost.title.rendered} />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Sidebar */}
+            <div className="col-md-4">
+              <SideBar
+                
+                currentCategories={currentCategories}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+     
     </>
   );
 }

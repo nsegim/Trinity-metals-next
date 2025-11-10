@@ -19,7 +19,7 @@ interface YouTubeVideo {
 }
 
 export default function VideoGallery() {
-  const { dict } = useTranslation();
+  const { dict, lang } = useTranslation();
   const [activeFilter, setActiveFilter] = useState("Tab1");
   const [youtubeList, setYoutubeList] = useState<YouTubeVideo[]>([]);
   const [loading, setLoading] = useState(true);
@@ -105,11 +105,11 @@ export default function VideoGallery() {
       {/* Navigation */}
       <div className="gallery-navigation">
         <div className="gallery-nav-wrapper d-flex">
-          <a href="/gallery/photos" className="gallery-nav">
+          <a href={`${lang}/gallery/photos`} className="gallery-nav">
             <img src="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Photo-icon.svg" alt="Photos" />
             <span>{dict.gallery["photo-gallery"]}</span>
           </a>
-          <a href="/gallery/videos" className="gallery-nav visited">
+          <a href={`${lang}/gallery/videos`}className="gallery-nav visited">
             <img src="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Video-icon.svg" alt="Videos" />
             <span>{dict.gallery["video-gallery"]}</span>
           </a>

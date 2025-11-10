@@ -12,12 +12,16 @@ const OptimizedImageGallery = memo(({
   imageUrl, 
   customClass, 
   alt = "", 
-  loading = "lazy" 
+  loading = "lazy", 
+  width,
+  height
 }: { 
   imageUrl: string; 
   customClass?: string; 
   alt?: string; 
   loading?: "lazy" | "eager"; 
+   width?: number;
+  height?: number
 }) => {
   return (
     <img
@@ -26,9 +30,13 @@ const OptimizedImageGallery = memo(({
       className={customClass}
       loading={loading}
       decoding="async"
+      width={width}
+      height={height}
+      
     />
   );
 });
+
 
 // Default placeholder image
 const DEFAULT_PLACEHOLDER = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjVmNWY1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkxvYWRpbmcuLi48L3RleHQ+PC9zdmc+';
@@ -41,7 +49,7 @@ interface ReUsablePostProps {
 }
 
 const ReUsablePost = memo(({ item, categories, postImages }: ReUsablePostProps) => {
-  const { dict } = useTranslation();
+  const { dict, lang } = useTranslation();
 
   // Memoized sanitized content renderer
   const reRenderContent = useMemo(() => {
@@ -87,7 +95,7 @@ const ReUsablePost = memo(({ item, categories, postImages }: ReUsablePostProps) 
       );
     } else if (hasContent) {
       return (
-        <Link href={`/post/${item.id}`} className="read-more-btn">
+        <Link href={`/${lang}/post/${item.id}`} className="read-more-btn">
           <span>{dict.home?.["read-more-button"] || 'Read More'}</span>
         </Link>
       );
@@ -118,6 +126,10 @@ const ReUsablePost = memo(({ item, categories, postImages }: ReUsablePostProps) 
             target.src = DEFAULT_PLACEHOLDER;
           }
         }}
+
+        // width={413}
+        // height={390}
+
       />
       <p className="article_date">{formattedDate}</p>
       <div className="rt-holder">
@@ -130,6 +142,9 @@ const ReUsablePost = memo(({ item, categories, postImages }: ReUsablePostProps) 
               imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Category-Icon.svg"
               customClass="category-icon"
               alt="Category"
+               width={19}
+              height={18}
+           
             />
             <span className="category">{categoryName}</span>
           </div>

@@ -14,11 +14,11 @@ import './SideBar.css';
 // REMOVED onFiltedPost — not needed on single post
 interface SideBarProps {
   currentCategories: { [key: number]: string };
-  postTofieldField?: any[]; // Optional: only used on blog list
+  // postTofieldField?: any[]; // Optional: only used on blog list
 }
 
-const SideBar = ({ currentCategories, postTofieldField = [] }: SideBarProps) => {
-  const { dict } = useTranslation();
+const SideBar = ({ currentCategories = [] }: SideBarProps) => {
+  const { dict, lang } = useTranslation();
   const [categories, setCategories] = useState<any[]>([]);
   const [relatedPosts, setRelatedPosts] = useState<any[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -103,7 +103,7 @@ const SideBar = ({ currentCategories, postTofieldField = [] }: SideBarProps) => 
   // Detect single post page
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setIsSinglePost(window.location.pathname.includes('/single-post') || window.location.pathname.includes('/post/'));
+      setIsSinglePost(window.location.pathname.includes(`${lang}/post`) || window.location.pathname.includes('/post/'));
     }
   }, []);
 

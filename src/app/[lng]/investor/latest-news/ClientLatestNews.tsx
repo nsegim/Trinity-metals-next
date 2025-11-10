@@ -174,8 +174,6 @@ const ClientLatestNews = ({ lng }: { lng: string }) => {
             <div className="col-md-4">
               <SideBar
                 currentCategories={categories}
-                postTofieldField={data}
-                onFiltedPost={handleFilteredPosts}
               />
             </div>
           </div>
