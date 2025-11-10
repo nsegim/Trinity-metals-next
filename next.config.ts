@@ -8,10 +8,17 @@ const nextConfig: NextConfig = {
     images: {
     remotePatterns: [
       {
+         
+        protocol: 'https',
+        hostname: 'i.ytimg.com',
+      },
+      
+      {
         protocol: 'https',
         hostname: 'contents.trinity-metals.com',
         pathname: '/**',
       },
+
     ],
   }
    

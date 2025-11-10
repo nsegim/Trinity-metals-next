@@ -90,7 +90,12 @@ export default function VideoGallery() {
 
   const handleClosePopup = () => setIsOpen(false);
 
-  const tabs = ["all", "visitors", "events", "sports"];
+const tabs = [
+  { key: "all", label: "all" },
+  { key: "visitors", label: "visitors" },
+  { key: "events", label: "events" },
+  { key: "sports", label: "sports" },
+];
 
   return (
     <>
@@ -105,11 +110,11 @@ export default function VideoGallery() {
       {/* Navigation */}
       <div className="gallery-navigation">
         <div className="gallery-nav-wrapper d-flex">
-          <a href={`${lang}/gallery/photos`} className="gallery-nav">
+          <a href={`/${lang}/gallery/photos`} className="gallery-nav">
             <img src="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Photo-icon.svg" alt="Photos" />
             <span>{dict.gallery["photo-gallery"]}</span>
           </a>
-          <a href={`${lang}/gallery/videos`}className="gallery-nav visited">
+          <a href={`/${lang}/gallery/videos`}className="gallery-nav visited">
             <img src="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Video-icon.svg" alt="Videos" />
             <span>{dict.gallery["video-gallery"]}</span>
           </a>
@@ -128,8 +133,9 @@ export default function VideoGallery() {
                 onClick={() => setActiveFilter(`Tab${index + 1}`)}
                 className={`filter-title ${activeFilter === `Tab${index + 1}` ? "active-button" : ""}`}
               >
-                {dict[`Tabs.${tab}`]}
-              </button>
+                 {dict.Tabs[tab.label]}
+
+               </button>
             ))}
           </div>
 
@@ -154,8 +160,8 @@ export default function VideoGallery() {
                       <ImageGallery
                         imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Link-e1739190132637.png"
                         customClass="play-video-player"
-                        width={412}
-                        height={232}
+                        width={85}
+                        height={76}
                         imageName="Play icon"
 
                       />
