@@ -133,7 +133,7 @@ color: var(--trinity-dark);
     height: 85px;
 }
 
-.view-image{
+/* .view-image{
     opacity: 0;
     width: 60px;
     height: 60px;
@@ -141,7 +141,7 @@ color: var(--trinity-dark);
 }
 .image-grid:hover .view-image{
     opacity: 1;
-} 
+}  */
 
 .play-video-player{
     cursor: pointer;

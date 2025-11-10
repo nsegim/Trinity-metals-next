@@ -1343,6 +1343,7 @@ color: var(--trinity-dark);
 
 
 
+
 /* Article Grid */
 .grid {
   display: grid;
@@ -1404,3 +1405,21 @@ color: var(--trinity-dark);
   font-size: 30px;
 }
 
+ .play-video, .view-image{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    
+}
+
+
+.view-image{
+    opacity: 0;
+    width: 60px;
+    height: 60px;
+    z-index: 10;
+}
+.image-grid:hover .view-image{
+    opacity: 1;
+} 
