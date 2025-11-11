@@ -343,7 +343,7 @@ const BottomImagesGallery = [
             </div>
             
             <div className="button-element">
-              <Link href="/investor-relations/latest-news" className="explore-more">
+              <Link href={`/${lng}/investor/latest-news`} className="explore-more">
                 {(dict.home["read-more-button"])}
                 <span>
                   <ImageGallery 

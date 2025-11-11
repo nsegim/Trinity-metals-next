@@ -59,7 +59,7 @@ const SiteFooter = () => {
                               <Link href={`/${lang}/about`} className="footer-links"> {(dict.header["about-us"])}</Link>
                             </li>
                             <li>
-                              <Link href={`/${lang}/investor-relations/latest-news`} className="footer-links">{(dict.header.investor["latest-news"])}</Link>
+                              <Link href={`/${lang}/investor/latest-news`} className="footer-links">{(dict.header.investor["latest-news"])}</Link>
                             </li>
                           </ul>
                         </div>
@@ -72,14 +72,14 @@ const SiteFooter = () => {
                               <Link href={`/${lang}/sustainability`} className="footer-links"> {(dict.header.sustainability)}</Link>
                             </li>
                             <li>
-                              <Link href={`/${lang}/Careers`} className="footer-links"> {(dict.header.careers)}</Link>
+                              <Link href={`/${lang}/careers`} className="footer-links"> {(dict.header.careers)}</Link>
                             </li>
                           </ul>
                         </div>
                       </div>
                 </div>
                 
-                  {  location.pathname === "/projects/musha-mine" ? (
+                  {  location.pathname === `/${lang}/projects/musha-mine` ? (
                           
                         <div className="mine-site-location">  
                           <h4> {(dict.footer["trinity-musha-mine"])}</h4>
@@ -101,7 +101,7 @@ const SiteFooter = () => {
                               </li>
                          </ul>
                         </div> 
-                      ) : location.pathname === "/projects/nyakabingo-mine" ?(
+                      ) : location.pathname === `/${lang}/projects/nyakabingo-mine` ?(
                         <div className="mine-site-location">  
                           <h4> {(dict.home["trinity-Nyakabingo-mine"])}</h4>
                           <ul>
@@ -122,7 +122,7 @@ const SiteFooter = () => {
                               </li>
                          </ul>
                         </div>
-                      ): location.pathname === "/projects/rutongo-mine" ?(
+                      ): location.pathname === `/${lang}/projects/rutongo-mine` ?(
                         <div className="mine-site-location">  
                           
                           <h4> {(dict.footer["rutongo-mine"])}</h4>
@@ -195,7 +195,7 @@ const SiteFooter = () => {
       <div className="bottom-section">
         <div className="container copyright">
           <p>Copyright © TRINITY METALS 2025  All Right Reserved </p>
-           <Link href={`${lang}/disclaimer`} className="footer-links">Disclaimer</Link>
+           <Link href={`/${lang}/disclaimer`} className="footer-links">Disclaimer</Link>
           
         </div>
       </div>

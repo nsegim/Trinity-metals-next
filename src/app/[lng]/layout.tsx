@@ -9,6 +9,7 @@ import { TranslationProvider } from '../context/TranslationContext';
 import { ReactNode } from 'react';
 import SiteHeader from '@/components/layout/Header/Header';
 import SiteFooter from '@/components/layout/Footer/Footer';
+import ScrollToTop from '@/components/common/ScrollToTop';
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default async function RootLayout({
     <html lang={lng} dir={dir(lng)}>
       <body className={`${montserrat.variable} font-sans`}>
         <TranslationProvider dict={dict} lang={lng}>
+           <ScrollToTop />
            <SiteHeader />
           {children}
            <SiteFooter />
