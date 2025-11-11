@@ -33,7 +33,7 @@ export default async function RootLayout({
     <html lang={lng} dir={dir(lng)}>
       <body className={`${montserrat.variable} font-sans`}>
         <TranslationProvider dict={dict} lang={lng}>
-           <ScrollToTop />
+           {/* <ScrollToTop /> */}
            <SiteHeader />
           {children}
            <SiteFooter />

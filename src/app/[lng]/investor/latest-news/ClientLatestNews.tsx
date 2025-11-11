@@ -79,11 +79,7 @@ const ClientLatestNews = ({ lng }: { lng: string }) => {
     myRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [currentPage]);
 
-  // Filter handler from SideBar
-  const handleFilteredPosts = (filtered: any[]) => {
-    setFilteredPosts(filtered);
-    setCurrentPage(1); // Reset to first page
-  };
+  
 
   if (error) {
     return <div className="container py-5 text-center">Error loading news. Please try again later.</div>;
