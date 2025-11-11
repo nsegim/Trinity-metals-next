@@ -109,6 +109,3 @@ export default async function page({ params }: LithiumPageProps) {
   );
 }
 
-export async function generateStaticParams() {
-  return locales.map((lng) => ({ lng }));
-}
