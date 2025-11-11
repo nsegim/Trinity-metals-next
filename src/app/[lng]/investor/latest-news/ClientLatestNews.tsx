@@ -173,7 +173,6 @@ const ClientLatestNews = ({ lng }: { lng: string }) => {
             {/* Sidebar */}
             <div className="col-md-4">
               <SideBar
-                currentCategories={categories}
               />
             </div>
           </div>
