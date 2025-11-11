@@ -1,45 +1,74 @@
 "use client"
-import { useState, useEffect, useCallback, useMemo, lazy } from "react";
-import './styles.css'
+
+import React, { useState, useCallback, useMemo, Suspense } from "react";
+import './styles.css';
 import Carousel from 'react-bootstrap/Carousel';
-import { fetchData } from "../../../../lib/config/apiConfig";
-import Spinner from "../../ui/Spinner/Spinner";
+import { usePosts } from "@/hooks/usePosts";
 
-// Lazy load ReUsablePost
-const ReUsablePost = lazy(() => import('../../common/ReUsablePost'));
-import { usePostsData } from "@/hooks/usePostsData";
+// Lazy load ReUsablePost with better error handling
+const ReUsablePost = React.lazy(() => 
+  import('../../common/ReUsablePost').catch(() => ({
+    default: () => <div>Failed to load component</div>
+  }))
+);
 
-const LoopGrid = ({ itemsPerPage = 3, posts }) => {
+// Loading skeleton component for better reusability
+const LoadingSkeleton = ({ itemsPerPage }) => (
+  <div className="grid article">
+    {Array.from({ length: itemsPerPage }).map((_, itemIndex) => (
+      <div key={itemIndex} className="grid-item loading-skeleton">
+        <div className="skeleton-image"></div>
+        <div className="skeleton-text short"></div>
+        <div className="skeleton-text long"></div>
+        <div className="skeleton-text medium"></div>
+      </div>
+    ))}
+  </div>
+);
+
+// Error fallback component
+const ErrorState = ({ message, onRetry }) => (
+  <div className="error-state" style={{ 
+    padding: '40px', 
+    textAlign: 'center',
+    minHeight: '300px',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
+  }}>
+    <p style={{ marginBottom: '20px', color: '#dc3545' }}>
+      {message || 'Failed to load posts. Please try again later.'}
+    </p>
+    {onRetry && (
+      <button 
+        onClick={onRetry}
+        style={{
+          padding: '10px 20px',
+          backgroundColor: '#007bff',
+          color: 'white',
+          border: 'none',
+          borderRadius: '5px',
+          cursor: 'pointer'
+        }}
+      >
+        Retry
+      </button>
+    )}
+  </div>
+);
+
+const LoopGrid = ({ itemsPerPage = 3 }) => {
+  const { data, isLoading, error, refetch } = usePosts();
   const [activeIndex, setActiveIndex] = useState(0);
-  const { data, categories, postImages, error, loading, getPosts } = usePostsData();
-
-  // Fetch data on mount
-  useEffect(() => {
-    getPosts();
-  }, [getPosts]);
 
   // Memoized carousel items calculation
   const carouselItems = useMemo(() => {
-    if (loading || data.length === 0) {
-      return Array.from({ length: Math.min(3, data.length || 3) }).map((_, index) => (
-        <Carousel.Item key={index} style={{ minHeight: "300px" }}>
-          <div className="grid article">
-            {Array.from({ length: itemsPerPage }).map((_, itemIndex) => (
-              <div key={itemIndex} className="grid-item loading-skeleton">
-                <div className="skeleton-image"></div>
-                <div className="skeleton-text short"></div>
-                <div className="skeleton-text long"></div>
-                <div className="skeleton-text medium"></div>
-              </div>
-            ))}
-          </div>
-        </Carousel.Item>
-      ));
-    }
+    if (!data || data.length === 0) return [];
 
     const totalPages = Math.ceil(data.length / itemsPerPage);
     
-    return [...Array(totalPages)].map((_, pageIndex) => {
+    return Array.from({ length: totalPages }).map((_, pageIndex) => {
       const startIndex = pageIndex * itemsPerPage;
       const endIndex = startIndex + itemsPerPage;
       const pageItems = data.slice(startIndex, endIndex);
@@ -49,50 +78,88 @@ const LoopGrid = ({ itemsPerPage = 3, posts }) => {
           key={pageIndex} 
           style={{ minHeight: "300px" }}
         >
-          <div className={`grid article`}>
-            {pageItems.map((item) => (
-              <ReUsablePost
-                key={item.id}
-                item={item}
-                categories={categories}
-                postImages={postImages}
-              />
-            ))}
+          <div className="grid article">
+            <Suspense fallback={<LoadingSkeleton itemsPerPage={itemsPerPage} />}>
+              {pageItems.map((item) => (
+                <ReUsablePost
+                  key={item.id}
+                  item={item}
+                />
+              ))}
+            </Suspense>
           </div>
         </Carousel.Item>
       );
     });
-  }, [data, categories, postImages, loading, itemsPerPage]);
+  }, [data, itemsPerPage]);
 
   // Optimized carousel handler
   const handleSelected = useCallback((selectedIndex) => {
     setActiveIndex(selectedIndex);
   }, []);
 
-  if (error) {
+  // Handle retry
+  const handleRetry = useCallback(() => {
+    refetch?.();
+  }, [refetch]);
+
+  // Loading state
+  if (isLoading) {
     return (
-      <div className="error-state">
-        <div>Failed to load posts. Please try again later.</div>
+      <div style={{ minHeight: "300px", padding: "20px" }}>
+        <LoadingSkeleton itemsPerPage={itemsPerPage} />
+      </div>
+    );
+  }
+
+  // Error state
+  if (error) {
+    return <ErrorState message={error.message} onRetry={handleRetry} />;
+  }
+
+  // Empty state
+  if (!data || data.length === 0) {
+    return (
+      <div style={{ 
+        padding: '40px', 
+        textAlign: 'center',
+        minHeight: '300px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}>
+        <p>No posts available at the moment.</p>
       </div>
     );
   }
 
   return (
-    <div>
-      
+    <div className="loop-grid-container">
       <Carousel 
         className="article-carousel"
         activeIndex={activeIndex} 
         onSelect={handleSelected} 
-        interval={5000} 
-        style={{ 
-         
-          paddingBottom: "60px" 
-        }}
-        controls={false}        
+        interval={5000}
+        pause="hover"
+        touch={true}
+        style={{ paddingBottom: "60px" }}
+        controls={carouselItems.length > 1}
+        indicators={carouselItems.length > 1}
       >
         {carouselItems}
       </Carousel>
+      
+      {/* Optional: Page indicator */}
+      {carouselItems.length > 1 && (
+        <div style={{ 
+          textAlign: 'center', 
+          marginTop: '10px',
+          fontSize: '14px',
+          color: '#666'
+        }}>
+          {activeIndex + 1} / {carouselItems.length}
+        </div>
+      )}
     </div>
   );
 };

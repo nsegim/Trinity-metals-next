@@ -1,185 +1,237 @@
-// app/leadership/page.tsx
-'use client';
-
-import { useEffect, useState } from 'react';
-import ImageGallery from '@/components/common/ImageGallery';
-import Spinner from '@/components/ui/Spinner/Spinner';
+'use client'
+import Link from "next/link"
+import ImageGallery from "@/components/common/ImageGallery";
 import Modal from 'react-bootstrap/Modal';
-import { fetchData } from '../../../../lib/config/apiConfig';
-import { useTranslation } from '../../context/TranslationContext';
-import './styles.css';
+import { useEffect, useState } from 'react';
+import './styles.css'
+import { fetchData } from "../../../../lib/config/apiConfig";
+import Spinner from "@/components/ui/Spinner/Spinner";
+import { useTranslation } from "../../context/TranslationContext";
 
+// ✅ Fixed interface
 interface TeamMember {
   id: number;
-  title: { rendered: string };
+  title: { rendered: string }; // ✅ Changed from 'render' to 'rendered'
   content: { rendered: string };
   acf: { member_personal_information: { designation: string } };
   _embedded?: { 'wp:featuredmedia'?: [{ source_url: string }] };
   tags?: number[];
 }
 
-// Properly typed state with correct initial value
-interface MembersByLang {
-  en: TeamMember[];
+// ✅ Added Tag interface
+interface Tag {
+  id: number;
+  name: string;
+}
+
+// ✅ Added TagLookup interface
+interface TagLookup {
+  [key: number]: string;
+}
+
+// ✅ Added MembersByLanguage interface
+interface MembersByLanguage {
   kiny: TeamMember[];
+  en: TeamMember[];
 }
 
-interface MembersState {
-  board: MembersByLang;
-  management: MembersByLang;
-  rutongo: MembersByLang;
-}
-
-export default function Leadership() {
+export default function Page() {
   const { dict, lang } = useTranslation();
-
+  
+  // ✅ Properly typed state variables
+  const [modalShow1, setModalShow1] = useState<boolean>(false);
+  const [modalShow001, setModalShow001] = useState<boolean>(false);
   const [data, setData] = useState<TeamMember[]>([]);
+  const [tags, setTags] = useState<{ [key: number]: string[] }>({});
+  const [error, setError] = useState<Error | null>(null);
+  const [boardMember, setBoardMember] = useState<TeamMember[]>([]);
+  const [managementMember, setManagementMember] = useState<TeamMember[]>([]);
+  const [boardMemberKiny, setBoardMemberKiny] = useState<TeamMember[]>([]);
+  const [managementMemberKiny, setManagementMemberKiny] = useState<TeamMember[]>([]);
+  const [rutongoBoardMember, setRutongoBoardMember] = useState<TeamMember[]>([]);
   const [activeModal, setActiveModal] = useState<number | null>(null);
-
-  // FIX: Add proper type + correct initial state
-  const [members, setMembers] = useState<MembersState>({
-    board: { en: [], kiny: [] },
-    management: { en: [], kiny: [] },
-    rutongo: { en: [], kiny: [] }
+  
+  const [bordMembers, setBoardMembers] = useState<MembersByLanguage>({
+    kiny: [],
+    en: []
+  });
+  
+  const [managementMembers, setManagementMembers] = useState<MembersByLanguage>({
+    kiny: [],
+    en: []
   });
 
-  // Fetch members
+  const currentLang = lang; // ✅ Fixed: use lang from useTranslation
+
+  // Fetch posts
+  const getMembers = async () => {
+    try {
+      const response = await fetchData('member-showcase?per_page=100&_embed');
+      setData(response);
+    } catch (error) {
+      setError(error as Error);
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    const fetchMembers = async () => {
-      try {
-        const response = await fetchData('member-showcase?per_page=100&_embed');
-        setData(response || []);
-      } catch (err) {
-        console.error("Failed to fetch team members:", err);
-      }
-    };
-    fetchMembers();
+    getMembers();
   }, []);
 
-  // Process members by language
   useEffect(() => {
-    if (data.length === 0) return;
+    const processMembers = async () => {
+      if (data.length === 0) return;
 
-    const boardEn: TeamMember[] = [];
-    const boardKiny: TeamMember[] = [];
-    const managementEn: TeamMember[] = [];
-    const managementKiny: TeamMember[] = [];
-    const rutongoEn: TeamMember[] = [];
-    const rutongoKiny: TeamMember[] = [];
+      // ✅ Properly typed arrays
+      const boardTemp: TeamMember[] = [];
+      const rutongoBoardTemp: TeamMember[] = [];
+      const managementTemp: TeamMember[] = [];
+      const boardTempKiny: TeamMember[] = [];
+      const managementTempKiny: TeamMember[] = [];
+      const tagsMap: { [key: number]: string[] } = {};
 
-    data.forEach((item) => {
-      const tags = item.tags || [];
+      // Collect unique tag IDs for batch fetching
+      const tagIds = new Set<number>();
 
-      // English
-      if (tags.includes(16)) boardEn.push(item);        // Board member
-      if (tags.includes(17)) managementEn.push(item);   // Management Team
-      if (tags.includes(18)) rutongoEn.push(item);      // Rutongo Board
+      // Collect all tag IDs (handling multiple tags per member)
+      data.forEach((item) => {
+        if (item?.tags?.length && item.tags.length > 0) {
+          item.tags.forEach((tagId) => tagIds.add(tagId));
+        }
+      });
 
-      // Kinyarwanda
-      if (tags.includes(19)) boardKiny.push(item);      // Inama y'Ubutegetsi
-      if (tags.includes(20)) managementKiny.push(item); // Abagize inama...
-    });
+      // Only fetch tags if there are any
+      if (tagIds.size > 0) {
+        // Fetch all tags in one API request
+        const tagResponses: Tag[] = await fetchData(`tags?include=${[...tagIds].join(",")}`);
+        const tagLookup: TagLookup = {}; // Map tag ID to tag name
+        
+        tagResponses.forEach(tag => {
+          tagLookup[tag.id] = tag.name;
+        });
 
-    setMembers({
-      board: { en: boardEn.reverse(), kiny: boardKiny },
-      management: { en: managementEn.reverse(), kiny: managementKiny },
-      rutongo: { en: rutongoEn.reverse(), kiny: rutongoKiny }
-    });
+        // Process members with tags
+        data.forEach((item) => {
+          const tagNames = item?.tags?.map(tagId => tagLookup[tagId]) || [];
+          tagsMap[item.id] = tagNames; // Store all assigned tags
+
+          // Categorize team members if at least one tag matches
+          if (tagNames.includes("Board member")) boardTemp.push(item);
+          if (tagNames.includes("Management Team")) managementTemp.push(item);
+          if (tagNames.includes("Rutongo Mines Board Members")) rutongoBoardTemp.push(item);
+          if (tagNames.includes("Inama y'Ubutegetsi")) boardTempKiny.push(item);
+          if (tagNames.includes("Abagize inama y'ubucukuzi bwa Rutongo")) managementTempKiny.push(item);
+        });
+
+        // Update state once (avoids multiple re-renders)
+        setTags(tagsMap);
+        setBoardMember(boardTemp);
+        setBoardMembers({
+          en: boardTemp,
+          kiny: boardTempKiny
+        });
+        setManagementMember(managementTemp);
+        setManagementMembers({
+          en: managementTemp,
+          kiny: managementTempKiny
+        });
+        setRutongoBoardMember(rutongoBoardTemp);
+      }
+    };
+
+    processMembers();
   }, [data]);
-
-  // Helper to get members based on current language
-  const getMembers = (type: 'board' | 'management' | 'rutongo'): TeamMember[] => {
-    const currentLangKey = lang === 'kiny' ? 'kiny' : 'en';
-    return members[type][currentLangKey];
-  };
 
   return (
     <>
-      {/* Hero */}
+      {/* Hero section */}
       <div className="about-hero-section">
         <div className="inner-wrapper">
           <h1 className="heading text-uppercase">
-            {dict["our-leadership"]?.["our-leadership-title"] || "Our Leadership"}
+            {dict?.['our-leadership']?.['our-leadership-title']}
           </h1>
         </div>
       </div>
 
+      {/* Team members section */}
       <div className="Team-container-wrapper">
         <div className="container d-flex flex-column">
-
-          {/* Board Members */}
+          {/* Board Members Section */}
           <div className="header-element pt-5">
             <h2 className="text-center">
-              {dict["our-leadership"]?.["board-members"] || "Board of Directors"}
+              {dict?.['our-leadership']?.['board-members']}
             </h2>
           </div>
 
-          <div className="team-members first-grid pb-5">
-            {getMembers('board').length > 0 ? (
+          <div className="team-members first-grid pb-2">
+            {bordMembers?.[currentLang === "kiny" ? "kiny" : "en"]?.length > 0 ? (
               <div className="team-member-wrapper">
-                {getMembers('board').map((item) => (
+                {(currentLang === "kiny"
+                  ? bordMembers.kiny.slice()
+                  : bordMembers.en.slice().reverse()
+                ).map((item) => (
                   <div key={item.id} className="single-team-member">
                     <ImageGallery
-                      imageUrl={item._embedded?.['wp:featuredmedia']?.[0]?.source_url || "/placeholder.jpg"}
-                      customClass="team-member-photo"
-                      width={412}
+                      imageUrl={
+                        item._embedded?.['wp:featuredmedia']?.[0]?.source_url ||
+                        "https://contents.trinity-metals.com/wp-content/uploads/2025/02/animated_loader_gif_n6b5x0.gif"
+                      }
+                      customClass={'team-member-photo'}
                       height={330}
-                      imageName="Member image"
+                      width={412}
+                      imageName={`Board Member: ${item.title.rendered}`}
                     />
                     <div className="team-member-details">
                       <div className="team-member-info">
-                        <h2
-                          className="member-name"
-                          dangerouslySetInnerHTML={{ __html: item.title.rendered }}
-                        />
+                        <h2 className="member-name">{item.title.rendered}</h2>
                         <p className="member-post">
-                          {item.acf?.member_personal_information?.designation || ""}
+                          {item.acf.member_personal_information.designation}
                         </p>
                       </div>
-                      <div
-                        className="view-member-desc"
-                        onClick={() => setActiveModal(item.id)}
+
+                      <Modal
+                        size="lg"
+                        aria-labelledby="contained-modal-title-vcenter"
+                        centered
+                        show={activeModal === item.id}
+                        onHide={() => setActiveModal(null)}
                       >
+                        <Modal.Header closeButton />
+                        <Modal.Body>
+                          <div className="a-member-desc">
+                            <div className="a-member-image">
+                              <ImageGallery
+                                imageUrl={
+                                  item._embedded?.['wp:featuredmedia']?.[0]?.source_url ||
+                                  "https://contents.trinity-metals.com/wp-content/uploads/2025/02/animated_loader_gif_n6b5x0.gif"
+                                }
+                                customClass={'team-member-photo'}
+                                height={330}
+                                width={259}
+                                imageName={`Modal: ${item.title.rendered}`}
+                              />
+                            </div>
+                            <div className="text-content">
+                              <p
+                                dangerouslySetInnerHTML={{
+                                  __html: item.content.rendered || "Content is loading..."
+                                }}
+                              />
+                            </div>
+                          </div>
+                        </Modal.Body>
+                      </Modal>
+
+                      <div className="view-member-desc" onClick={() => setActiveModal(item.id)}>
                         <ImageGallery
                           imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Vector-1.svg"
-                          width={31}
                           height={31}
-                          customClass="view-more-icon"
-                          imageName="view description"
+                          width={31}
+                          customClass="icon-vector"
+                          imageName="View Details"
                         />
                       </div>
                     </div>
-
-                    {/* Modal */}
-                    <Modal
-                      size="lg"
-                      centered
-                      show={activeModal === item.id}
-                      onHide={() => setActiveModal(null)}
-                    >
-                      <Modal.Header closeButton />
-                      <Modal.Body>
-                        <div className="a-member-desc">
-                          <div className="a-member-image">
-                            <ImageGallery
-                              imageUrl={item._embedded?.['wp:featuredmedia']?.[0]?.source_url || "/placeholder.jpg"}
-                              customClass="team-member-photo"
-                              width={259}
-                              height={330}
-                              imageName="Member image"
-                            />
-                          </div>
-                          <div className="text-content">
-                            <h3 dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
-                            <div
-                              dangerouslySetInnerHTML={{
-                                __html: item.content.rendered || "No biography available."
-                              }}
-                            />
-                          </div>
-                        </div>
-                      </Modal.Body>
-                    </Modal>
                   </div>
                 ))}
               </div>
@@ -188,78 +240,83 @@ export default function Leadership() {
             )}
           </div>
 
-          {/* Executive Management */}
-          <div className="header-element pt-5">
+          {/* Executive Management Section */}
+          <div className="header-element">
             <h2 className="text-center">
-              {dict["our-leadership"]?.["executive-management"] || "Executive Management Team"}
+              {dict?.['our-leadership']?.['executive-management']}
             </h2>
           </div>
 
-          <div className="team-members second-grid pb-5">
-            {getMembers('management').length > 0 ? (
+          <div className="team-members second-grid">
+            {managementMembers?.[currentLang === "kiny" ? "kiny" : "en"]?.length > 0 ? (
               <div className="team-member-wrapper">
-                {getMembers('management').map((item) => (
+                {(currentLang === "kiny"
+                  ? managementMembers.kiny.slice()
+                  : managementMembers.en.slice().reverse()
+                ).map((item) => (
                   <div key={item.id} className="single-team-member">
                     <ImageGallery
-                      imageUrl={item._embedded?.['wp:featuredmedia']?.[0]?.source_url || "/placeholder.jpg"}
-                      customClass="team-member-photo"
-                      width={412}
+                      imageUrl={
+                        item._embedded?.['wp:featuredmedia']?.[0]?.source_url ||
+                        "https://contents.trinity-metals.com/wp-content/uploads/2025/02/animated_loader_gif_n6b5x0.gif"
+                      }
+                      customClass={'team-member-photo'}
                       height={330}
-                      imageName="Member image"
+                      width={412}
+                      imageName={`Management: ${item.title.rendered}`}
                     />
                     <div className="team-member-details">
                       <div className="team-member-info">
-                        <h2
-                          className="member-name"
-                          dangerouslySetInnerHTML={{ __html: item.title.rendered }}
-                        />
+                        <h2 className="member-name">{item.title.rendered}</h2>
                         <p className="member-post">
-                          {item.acf?.member_personal_information?.designation || ""}
+                          {item.acf.member_personal_information.designation}
                         </p>
                       </div>
-                      <div
-                        className="view-member-desc"
-                        onClick={() => setActiveModal(item.id)}
+
+                      <Modal
+                        size="lg"
+                        aria-labelledby="contained-modal-title-vcenter"
+                        centered
+                        show={activeModal === item.id}
+                        onHide={() => setActiveModal(null)}
                       >
+                        <Modal.Header closeButton />
+                        <Modal.Body>
+                          <div className="a-member-desc">
+                            <div className="a-member-image">
+                              <ImageGallery
+                                imageUrl={
+                                  item._embedded?.['wp:featuredmedia']?.[0]?.source_url ||
+                                  "https://contents.trinity-metals.com/wp-content/uploads/2025/02/animated_loader_gif_n6b5x0.gif"
+                                }
+                                customClass={'team-member-photo'}
+                                height={330}
+                                width={259}
+                                imageName={`Modal: ${item.title.rendered}`}
+                              />
+                            </div>
+                            <div className="text-content">
+                              <p
+                                dangerouslySetInnerHTML={{
+                                  __html: item.content.rendered || "Content is loading..."
+                                }}
+                              />
+                            </div>
+                          </div>
+                        </Modal.Body>
+                      </Modal>
+
+                      <div className="view-member-desc" onClick={() => setActiveModal(item.id)}>
                         <ImageGallery
                           imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Vector-1.svg"
-                          width={31}
                           height={31}
-                          customClass="view-more-icon"
-                          imageName="view description"
+                          width={31}
+                          customClass="icon-vector"
+
+                          imageName="View Details"
                         />
                       </div>
                     </div>
-
-                    <Modal
-                      size="lg"
-                      centered
-                      show={activeModal === item.id}
-                      onHide={() => setActiveModal(null)}
-                    >
-                      <Modal.Header closeButton />
-                      <Modal.Body>
-                        <div className="a-member-desc">
-                          <div className="a-member-image">
-                            <ImageGallery
-                              imageUrl={item._embedded?.['wp:featuredmedia']?.[0]?.source_url || "/placeholder.jpg"}
-                              customClass="team-member-photo"
-                              width={259}
-                              height={330}
-                              imageName="Member image"
-                            />
-                          </div>
-                          <div className="text-content">
-                            <h3 dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
-                            <div
-                              dangerouslySetInnerHTML={{
-                                __html: item.content.rendered || "No biography available."
-                              }}
-                            />
-                          </div>
-                        </div>
-                      </Modal.Body>
-                    </Modal>
                   </div>
                 ))}
               </div>
@@ -267,7 +324,6 @@ export default function Leadership() {
               <Spinner />
             )}
           </div>
-
         </div>
       </div>
     </>

@@ -357,7 +357,7 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
             )}
           </div>
           <div className="general-button justify-content-center">
-            <Link href={`/${currentLang}/about/our-leadership`} className="hover-green">
+            <Link href={`/${currentLang}/our-leadership`} className="hover-green">
               <span>{d['about-us-page']?.['view-all-team-button']}</span>
               <ImageGallery
                 imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Arrow2.svg"

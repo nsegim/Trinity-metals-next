@@ -1,7 +1,8 @@
 "use client";
 
-import { createContext, useContext, ReactNode } from "react";
 
+import { createContext, useContext, ReactNode } from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 type TranslationDict = Record<string, string>;
 
 interface TranslationContextValue {
@@ -10,12 +11,13 @@ interface TranslationContextValue {
 }
 
 
+const queryClient = new QueryClient()
 
 const TranslationContext = createContext<TranslationContextValue | null>(null);
 
 interface TranslationProviderProps {
   dict: TranslationDict;
-  lang : string;
+  lang: string;
   children: ReactNode;
 }
 
@@ -25,9 +27,11 @@ export function TranslationProvider({ dict, lang, children }: TranslationProvide
   const value = { dict, lang };
 
   return (
-    <TranslationContext.Provider value={value} >
-      {children}
-    </TranslationContext.Provider>
+    <QueryClientProvider client={queryClient}>
+      <TranslationContext.Provider value={value} >
+        {children}
+      </TranslationContext.Provider>
+    </QueryClientProvider>
   );
 }
 

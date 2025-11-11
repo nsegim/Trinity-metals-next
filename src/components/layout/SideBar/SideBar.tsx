@@ -10,13 +10,11 @@ import { useTranslation } from '@/app/context/TranslationContext';
 import Link from 'next/link';
 import moment from 'moment';
 import './SideBar.css';
+import { getFeaturedImage } from '@/lib/extract';
 
 // Props
-interface SideBarProps {
-  currentCategories: { [key: number]: string };
-}
 
-const SideBar = ({ currentCategories = {} }: SideBarProps) => {
+const SideBar = () => {
   const { dict, lang } = useTranslation();
 
   const [relatedPosts, setRelatedPosts] = useState<any[]>([]);
@@ -157,7 +155,7 @@ const SideBar = ({ currentCategories = {} }: SideBarProps) => {
                       <div key={item.id} className="featured-post">
                         <div className="featured-image">
                           <ImageGallery
-                            imageUrl={featuredImage[item.id] || 'https://contents.trinity-metals.com/wp-content/uploads/2025/02/animated_loader_gif_n6b5x0.gif'}
+                            imageUrl={getFeaturedImage(item) || 'https://contents.trinity-metals.com/wp-content/uploads/2025/02/animated_loader_gif_n6b5x0.gif'}
                             customClass="related-featured-img"
                             height={62}
                             width={92}
@@ -166,7 +164,7 @@ const SideBar = ({ currentCategories = {} }: SideBarProps) => {
                         </div>
                         <div className="post-details">
                           <div className="post-title">
-                            <Link href={`/${lang}/post/${item.id}`}>
+                            <Link href={`/${lang}/post/${item.slug}`}>
                               <p dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
                             </Link>
                           </div>

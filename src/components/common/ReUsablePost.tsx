@@ -6,6 +6,7 @@ import moment from 'moment/min/moment-with-locales';
 import DOMPurify from 'dompurify';
 import Link from "next/link";
 import { useTranslation } from '../../app/context/TranslationContext';
+import { getFeaturedImage } from '@/lib/extract';
 
 // Optimized ImageGallery with lazy loading
 const OptimizedImageGallery = memo(({ 
@@ -72,9 +73,7 @@ const ReUsablePost = memo(({ item, categories, postImages }: ReUsablePostProps) 
   }, [categories, item?.id]);
 
   // Memoized image URL
-  const imageUrl = useMemo(() => {
-    return postImages?.[item?.id] || DEFAULT_PLACEHOLDER;
-  }, [postImages, item?.id]);
+  const imageUrl = getFeaturedImage(item)
 
   // Memoized link component
   const ReadMoreLink = useMemo(() => {
@@ -95,7 +94,7 @@ const ReUsablePost = memo(({ item, categories, postImages }: ReUsablePostProps) 
       );
     } else if (hasContent) {
       return (
-        <Link href={`/${lang}/post/${item.id}`} className="read-more-btn">
+        <Link href={`/${lang}/post/${item.slug}`} className="read-more-btn">
           <span>{dict.home?.["read-more-button"] || 'Read More'}</span>
         </Link>
       );
@@ -142,7 +141,7 @@ const ReUsablePost = memo(({ item, categories, postImages }: ReUsablePostProps) 
               imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Category-Icon.svg"
               customClass="category-icon"
               alt="Category"
-               width={19}
+               width={19}OptimizedImageGallery
               height={18}
            
             />

@@ -59,16 +59,20 @@ const OffcanvasMenu = () => {
                     <ImageGallery imageName={undefined} 
                       imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/site-logo1.png"
                       customClass="site-image-logo"
+                      
+                      width={148.740234375}
+                       height={69.51000213623047}
+
                     />
                   </Link>
                 </div>
                 <div className="contact-info">
                   <a href="#">
-                    <ImageGallery imageName={undefined} customClass={undefined} imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/phone-icon.svg" />
+                    <ImageGallery imageName={undefined} customClass={undefined} imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/phone-icon.svg" width={13.44} height={14}/>
                     <span>+250 791 959 034</span>
                   </a>
                   <a href="#">
-                    <ImageGallery imageName={undefined} customClass={undefined} imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/envelope.svg" />
+                    <ImageGallery imageName={undefined} customClass={undefined} imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/envelope.svg"width={13} height={14}  />
                     <span>Email: info.rw@trinity-metals.com</span>
                   </a>
                 </div>
@@ -76,7 +80,7 @@ const OffcanvasMenu = () => {
                     <ul className="social-icons">
                                <li>
                                  <a href="https://x.com/Trinity_Metals" target="_blank">
-                                   <ImageGallery imageName={undefined} customClass={undefined} imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/X-icon.svg" />
+                                   <ImageGallery imageName={undefined} customClass={undefined} imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/X-icon.svg" width={14} height={14}  />
                                  </a>
                                </li>
                                <li>
@@ -88,7 +92,7 @@ const OffcanvasMenu = () => {
                                </li>
                                <li>
                                  <a href="https://youtu.be/tfJO_Fxl33c?si=fdC9qCcIe3P-bRro" target="_blank">
-                                   <ImageGallery imageName={undefined} customClass={undefined} imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Youtube-icon.svg" />
+                                   <ImageGallery imageName={undefined} customClass={undefined} imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Youtube-icon.svg" width={14} height={14} />
                                  </a>
                                </li>
                      </ul>

@@ -128,7 +128,7 @@ const BottomImagesGallery = [
               </div>
 
               <div className="button-element">
-                <Link href="/our-projects" className="view-projects transprent-button">
+                <Link href={`/${lng}/projects`} className="view-projects transprent-button">
                   {(dict.home["view-project-button"])}
                   <span>
                     <ImageGallery 
@@ -214,7 +214,7 @@ const BottomImagesGallery = [
               </div>
               
               <div className="button-element">
-                <Link href="our-projects" className="view-projects transprent-button">
+                <Link href={`/${lng}/projects`} className="view-projects transprent-button">
                     {(dict.home["view-project-button"])}
                   <span>
                     <ImageGallery 
@@ -236,7 +236,7 @@ const BottomImagesGallery = [
                   </Link>  
                 </div>
                 <div className="project-title">
-                  <Link href="/our-projects/nyakabingo">
+                  <Link href={`/${lng}/projects/nyakabingo-mine`}>
                     <span>
                        {(dict.home["trinity-Nyakabingo-mine"])}
                     </span>
@@ -246,7 +246,7 @@ const BottomImagesGallery = [
               
               <div className="a-card">
                 <div className="featured-image">
-                  <Link href="/our-projects/musha">
+                  <Link href={`/${lng}/projects/rutongo-mine`}>
                     <ImageGallery 
                       imageUrl='https://contents.trinity-metals.com/wp-content/uploads/2025/02/musha_mine-min.png.webp'
                       customClass="card-image"
@@ -254,7 +254,7 @@ const BottomImagesGallery = [
                   </Link>  
                 </div>
                 <div className="project-title">
-                  <Link href="/our-projects/musha">
+                  <Link href={`/${lng}/projects/musha-mine`}>
                     <span>
                        {(dict.home["trinity-musha-mine"])}
                     </span>
@@ -311,7 +311,7 @@ const BottomImagesGallery = [
               </div>
 
               <div className="button-element">
-                <Link href="/sustainability" className="view-projects transprent-button">
+                <Link href={`/${lng}/sustainability`} className="view-projects transprent-button">
                    {(dict.home["read-more-button"])}
                   <span>
                     <ImageGallery 
