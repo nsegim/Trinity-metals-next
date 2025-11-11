@@ -141,7 +141,7 @@ const ReUsablePost = memo(({ item, categories, postImages }: ReUsablePostProps) 
               imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Category-Icon.svg"
               customClass="category-icon"
               alt="Category"
-               width={19}OptimizedImageGallery
+               width={19}
               height={18}
            
             />
