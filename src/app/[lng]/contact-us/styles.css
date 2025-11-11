@@ -65,15 +65,6 @@ text-align: left;
 padding: 5px 15px 15px 15px;
 }
 
-.right-header h1{
-   
-font-size: 36px;
-font-weight: 700;
-line-height: 43.88px;
-text-align: left;
-color: var(--trinity-dark);
-
-}
 .right-text-element p{
   color: var(--trinity-dark);
   padding-bottom: 30px;
@@ -386,15 +377,7 @@ text-align: left;
 padding: 5px 15px 15px 15px;
 }
 
-.right-header h1{
-   
-font-size: 36px;
-font-weight: 700;
-line-height: 43.88px;
-text-align: left;
-color: var(--trinity-dark);
 
-}
 .right-text-element p{
   color: var(--trinity-dark);
   padding-bottom: 30px;

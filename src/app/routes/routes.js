@@ -19,7 +19,7 @@ const RoutesConfig = () => {
                     { name: (dict.header.about["our-values"]), path:`/${currentLang}/about/#our-values` },
                     { name: (dict.header.about["our-strategies"]), path:`/${currentLang}/about/#our-strategies` }, 
                     { name: (dict.header.about["our-products"]), path:`/${currentLang}/about/#our-products`},
-                    { name: (dict.header.about["our-leadership"]), path:`/${currentLang}/about/#our-values` }
+                    { name: (dict.header.about["our-leadership"]), path:`/${currentLang}/our-leadership` }
                     
                 ]
             },

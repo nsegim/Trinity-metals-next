@@ -6,12 +6,12 @@ import ImageGallery from '@/components/common/ImageGallery';
 // import ResumeUpload from './DrapDropTest';
 import { fetchData } from '../../../../lib/config/apiConfig';
 import moment from 'moment';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../../context/TranslationContext';
 import Link from 'next/link';
 import "./styles.css";
 
 export default function CareersClient() {
-  const { t } = useTranslation();
+  const { dict, lang } = useTranslation();
   const [selectedOption, setSelectedOption] = useState("");
   const [selectedLocation, setSelectedLocation] = useState("");
   const [data, setData] = useState<any[]>([]);
@@ -46,11 +46,11 @@ export default function CareersClient() {
             </div>
             <div className="col-md-6 right">
               <div className="right-header">
-                <h1>{t("careers.top-title")}</h1>
+                <h2>{dict.careers["top-title"]}</h2>
               </div>
               <div className="right-description">
-                <p>{t("careers.top-desc1")}</p>
-                <p>{t("careers.top-desc2")}</p>
+                <p>{dict.careers["top-desc1"]}</p>
+                <p>{dict.careers["top-desc2"]}</p>
               </div>
             </div>
           </div>
@@ -67,18 +67,18 @@ export default function CareersClient() {
                   <form className="job-filter">
                     <div className="search-fields d-flex">
                       <div className="job-name-field">
-                        <label>{t("careers.search-form.input-title")}</label>
+                        <label>{dict.careers["search-form"]["input-title"]}</label>
                         <input
                           type="text"
                           name="job-name"
-                          placeholder={t("careers.search-form.input-placeholder")}
+                          placeholder={dict.careers["search-form"]["input-placeholder"]}
                         />
                       </div>
                       <div className="select-location-field">
                         <div className="select-field">
                           <select value={selectedOption} onChange={handleChange}>
                             <option value="" disabled>
-                              {t("careers.search-form.select-field-title")}
+                              {dict.careers["search-form"]["select-field-title"]}
                             </option>
                             <option value="Nyakabingo">Nyakabingo</option>
                             <option value="Musha">Musha</option>
@@ -151,7 +151,7 @@ export default function CareersClient() {
                   ))
                 ) : (
                   <div className="no-position">
-                    <p className="text-center">{t("careers.No-position")}</p>
+                    <p className="text-center">{dict.careers["No-position"]}</p>
                   </div>
                 )}
               </div>

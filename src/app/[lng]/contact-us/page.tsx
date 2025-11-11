@@ -71,7 +71,7 @@ export default async function page( { params }: ContactUsPageProps) {
 
             <div className="col-md-6 right">
               <div className="right-header">
-                <h1>{dict.Contact["get-in-touch"]}</h1>
+                <h2>{dict.Contact["get-in-touch"]}</h2>
               </div>
 
               <div className="form-wrapper">

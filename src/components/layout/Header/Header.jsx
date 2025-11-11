@@ -39,7 +39,7 @@ const SiteHeader = () => {
           <div className="right-tools">
              <LanguageSwitcher />
             <div className="social-links">
-                <Link href="/Careers" className="careerBtn">
+                <Link href={`/${lang}/careers`} className="careerBtn">
                   {(dict.header.careers)}
                 </Link>
                 <ul className="social-icon">

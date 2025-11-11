@@ -1,0 +1,42 @@
+.Team-container-wrapper{
+    background-color: #F2F2F2;
+    padding-top: 20px;
+    padding-bottom: 80px;
+}
+.header-element h2{
+    
+font-size: 36px;
+font-weight: 700;
+line-height: 43.88px;
+margin-bottom: 0;
+
+}
+.Team-container-wrapper .container{
+    gap: 40px;
+}
+
+.specific-team-member-photo{
+    max-height: 400px;
+}
+
+@media(min-width: 768px){
+    .second-grid .single-team-member:nth-of-type(8) .member-post,
+ .team-member-wrapper .single-team-member:nth-of-type(1) .member-post, 
+ .first-grid .team-member-wrapper .single-team-member:nth-of-type(3) .member-post{
+  
+  width: 68%;
+  
+}
+}
+
+
+@media (max-width: 768px){
+   .about-hero-section .heading, .child-item-wrapper h1{
+    font-size: 36px!important;
+   }
+   .Team-container-wrapper .header-element h1{
+    font-size: 32px;
+    line-height: 38.88px;
+    
+}
+}

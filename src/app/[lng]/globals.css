@@ -1423,3 +1423,16 @@ color: var(--trinity-dark);
 .image-grid:hover .view-image{
     opacity: 1;
 } 
+
+
+
+
+.right-header h2{
+   
+font-size: 36px;
+font-weight: 700;
+line-height: 43.88px;
+text-align: left;
+color: var(--trinity-dark);
+
+}
