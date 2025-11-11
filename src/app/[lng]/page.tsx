@@ -55,7 +55,6 @@ const BottomImagesGallery = [
 
   // Now safe to use
   const dict = await getDictionary(lng);
-  const posts = await fetchData("posts?page=1&per_page=9");
 
   return (
     
@@ -359,7 +358,7 @@ const BottomImagesGallery = [
 
           <div className="articles-cards-wrapper">
             {/* Only lazy load below-the-fold components */}
-            <LoopGrid itemsPerPage={isMobile ? 1 : 3} posts={posts} />
+            <LoopGrid itemsPerPage={isMobile ? 1 : 3} />
           </div>
         </div>
       </div>
