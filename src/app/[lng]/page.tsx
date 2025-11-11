@@ -1,14 +1,12 @@
 
 import Link from 'next/link'
 // import { useState, useRef, useCallback, lazy } from "react";
-import { useMediaQuery } from "@mui/material";
-import { redirect } from 'next/navigation';
+// import { redirect } from 'next/navigation';
  import ImageGallery from "../../components/common/ImageGallery.jsx";
  import IncreamentCounter from "../../components/common/Counter.jsx"
 // import svg from "./public/asset/SVG"
-import { useTranslation } from '../context/TranslationContext';
+// import { useTranslation } from '../context/TranslationContext';
 import dynamic from 'next/dynamic';
-import { fetchData } from "../../../lib/config/apiConfig";
 import './home.css'
 
 // Only lazy load below-the-fold components
@@ -19,7 +17,7 @@ import AboutTabs from '@/components/common/home-client/AboutTabs';
 import Head from 'next/head'
 
 import { getDictionary } from '@/app/i18n/dictionaries';
- import { Locale, locales } from '@/app/i18n/config';
+ import { Locale } from '@/app/i18n/config';
 import { headers } from "next/headers";
 
 import "./globals.css";

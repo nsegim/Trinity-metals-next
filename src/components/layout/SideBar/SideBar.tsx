@@ -22,7 +22,7 @@ const SideBar = () => {
   const [allImages, setAllImages] = useState<any[]>([]);
   const [All, setAll] = useState<any[]>([]);
   const [isSinglePost, setIsSinglePost] = useState(false);
-  const [featuredImage, setFeaturedImage] = useState<{ [key: number]: string }>({});
+  
   const [searchQuery, setSearchQuery] = useState('');
 
   // === FETCH RELATED POSTS ===
@@ -39,21 +39,6 @@ const SideBar = () => {
   }, []);
 
   // === FETCH FEATURED IMAGES ===
-  useEffect(() => {
-    if (relatedPosts.length === 0) return;
-
-    relatedPosts.forEach(async (item) => {
-      if (item?.featured_media) {
-        try {
-          const media = await fetchData(`media/${item.featured_media}`);
-          const thumb = media?.media_details?.sizes?.thumbnail?.source_url || media?.source_url;
-          setFeaturedImage((prev) => ({ ...prev, [item.id]: thumb }));
-        } catch (err) {
-          console.error('Image fetch error:', err);
-        }
-      }
-    });
-  }, [relatedPosts]);
 
   // === FETCH GALLERY ===
   useEffect(() => {
