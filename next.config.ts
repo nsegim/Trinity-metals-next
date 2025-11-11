@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
 
    //i18n, // 👈 Important — pass i18n to Next.js config
    reactStrictMode: true,
+    output: 'export',
     images: {
     remotePatterns: [
       {
