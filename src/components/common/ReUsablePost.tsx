@@ -7,30 +7,30 @@ import DOMPurify from 'dompurify';
 import Link from "next/link";
 import { useTranslation } from '../../app/context/TranslationContext';
 import { getFeaturedImage } from '@/lib/extract';
+import ImageGallery from './ImageGallery';
 
 // Optimized ImageGallery with lazy loading
 const OptimizedImageGallery = memo(({ 
   imageUrl, 
+  imageName,
   customClass, 
   alt = "", 
-  loading = "lazy", 
   width,
   height
 }: { 
   imageUrl: string; 
+  imageName?: string;
   customClass?: string; 
   alt?: string; 
-  loading?: "lazy" | "eager"; 
    width?: number;
   height?: number
 }) => {
   return (
-    <img
-      src={imageUrl}
+    <ImageGallery
+      imageUrl={imageUrl}
       alt={alt}
-      className={customClass}
-      loading={loading}
-      decoding="async"
+      imageName={imageName}
+      customClass={customClass}
       width={width}
       height={height}
       
@@ -69,8 +69,11 @@ const ReUsablePost = memo(({ item, categories, postImages }: ReUsablePostProps) 
 
   // Memoized category name
   const categoryName = useMemo(() => {
-    return categories?.[item?.id] || 'Loading...';
+    categories =  item?._embedded?.['wp:term'][0][0]?.name || 'Loading...';
+    return categories
   }, [categories, item?.id]);
+  
+
 
   // Memoized image URL
   const imageUrl = getFeaturedImage(item)
@@ -113,18 +116,19 @@ const ReUsablePost = memo(({ item, categories, postImages }: ReUsablePostProps) 
 
   return (
     <div className="grid-item">
-      <img
-        src={`${imageUrl}.webp`}
+      <ImageGallery
+        imageUrl={`${imageUrl}.webp`}
         alt={item?.title?.rendered ? `Image for ${DOMPurify.sanitize(item.title.rendered)}` : 'Post image'}
-        className="featured-image"
-        loading="lazy"
-        decoding="async"
-        onError={(e) => {
-          const target = e.target as HTMLImageElement;
-          if (target.src !== DEFAULT_PLACEHOLDER) {
-            target.src = DEFAULT_PLACEHOLDER;
-          }
-        }}
+        customClass={'featured-image'}
+        width={413}
+        height={390}
+        imageName={item?.title?.rendered ? DOMPurify.sanitize(item.title.rendered) : 'Post image'}
+        // onError={(e) => {
+        //   const target = e.target as HTMLImageElement;
+        //   if (target.src !== DEFAULT_PLACEHOLDER) {
+        //     target.src = DEFAULT_PLACEHOLDER;
+        //   }
+        // }}
 
         // width={413}
         // height={390}

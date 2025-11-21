@@ -4,7 +4,7 @@ import axios from "axios";
 const BASE_URL = "https://contents.trinity-metals.com/wp-json/wp/v2";
 
 export const fetchPosts = async () => {
-  const res = await axios.get(`${BASE_URL}/posts?_embed&per_page=10`);
+  const res = await axios.get(`${BASE_URL}/posts?_embed&per_page=9`);
   return res.data;
 };
 

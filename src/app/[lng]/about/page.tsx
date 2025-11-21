@@ -7,14 +7,24 @@ import { Locale } from '@/app/i18n/config';
 import { Metadata } from 'next';
 import ClientAbout from './ClientAbout'; // ← Client wrapper for modals + scroll
 
-export const metadata: Metadata = {
-  title: "About Us | Trinity Metals Limited",
+
+
+
+export async function generateMetadata() {
+
+ 
+  return {
+   title: "About Us | Trinity Metals Limited",
   description: "Learn about Trinity Metals Limited’s formation from three major Rwandan mining companies...",
   openGraph: {
     title: "About Us | Trinity Metals Limited",
     description: "Learn about Trinity Metals Limited’s formation...",
-    url: "https://trinity-metals.com/about",
+    url: "https://trinity-metals.com/en/about",
   },
+  alternates: {
+      canonical: "https://trinity-metals.com/en/about",
+    },
+}
 };
 
 export default async function AboutPage({

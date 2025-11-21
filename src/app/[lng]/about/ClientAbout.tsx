@@ -34,20 +34,54 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
     ref.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-
   useEffect(() => {
-    const handleHash = () => {
-      const hash = window.location.hash;
-      if (hash === '#our-history') scrollToSection(historyRef);
-      else if (hash === '#our-values') scrollToSection(valuesRef);
-      else if (hash === '#our-strategies') scrollToSection(strategiesRef);
-      else if (hash === '#our-products') scrollToSection(productsRef);
-    };
+  const handleHash = () => {
+    const hash = window.location.hash;
 
+    if (hash === '#our-history') scrollToSection(historyRef);
+    else if (hash === '#our-values') scrollToSection(valuesRef);
+    else if (hash === '#our-strategies') scrollToSection(strategiesRef);
+    else if (hash === '#our-products') scrollToSection(productsRef);
+  };
+
+  // Run once on mount (for reload / direct link)
+  // Using requestAnimationFrame ensures DOM is painted
+  const raf = requestAnimationFrame(() => {
     handleHash();
-    window.addEventListener('hashchange', handleHash);
-    return () => window.removeEventListener('hashchange', handleHash);
-  }, []);
+  });
+
+  // Also handle hash changes while staying on the page
+  window.addEventListener('hashchange', handleHash);
+
+  return () => {
+    cancelAnimationFrame(raf);
+    window.removeEventListener('hashchange', handleHash);
+  };
+}, []);
+
+
+  // useEffect(() => {
+    
+  //   const handleHash = () => {
+  //     const hash = window.location.hash;
+  //     if (hash === '#our-history') scrollToSection(historyRef);
+  //     else if (hash === '#our-values') scrollToSection(valuesRef);
+  //     else if (hash === '#our-strategies') scrollToSection(strategiesRef);
+  //     else if (hash === '#our-products') scrollToSection(productsRef);
+  //   };
+    
+  //  const timeout = setTimeout(() => {
+  //     handleHash();
+  //   }, 200)
+
+
+  //   return () => clearTimeout(timeout);
+  //   // handleHash();
+  //   // window.addEventListener('hashchange', handleHash);
+  //   // return () => window.removeEventListener('hashchange', handleHash);
+
+
+  // }, []);
 
   const [modalShow, setModalShow] = useState(false);
   const [activeModal, setActiveModal] = useState<number | null>(null);
@@ -89,20 +123,21 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
       </div>
 
       {/* History */}
-      <div ref={historyRef} className="container history-section-wrapper">
+      <div ref={historyRef} className="container history-section-wrapper"  id="our-history">
         <div className="row justify-content-between">
           <div className="col-md-6 image-holder">
             <ImageGallery
               imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/06/tyu.webp"
               customClass="history-image"
               height={494}
+              alt={undefined}
               width={610}
               imageName="Nyakabingo site"
             />
           </div>
           <div className="col-md-6 histort-content-holder">
             <div className="content-holder">
-              <h1 className="section-heading">{d['about-us-page']?.['our-history-section-title']}</h1>
+              <h2 className="section-heading">{d['about-us-page']?.['our-history-section-title']}</h2>
               <div className="text-content">
                 <p className="fw-bold">{d['about-us-page']?.['our-history-top-description']}</p>
                 <p>{d['about-us-page']?.['our-history-sub-desc']}</p>
@@ -124,6 +159,7 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
                   <ImageGallery
                     imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Arrow2.svg"
                     height={19}
+                    alt={undefined}
                     width={13}
                     imageName="Read More Arrow"
                     customClass="Read-more-icon"
@@ -147,6 +183,7 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
                   width={73}
                   imageName="Our Mission Icon"
                   customClass="Our-mission-photo"
+                  alt={undefined}
                 />
               </div>
               <div className="icon-box-header">
@@ -163,6 +200,7 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
                 <ImageGallery
                   imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Our_vision-icon.svg"
                   height={73}
+                  alt={undefined}
                   width={73}
                   imageName="Our Vision Icon"
                   customClass="Our-vision-icon"
@@ -180,7 +218,7 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
       </div>
 
       {/* Values */}
-      <div ref={valuesRef} className="values-section py-5">
+      <div ref={valuesRef} className="values-section py-5" id="our-values" >
         <div className="container our-values-holder">
           <div className="inner-contentWrapper">
             <div className="trinity-heading">
@@ -190,7 +228,7 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
               <div className="the-grid-item">
                 <div className="the-icon-box">
                   <div className="the-iconbox-icon">
-                    <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/LightBulb.svg" height={47} width={46} imageName="We Empower Icon" customClass="Our-impact-icon" />
+                    <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/LightBulb.svg" alt={undefined} height={47} width={46} imageName="We Empower Icon" customClass="Our-impact-icon" />
                   </div>
                   <div className="iconbox-content-wrapper">
                     <div className="icon-box-header"><p>{d['about-us-page']?.['we-empower']}</p></div>
@@ -201,7 +239,7 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
               <div className="the-grid-item">
                 <div className="the-icon-box">
                   <div className="the-iconbox-icon">
-                    <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Watch-icon.svg" height={47} width={46} imageName="We Do No Harm Icon" customClass="Our-impact-icon" />
+                    <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Watch-icon.svg" height={47} width={46} imageName="We Do No Harm Icon" alt={undefined} customClass="Our-impact-icon" />
                   </div>
                   <div className="iconbox-content-wrapper">
                     <div className="icon-box-header"><p>{d['about-us-page']?.['we-do-no-warm']}</p></div>
@@ -212,7 +250,7 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
               <div className="the-grid-item">
                 <div className="the-icon-box">
                   <div className="the-iconbox-icon">
-                    <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/User-icon.svg" height={47} width={46} imageName="We Set Standard Icon" customClass="Our-impact-icon" />
+                    <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/User-icon.svg" height={47} width={46} imageName="We Set Standard Icon" alt={undefined} customClass="Our-impact-icon" />
                   </div>
                   <div className="iconbox-content-wrapper">
                     <div className="icon-box-header"><p>{d['about-us-page']?.['we-set-standard']}</p></div>
@@ -223,7 +261,7 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
               <div className="the-grid-item">
                 <div className="the-icon-box">
                   <div className="the-iconbox-icon">
-                    <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/trophy-icon.svg" height={47} width={46} imageName="Accountability Icon" customClass="Our-impact-icon" />
+                    <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/trophy-icon.svg" height={47} width={46} imageName="Accountability Icon" customClass="Our-impact-icon" alt={undefined} />
                   </div>
                   <div className="iconbox-content-wrapper">
                     <div className="icon-box-header"><p>{d['about-us-page']?.['we-hold-ourselves-accountable']}</p></div>
@@ -237,7 +275,7 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
       </div>
 
       {/* Strategies */}
-      <div ref={strategiesRef} className="strategies-section d-flex justify-content-center flex-column">
+      <div ref={strategiesRef} className="strategies-section d-flex justify-content-center flex-column" id="our-strategies">
         <div className="inner-container container">
           <div className="top-content d-flex justify-content-center align-items-center flex-column">
             <div className="text-heading">
@@ -251,7 +289,7 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
             <div className="the-grid-item">
               <div className="the-icon-box">
                 <div className="the-iconbox-icon">
-                  <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Hammer-icon.svg" customClass="strategy-icon" height={70} width={71} imageName="Business Strategy Icon" />
+                  <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Hammer-icon.svg" customClass="strategy-icon" height={70} width={71} alt={undefined} imageName="Business Strategy Icon" />
                 </div>
                 <div className="iconbox-content-wrapper">
                   <div className="icon-box-header"><p className="text-center">{d['about-us-page']?.['our-strategies-business']}</p></div>
@@ -262,7 +300,7 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
             <div className="the-grid-item">
               <div className="the-icon-box">
                 <div className="the-iconbox-icon">
-                  <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/group-icon.svg" customClass="strategy-icon" height={70} width={71} imageName="People Strategy Icon" />
+                  <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/group-icon.svg" customClass="strategy-icon" height={70} width={71} imageName="People Strategy Icon" alt={undefined}/>
                 </div>
                 <div className="iconbox-content-wrapper">
                   <div className="icon-box-header"><p className="text-center">{d['about-us-page']?.['our-strategies-people']}</p></div>
@@ -273,7 +311,7 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
             <div className="the-grid-item">
               <div className="the-icon-box">
                 <div className="the-iconbox-icon">
-                  <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/intersection-cion.svg" customClass="strategy-icon" height={70} width={71} imageName="Relationships Strategy Icon" />
+                  <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/intersection-cion.svg" customClass="strategy-icon" height={70} width={71} imageName="Relationships Strategy Icon" alt={undefined} />
                 </div>
                 <div className="iconbox-content-wrapper">
                   <div className="icon-box-header"><p className="text-center">{d['about-us-page']?.['our-strategies-relationships']}</p></div>
@@ -284,7 +322,7 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
             <div className="the-grid-item">
               <div className="the-icon-box">
                 <div className="the-iconbox-icon">
-                  <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/qlementine-icons_build-16.svg" customClass="strategy-icon" height={70} width={71} imageName="Future Strategy Icon" />
+                  <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/qlementine-icons_build-16.svg" customClass="strategy-icon" height={70} width={71} imageName="Future Strategy Icon" alt={undefined} />
                 </div>
                 <div className="iconbox-content-wrapper">
                   <div className="icon-box-header"><p className="text-center">{d['about-us-page']?.['our-strategies-future']}</p></div>
@@ -307,7 +345,7 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
               <div className="team-member-wrapper">
                 {(currentLang === 'kiny'
                   ? managementMembers.kiny.slice(0, 3)
-                  : managementMembers.en.slice(5, 8).reverse()
+                  : managementMembers.en.slice(4, 8).reverse()
                 )?.map((item: any) => (
                   <div key={item.id} className="single-team-member">
                     <ImageGallery
@@ -315,6 +353,7 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
                       customClass="team-member-photo"
                       height={330}
                       width={412}
+                      alt={undefined}
                       imageName={`Team Member: ${item.title?.rendered}`}
                     />
                     <div className="team-member-details">
@@ -332,6 +371,7 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
                                 customClass="team-member-photo"
                                 height={330}
                                 width={259}
+                                alt={undefined}
                                 imageName={`Modal: ${item.title?.rendered}`}
                               />
                             </div>
@@ -346,6 +386,7 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
                           width={31}
                           imageName="View Member Details"
                           customClass="View-team-desc"
+                          alt={undefined}
                         />
                       </div>
                     </div>
@@ -365,6 +406,7 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
                 width={13}
                 imageName="View All Team Arrow"
                 customClass="Read-more-icon"
+                alt={undefined}
               />
             </Link>
           </div>
@@ -372,7 +414,7 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
       </div>
 
       {/* Products */}
-      <div ref={productsRef} className="container our-products-section">
+      <div ref={productsRef} className="container our-products-section" id="our-products">
         <div className="first-container">
           <div className="header-part">
             <h2 className="section-heading">{d['about-us-page']?.['our-product-section-title']}</h2>
@@ -383,7 +425,7 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
         </div>
         <div className="second-container d-flex">
           <div className="single-product">
-            <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Tin.svg" customClass="product-image" height={218} width={412} imageName="Tin Product" />
+            <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Tin.svg" customClass="product-image" height={218} width={412} imageName="Tin Product" alt={undefined}/>
             <div className="product-desc">
               <div className="product-name"><p>{d['about-us-page']?.['our-product-TIN']}</p></div>
               <hr className="custom-divider" />
@@ -391,7 +433,7 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
             </div>
           </div>
           <div className="single-product">
-            <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Tantalum.svg" customClass="product-image" height={218} width={412} imageName="Tantalum Product" />
+            <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Tantalum.svg" customClass="product-image" height={218} width={412} imageName="Tantalum Product" alt={undefined} />
             <div className="product-desc">
               <div className="product-name"><p>{d['about-us-page']?.['our-product-TANTALUM']}</p></div>
               <hr className="custom-divider" />
@@ -399,7 +441,7 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
             </div>
           </div>
           <div className="single-product">
-            <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Tangusten.svg" customClass="product-image" height={218} width={412} imageName="Tungsten Product" />
+            <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Tangusten.svg" customClass="product-image" height={218} width={412} imageName="Tungsten Product" alt={undefined} />
             <div className="product-desc">
               <div className="product-name"><p>{d['about-us-page']?.['our-product-TUNGSTEN']}</p></div>
               <hr className="custom-divider" />

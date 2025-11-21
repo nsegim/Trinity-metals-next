@@ -72,7 +72,6 @@ const LoopGrid = ({ itemsPerPage = 3 }) => {
       const startIndex = pageIndex * itemsPerPage;
       const endIndex = startIndex + itemsPerPage;
       const pageItems = data.slice(startIndex, endIndex);
-
       return (
         <Carousel.Item 
           key={pageIndex} 

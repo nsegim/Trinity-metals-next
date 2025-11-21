@@ -83,7 +83,7 @@ const SiteHeader = () => {
         <OffcanvasMenu />
 
         <div className="contact-btn">
-          <Link href={`${currentLanng}/contact-us`} className="hover-green">
+          <Link href={`/${currentLanng}/contact-us`} className="hover-green">
             <span> {(dict.header["contact-us"])}</span>
             <ImageGallery imageName={undefined} customClass={undefined} imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/contact-us-icon.svg" width={14} height={15} />
           </Link>

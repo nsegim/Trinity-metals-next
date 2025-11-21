@@ -52,7 +52,7 @@ const OffcanvasMenu = () => {
               <Offcanvas.Title></Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-              <Menus />
+              <Menus onItemClick={handleClose} />
               <div className="basic-info001">
                 <div className="site-logo">
                   <Link href="/">

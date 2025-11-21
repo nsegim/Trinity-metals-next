@@ -110,11 +110,11 @@ const tabs = [
       {/* Navigation */}
       <div className="gallery-navigation">
         <div className="gallery-nav-wrapper d-flex">
-          <a href={`/${lang}/gallery/photos`} className="gallery-nav">
+          <a href={`/${lang}/investor/gallery/photos`} className="gallery-nav">
             <img src="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Photo-icon.svg" alt="Photos" />
             <span>{dict.gallery["photo-gallery"]}</span>
           </a>
-          <a href={`/${lang}/gallery/videos`}className="gallery-nav visited">
+          <a href={`/${lang}/investor/gallery/videos`}className="gallery-nav visited">
             <img src="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Video-icon.svg" alt="Videos" />
             <span>{dict.gallery["video-gallery"]}</span>
           </a>

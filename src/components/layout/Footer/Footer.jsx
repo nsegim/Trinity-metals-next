@@ -79,7 +79,7 @@ const SiteFooter = () => {
                       </div>
                 </div>
                 
-                  {  location.pathname === `/${lang}/projects/musha-mine` ? (
+                  {  location === `/${lang}/projects/musha-mine` ? (
                           
                         <div className="mine-site-location">  
                           <h4> {(dict.footer["trinity-musha-mine"])}</h4>
@@ -101,7 +101,7 @@ const SiteFooter = () => {
                               </li>
                          </ul>
                         </div> 
-                      ) : location.pathname === `/${lang}/projects/nyakabingo-mine` ?(
+                      ) : location === `/${lang}/projects/nyakabingo-mine` ?(
                         <div className="mine-site-location">  
                           <h4> {(dict.home["trinity-Nyakabingo-mine"])}</h4>
                           <ul>
@@ -122,7 +122,7 @@ const SiteFooter = () => {
                               </li>
                          </ul>
                         </div>
-                      ): location.pathname === `/${lang}/projects/rutongo-mine` ?(
+                      ): location === `/${lang}/projects/rutongo-mine` ?(
                         <div className="mine-site-location">  
                           
                           <h4> {(dict.footer["rutongo-mine"])}</h4>
