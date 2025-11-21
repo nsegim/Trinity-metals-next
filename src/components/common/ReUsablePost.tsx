@@ -69,9 +69,10 @@ const ReUsablePost = memo(({ item, categories, postImages }: ReUsablePostProps) 
 
   // Memoized category name
   const categoryName = useMemo(() => {
-    categories =  item?._embedded?.['wp:term'][0][0]?.name || 'Loading...';
-    return categories
-  }, [categories, item?.id]);
+    // Extract category name from embedded terms safely without mutating props
+    const cat = item?._embedded?.['wp:term']?.[0]?.[0]?.name || 'Loading...';
+    return cat;
+  }, [item?.id, item?._embedded]);
   
 
 
