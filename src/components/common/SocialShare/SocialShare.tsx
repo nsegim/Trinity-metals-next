@@ -65,6 +65,7 @@ export default function SocialShare({ postUrl, postTitle }: SocialShareProps) {
                 customClass="Icon image"
                 height={40}
                 width={40}
+                alt={undefined}
               />
 
             </a>
@@ -84,7 +85,7 @@ export default function SocialShare({ postUrl, postTitle }: SocialShareProps) {
               customClass="Icon image"
                 height={40}
                 width={40}
-
+              alt={undefined}
             />
           </button>
         </li>
@@ -107,7 +108,7 @@ export default function SocialShare({ postUrl, postTitle }: SocialShareProps) {
                 customClass="Icon image"
                 height={40}
                 width={40}
-
+                alt={undefined} 
               />
             </a>
           ))}
