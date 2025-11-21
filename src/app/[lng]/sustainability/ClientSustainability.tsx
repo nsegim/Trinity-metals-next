@@ -91,6 +91,7 @@ const ClientSustainability = ({ lng }: { lng: string }) => {
             height={1080}
                    width={1920}
                    imageName="sustainability feature"
+                   alt={undefined}
            />
           <div className="col-md-6 community-content">
             <div className="content-wrapper">
@@ -111,6 +112,7 @@ const ClientSustainability = ({ lng }: { lng: string }) => {
             height={1014}
                    width={574}
                    imageName="sustainability feature"
+                   alt={undefined}
           />
           <div className="col-md-6 bg-section"></div>
           <div className="col-md-6 content-section has-content">
@@ -131,6 +133,7 @@ const ClientSustainability = ({ lng }: { lng: string }) => {
            height={913}
                    width={607}
                    imageName="sustainability feature"
+                   alt={undefined}
           />
           <div className="col-md-6 community-content">
             <div className="content-wrapper">
@@ -151,6 +154,7 @@ const ClientSustainability = ({ lng }: { lng: string }) => {
            height={1024}
                    width={672}
                    imageName="sustainability feature"
+                   alt={undefined}
           />
           <div className="col-md-6 bg-section"></div>
           <div className="col-md-6 content-section has-content1">
@@ -171,6 +175,7 @@ const ClientSustainability = ({ lng }: { lng: string }) => {
           <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Community-icon.svg" customClass="sustainabilty-icon sus-icon" 
            height={730}
                    width={592}
+                   alt={undefined}
                    imageName="sustainability feature"
           />
           <div className="col-md-6 community-content">
@@ -231,6 +236,7 @@ const ClientSustainability = ({ lng }: { lng: string }) => {
                    width={51}
                    customClass="pdf"
                    imageName="Pdf icon"
+                   alt={undefined}
                     />
                     <h4 dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
                   </div>
@@ -270,6 +276,7 @@ const ClientSustainability = ({ lng }: { lng: string }) => {
                    width={51}
                    customClass="pdf"
                    imageName="Pdf icon"
+                   alt={undefined}
                     />
                     <h4 dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
                   </div>
