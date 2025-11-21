@@ -55,13 +55,13 @@ function ArticleDatails({ slug }: ArticleProps) {
                                         <ul className="post-meta">
                                             <li>
                                                 <a href="#">
-                                                    <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Icon.svg" customClass="Admin-icon" imageName="Author" width={15} height={16} />
+                                                    <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Icon.svg" customClass="Admin-icon" imageName="Author" width={15} height={16} alt={undefined} />
                                                     <p>Admin</p>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Document-icon.svg" customClass="Category-icon" imageName="Category" width={15} height={16} />
+                                                    <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Document-icon.svg" customClass="Category-icon" imageName="Category" width={15} height={16} alt={undefined} />
                                                     <p>Industrial</p>
                                                 </a>
                                             </li>
