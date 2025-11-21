@@ -74,7 +74,7 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
                   <span className="button-name">{dict.home?.["read-more-button"]}</span>
                   <span className="button-icon">
                     <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/arrow-icon.svg" height={25}
-        width={26}  imageName={"Read More"} customClass={"Read-more-icon"}  />
+        width={26}  imageName={"Read More"} customClass={"Read-more-icon"}  alt={undefined}/>
                   </span>
                 </Link>
               </div>
@@ -90,7 +90,7 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
                   <span className="button-name">{dict.home?.["read-more-button"]}</span>
                   <span className="button-icon">
                     <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/arrow-icon.svg" height={25}
-        width={26}  imageName={"Read More"} customClass={"Read-more-icon"} />
+        width={26}  imageName={"Read More"} customClass={"Read-more-icon"} alt={undefined}/>
                   </span>
                 </Link>
               </div>
@@ -106,7 +106,7 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
                   <span className="button-name">{dict.home?.["read-more-button"]}</span>
                   <span className="button-icon">
                     <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/arrow-icon.svg" height={25}
-        width={26}  imageName={"Read More"} customClass={"Read-more-icon"} />
+        width={26}  imageName={"Read More"} customClass={"Read-more-icon"} alt={undefined}/>
                   </span>
                 </Link>
               </div>
@@ -122,7 +122,7 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
                   <span className="button-name">{dict.home?.["read-more-button"]}</span>
                   <span className="button-icon">
                     <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/arrow-icon.svg" height={25}
-        width={26}  imageName={"Read More"} customClass={"Read-more-icon"} />
+        width={26}  imageName={"Read More"} customClass={"Read-more-icon"} alt={undefined}/>
                   </span>
                 </Link>
               </div>

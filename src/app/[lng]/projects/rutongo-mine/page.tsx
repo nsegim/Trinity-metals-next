@@ -59,6 +59,7 @@ export default async function RutongoPage({ params }: RutongoPageProps) {
                    width={51}
                    imageName="productions data"
                    customClass="productions"
+                   alt={undefined}
                   />
                 </div>
                 <div className="details-element">
@@ -74,6 +75,7 @@ export default async function RutongoPage({ params }: RutongoPageProps) {
                    width={51}
                    imageName="productions data"
                    customClass="productions"
+                   alt={undefined}
                   />
                 </div>
                 <div className="details-element">
@@ -89,6 +91,7 @@ export default async function RutongoPage({ params }: RutongoPageProps) {
                    width={51}
                    imageName="productions data"
                    customClass="productions"
+                   alt={undefined}
                   />
                 </div>
                 <div className="details-element">
@@ -104,6 +107,7 @@ export default async function RutongoPage({ params }: RutongoPageProps) {
                    width={51}
                    imageName="productions data"
                    customClass="productions"
+                   alt={undefined}
                   />
                 </div>
                 <div className="details-element">

@@ -59,6 +59,7 @@ export default async function page({ params }: MushaPageProps) {
                    width={51}
                    imageName="productions data"
                    customClass="productions"
+                   alt={undefined}
                    />
                 </div>
                 <div className="details-element">
@@ -74,6 +75,7 @@ export default async function page({ params }: MushaPageProps) {
                    width={50}
                    imageName="productions data"
                    customClass="productions"
+                   alt={undefined}
                   />
                 </div>
                 <div className="details-element">
@@ -89,6 +91,7 @@ export default async function page({ params }: MushaPageProps) {
                    width={43}
                    imageName="productions data"
                    customClass="productions"
+                   alt={undefined}
                   />
                 </div>
                 <div className="details-element">

@@ -58,6 +58,7 @@ export default async function page({ params }: NyakabingoPageProps) {
                    width={51}
                    imageName="productions data"
                    customClass="productions"
+                   alt={undefined}
                   />
                 </div>
                 <div className="details-element">
@@ -73,6 +74,7 @@ export default async function page({ params }: NyakabingoPageProps) {
                    width={51}
                    imageName="productions data"
                    customClass="productions"
+                   alt={undefined}
                   />
                 </div>
                 <div className="details-element">
@@ -88,6 +90,7 @@ export default async function page({ params }: NyakabingoPageProps) {
                    width={51}
                    imageName="productions data"
                    customClass="productions"
+                   alt={undefined}
                    />
                 </div>
                 <div className="details-element">
