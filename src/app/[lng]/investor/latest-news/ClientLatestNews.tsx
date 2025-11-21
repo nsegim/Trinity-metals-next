@@ -162,6 +162,7 @@ const ClientLatestNews = ({ lng }: { lng: string }) => {
                     width={8}
                     customClass="arrow-right"
                     imageName="arrow icon"
+                    alt={undefined}
                     />
                   </button>
                 </div>
