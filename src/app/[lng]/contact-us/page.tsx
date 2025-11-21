@@ -62,6 +62,7 @@ export default async function page( { params }: ContactUsPageProps) {
                     imageName="Phone Icon"
                     customClass="Cell-phone"
                     width={32}
+                    alt={undefined}
                     height={33}
                   />
                   <span> {dict.Contact["contact-tel"]}</span>
