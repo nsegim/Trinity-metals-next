@@ -121,6 +121,7 @@ const SideBar = () => {
                     width={16}
                     customClass="search-icon"
                     imageName="search Icon"
+                    alt={undefined}
                   />
                 </button>
               </form>
@@ -145,6 +146,8 @@ const SideBar = () => {
                             height={62}
                             width={92}
                             imageName="Featured"
+                            alt={undefined}
+
                           />
                         </div>
                         <div className="post-details">
@@ -212,6 +215,8 @@ const SideBar = () => {
                               height={62}
                               width={92}
                               imageName="Gallery"
+                              alt={undefined}
+
                             />
                             <div className="view-image" onClick={() => handleClick(item, index)}>
                               <ImageGallery
@@ -220,6 +225,8 @@ const SideBar = () => {
                                 height={31}
                                 width={30}
                                 imageName="View"
+                                alt={undefined}
+
                               />
                             </div>
                           </div>
