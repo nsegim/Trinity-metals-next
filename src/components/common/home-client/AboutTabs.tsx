@@ -61,7 +61,7 @@ export default function AboutTabs({ dict }: { dict: any }) {
                   <ImageGallery  
                   imageUrl='https://contents.trinity-metals.com/wp-content/uploads/2025/02/mine_site_employees.png.webp'
                   customClass="miners_img1"
-                  width={187} height={85} imageName={undefined}                  />
+                  width={187} height={85} imageName={undefined}  alt={undefined}                />
                 </div>
               </div>
             </div>
@@ -79,7 +79,7 @@ export default function AboutTabs({ dict }: { dict: any }) {
                   <ImageGallery 
                   imageUrl='https://contents.trinity-metals.com/wp-content/uploads/2025/02/mine_site_employees2.png.webp'
                   customClass="miners_img1"
-                  width={187} height={85} imageName={undefined}                  />
+                  width={187} height={85} imageName={undefined} alt={undefined}                 />
                 </div>
               </div>
             </div>
@@ -97,7 +97,7 @@ export default function AboutTabs({ dict }: { dict: any }) {
                   <ImageGallery 
                   imageUrl='https://contents.trinity-metals.com/wp-content/uploads/2025/02/mine_site_employees3.png.webp'
                   customClass="miners_img1"
-                  width={187} height={85} imageName={undefined}                  />
+                  width={187} height={85} imageName={undefined}  alt={undefined}                />
                 </div>
               </div>
             </div>
