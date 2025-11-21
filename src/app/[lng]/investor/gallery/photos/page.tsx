@@ -171,7 +171,7 @@ const tabs = [
                   <div className="photo-category All">
                     {images.map((item, index) => (
                       <div key={index} className="image-grid">
-                        <ImageGallery imageUrl={item.link} customClass="gallery-img" imageName="min-display" width={412} height={274} />
+                        <ImageGallery imageUrl={item.link} customClass="gallery-img" imageName="min-display" width={412} height={274}  alt={undefined}/>
                         <div className="view-image" onClick={() => handleClick(item, index)}>
                           <ImageGallery
                             imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/View-button.svg"
@@ -179,6 +179,7 @@ const tabs = [
                             imageName="play icon"
                             width={60}
                             height={61}
+                            alt={undefined}
                           />
                         </div>
                       </div>
@@ -199,7 +200,7 @@ const tabs = [
                 disabled={currentPage === 1}
                 onClick={() => setCurrentPage(currentPage - 1)}
               >
-                <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Vector.svg" customClass="paginator" imageName="Paginator" width={9} height={15} />
+                <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Vector.svg" customClass="paginator" imageName="Paginator" width={9} height={15} alt={undefined} />
               </button>
 
               <div className="page-numbers-wrapper">
@@ -219,7 +220,7 @@ const tabs = [
                 disabled={currentPage === totalPages}
                 onClick={() => setCurrentPage(currentPage + 1)}
               >
-                <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Vector-1-1.svg" customClass="paginator" imageName="Paginator" width={9} height={15} />
+                <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Vector-1-1.svg" customClass="paginator" imageName="Paginator" width={9} height={15} alt={undefined}/>
               </button>
             </div>
           )}

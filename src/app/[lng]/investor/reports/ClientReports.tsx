@@ -86,6 +86,7 @@ const ClientReports = ({ lng }: { lng: string }) => {
                     width={16}
                     customClass="search-icon"
                     imageName="search Icon"
+                    alt={undefined}
                   />
                 </button>
               </form>

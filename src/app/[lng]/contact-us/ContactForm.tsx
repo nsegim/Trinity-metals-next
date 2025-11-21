@@ -142,6 +142,7 @@ export default function ContactForm() {
                   imageName="Dropdown Icon"
                   width={14}
                   height={37}
+                  alt={undefined}
                   customClass="Dropdown icon"
                 />
               </span>
@@ -187,6 +188,7 @@ export default function ContactForm() {
               width={14}
                   height={13}
                   customClass="Dropdown icon"
+                  alt={undefined}
 
             />
           </span>

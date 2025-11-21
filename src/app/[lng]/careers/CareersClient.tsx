@@ -99,6 +99,7 @@ export default function CareersClient() {
                         imageName="search icon"
                         customClass="seach--icon"
                         width={17}
+                        alt={undefined}
                         height={17}
                       />
                     </button>
@@ -123,6 +124,7 @@ export default function CareersClient() {
                                 customClass="Arrow--icon"
                                 width={14}
                                 height={16}
+                                alt={undefined}
                            />
                         </Link>
                       </div>
@@ -134,6 +136,7 @@ export default function CareersClient() {
                                 customClass="map--icon"
                                 width={13}
                                 height={17}
+                                alt={undefined}
                              />
                             <span>{item?.acf?.location}</span>
                           </li>

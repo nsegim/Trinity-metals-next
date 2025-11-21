@@ -180,6 +180,7 @@ export default function Page() {
                       height={330}
                       width={412}
                       imageName={`Board Member: ${item.title.rendered}`}
+                      alt={undefined}
                     />
                     <div className="team-member-details">
                       <div className="team-member-info">
@@ -204,10 +205,12 @@ export default function Page() {
                                 imageUrl={
                                   item._embedded?.['wp:featuredmedia']?.[0]?.source_url ||
                                   "https://contents.trinity-metals.com/wp-content/uploads/2025/02/animated_loader_gif_n6b5x0.gif"
+                                  
                                 }
                                 customClass={'team-member-photo'}
                                 height={330}
                                 width={259}
+                                alt={undefined}
                                 imageName={`Modal: ${item.title.rendered}`}
                               />
                             </div>
@@ -229,6 +232,7 @@ export default function Page() {
                           width={31}
                           customClass="icon-vector"
                           imageName="View Details"
+                          alt={undefined}
                         />
                       </div>
                     </div>
@@ -264,6 +268,7 @@ export default function Page() {
                       height={330}
                       width={412}
                       imageName={`Management: ${item.title.rendered}`}
+                      alt={undefined}
                     />
                     <div className="team-member-details">
                       <div className="team-member-info">
@@ -293,6 +298,7 @@ export default function Page() {
                                 height={330}
                                 width={259}
                                 imageName={`Modal: ${item.title.rendered}`}
+                                alt={undefined}
                               />
                             </div>
                             <div className="text-content">
@@ -312,7 +318,7 @@ export default function Page() {
                           height={31}
                           width={31}
                           customClass="icon-vector"
-
+                            alt={undefined}
                           imageName="View Details"
                         />
                       </div>

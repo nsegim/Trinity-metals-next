@@ -135,7 +135,9 @@ const ClientLatestNews = ({ lng }: { lng: string }) => {
                     height={15}
                     width={8}
                     customClass="arrow-left"
-                    imageName="arrow icon"/>
+                    imageName="arrow icon"
+                    alt={undefined}
+                    />
                   </button>
 
                   <div className="page-numbers-wrapper">

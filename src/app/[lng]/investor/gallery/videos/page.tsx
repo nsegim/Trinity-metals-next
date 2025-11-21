@@ -155,6 +155,7 @@ const tabs = [
                        width={85}
                         height={76}
                         imageName="Play icon"
+                        alt={undefined}
                     />
                     <div className="play-video" onClick={(e) => handleVideoPlay(e, item)}>
                       <ImageGallery
@@ -163,6 +164,7 @@ const tabs = [
                         width={85}
                         height={76}
                         imageName="Play icon"
+                        alt={undefined}
 
                       />
                     </div>

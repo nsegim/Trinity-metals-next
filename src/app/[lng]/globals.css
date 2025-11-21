@@ -1522,3 +1522,92 @@ color: var(--trinity-dark);
   width: 100%;
   object-fit: cover;
 }
+
+
+
+
+    /* A team member popup styles */
+    .executive-management-wrapper h2 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 43.88px;
+    margin-bottom: 0;
+}
+    .a-member-desc{
+        display: flex;
+        column-gap: 50px;
+        padding: 30px;
+    }
+    @media (max-width: 768px) {
+        .a-member-desc{
+            flex-direction: column;
+            padding: 0!important;
+        }
+        .a-member-desc .text-content, .a-member-desc .a-member-image{
+            width: 100%!important;
+        }
+        .values-section .inner-contentWrapper{
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        .inner-wrapper, .child-item-wrapper {
+            padding-top: 50px;
+        }
+        .inner-wrapper .heading, .child-item-wrapper h1{
+            line-height: 1.3em!important;
+        }
+        .history-image{
+          height: 300px;
+          object-fit: cover;
+        }
+    }
+    .a-member-desc .text-content {
+        width: 60%;
+    }
+    .a-member-desc .a-member-image{
+        width: 40%;
+    }
+    .a-member-desc .a-member-image img{
+        min-height: 300px;
+        object-fit: cover;
+
+    }
+    
+    .member-name, .member-post{
+        color: var(--trinity-dark);
+        margin-bottom: auto;
+    }
+   
+    
+    .member-post{
+       
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19px;
+    text-align: left;
+    
+    
+    }
+    .general-button {
+        display: flex;
+        
+        padding-top: 30px;
+    }
+    .general-button .hover-green{
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 19.5px;
+        text-align: center;
+        text-decoration: none;
+        background-color: var(--trinity-blue);
+        border-radius: 5px;
+        padding: 16px 30px 16px 30px;
+        color: var(--trinity-white);
+        display: flex;
+        gap: 10px;
+        ;
+    }
+    
+    .general-button .hover-green:hover{
+        background-color: var(--trinity-green);
+    }
