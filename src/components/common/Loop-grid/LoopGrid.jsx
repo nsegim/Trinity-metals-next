@@ -142,7 +142,8 @@ const LoopGrid = ({ itemsPerPage = 3 }) => {
         pause="hover"
         touch={true}
         style={{ paddingBottom: "60px" }}
-        controls={carouselItems.length > 1}
+        // controls={carouselItems.length > 1}
+        controls={false}
         indicators={carouselItems.length > 1}
       >
         {carouselItems}
