@@ -17,7 +17,7 @@ const ImageGallery = ({ imageUrl, imageName, customClass, height, width, alt }) 
         alt={imageName || "Gallery Image"}
         height={height}
         width={width}
-        
+          unoptimized={true}
       />
     
   );
