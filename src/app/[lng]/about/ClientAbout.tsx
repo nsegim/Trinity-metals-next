@@ -11,8 +11,8 @@ import { fetchData } from '../../../../lib/config/apiConfig';
 import { useTranslation } from '@/app/context/TranslationContext';
 
 interface ClientAboutProps {
-  initialData: any[];
-  initialError: any;
+  initialData: unknown[];
+  initialError: unknown;
   lng: string;
 }
 
@@ -60,33 +60,11 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
 }, []);
 
 
-  // useEffect(() => {
-    
-  //   const handleHash = () => {
-  //     const hash = window.location.hash;
-  //     if (hash === '#our-history') scrollToSection(historyRef);
-  //     else if (hash === '#our-values') scrollToSection(valuesRef);
-  //     else if (hash === '#our-strategies') scrollToSection(strategiesRef);
-  //     else if (hash === '#our-products') scrollToSection(productsRef);
-  //   };
-    
-  //  const timeout = setTimeout(() => {
-  //     handleHash();
-  //   }, 200)
-
-
-  //   return () => clearTimeout(timeout);
-  //   // handleHash();
-  //   // window.addEventListener('hashchange', handleHash);
-  //   // return () => window.removeEventListener('hashchange', handleHash);
-
-
-  // }, []);
 
   const [modalShow, setModalShow] = useState(false);
   const [activeModal, setActiveModal] = useState<number | null>(null);
   const [data] = useState(initialData);
-  const [managementMembers, setManagementMembers] = useState<{ kiny: any[]; en: any[] }>({
+  const [managementMembers, setManagementMembers] = useState<{ kiny: unknown[]; en: unknown[] }>({
     kiny: [],
     en: [],
   });
@@ -95,14 +73,14 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
     const processMembers = async () => {
       if (!data || data.length === 0) return;
       const tagIds = new Set<number>();
-      data.forEach((item: any) => item?.tags?.forEach((id: number) => tagIds.add(id)));
+      data.forEach((item: unknown) => item?.tags?.forEach((id: number) => tagIds.add(id)));
       const tagResponses = tagIds.size > 0 ? await fetchData(`tags?include=${[...tagIds].join(',')}`) : [];
-      const tagLookup = tagResponses.reduce((acc: any, tag: any) => ({ ...acc, [tag.id]: tag.name }), {});
+      const tagLookup = tagResponses.reduce((acc: unknown, tag: unknown) => ({ ...acc, [tag.id]: tag.name }), {});
 
-      const managementTemp: any[] = [];
-      const managementKinyTemp: any[] = [];
+      const managementTemp: unknown[] = [];
+      const managementKinyTemp: unknown[] = [];
 
-      data.forEach((item: any) => {
+      data.forEach((item: unknown) => {
         const tags = item?.tags?.map((id: number) => tagLookup[id]) || [];
         if (tags.includes('Management Team')) managementTemp.push(item);
         if (tags.includes('Abagize inama y\'ubucukuzi bwa Rutongo')) managementKinyTemp.push(item);
