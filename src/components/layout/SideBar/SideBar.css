@@ -4,8 +4,8 @@
 
 }
 .sidebar-wrapper .contain{
-    display: flex;
-    justify-content: end;
+    /* display: flex; */
+    /* justify-content: end; */
     padding: 0;
 }
 
@@ -118,7 +118,7 @@ color: var(--trinity-blue);
 .newsletter-container{
     background-color: var(--trinity-blue);
     position: relative;
-    width: 340;
+    width: 100%;
 gap: 24px;
 padding: 20px;
 display: flex;
@@ -230,8 +230,27 @@ color: var(--trinity-dark);
     gap: 2px;
     margin-top: 20px;
 }
-.sidebar-gallery-img{
+
+@media (max-width: 1400px) {
+    .sidebar-gallery .the-gallery{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+}
+
+
+@media (max-width: 1200px) {
+    .sidebar-gallery .the-gallery{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+}
+.sidebar-gallery .image-grid img{
     width: 100%;
+    height: auto;
+}
+.sidebar-gallery-img{
+    width: 100%!important;
     height: 84.62999725341797px;
     object-fit: cover;
     
