@@ -10,6 +10,8 @@ import { ReactNode } from 'react';
 import SiteHeader from '@/components/layout/Header/Header';
 import SiteFooter from '@/components/layout/Footer/Footer';
 import ScrollToTop from '@/components/common/ScrollToTop';
+import Script from 'next/script'
+
 
 
 
@@ -25,14 +27,29 @@ export default async function RootLayout({
   params,
 }: {
   children: ReactNode;
-  params: Promise<{ lng: string }>; // 👈 Keep as string for Next.js
+  params: Promise<{ lng: string }>; 
 }) {
   const { lng } = await params;
-  const dict = await getDictionary(lng as Locale); // 👈 Cast when using
+  const dict = await getDictionary(lng as Locale); 
 
 
   return (
     <html lang={lng} dir={dir(lng)}>
+      <head>
+        {/* Google tag (gtag.js)  */}
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-JWZLE57M1R"></Script>
+        <Script id="google-analytics">
+          {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'G-JWZLE57M1R');
+          
+          `}
+          
+        </Script>
+      </head>
       <body className={`${montserrat.variable} font-sans`}>
         <TranslationProvider dict={dict} lang={lng}>
            {/* <ScrollToTop /> */}
