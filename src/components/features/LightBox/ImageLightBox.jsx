@@ -2,6 +2,7 @@
 "use client"
 import React, { useState } from "react";
 import TheModal from "./Modal";
+import Image from "next/image";
 
 const ImageLightBox = ({ images, renderImage }) => {
   const [clickedImg, setClickedImg] = useState(null);
@@ -13,7 +14,6 @@ const ImageLightBox = ({ images, renderImage }) => {
     setClickedImg(item.link);
     setClickedImageRenderByApi(item?.guid?.rendered);
 
-    //console.log(images)
   };
 
   const handleRotationRight = () => {
@@ -43,9 +43,11 @@ const ImageLightBox = ({ images, renderImage }) => {
             <div className="the-image-grid">
               {images.map((item, index) => (
                 <div key={index} className={`grid-item${index + 1}`}>
-                  <img
+                  <Image
                     src={item.link}
                     alt={item.text}
+                    width={300}
+                    height={200}
                     className="gallery-image"
                     onClick={() => handleClick(item, index)}
                     loading="lazy"

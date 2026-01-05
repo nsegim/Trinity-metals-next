@@ -8,6 +8,7 @@ import Link from "next/link";
 import { useTranslation } from '../../app/context/TranslationContext';
 import { getFeaturedImage } from '@/lib/extract';
 import ImageGallery from './ImageGallery';
+import Image from 'next/image';
 
 // Optimized ImageGallery with lazy loading
 const OptimizedImageGallery = memo(({ 
@@ -117,13 +118,12 @@ const ReUsablePost = memo(({ item, categories, postImages }: ReUsablePostProps) 
 
   return (
     <div className="grid-item">
-      <ImageGallery
-        imageUrl={`${imageUrl}.webp`}
+      <Image
+        src={`${imageUrl}.webp`}
         alt={item?.title?.rendered ? `Image for ${DOMPurify.sanitize(item.title.rendered)}` : 'Post image'}
-        customClass={'featured-image'}
+        className={'featured-image'}
         width={413}
         height={390}
-        imageName={item?.title?.rendered ? DOMPurify.sanitize(item.title.rendered) : 'Post image'}
         // onError={(e) => {
         //   const target = e.target as HTMLImageElement;
         //   if (target.src !== DEFAULT_PLACEHOLDER) {

@@ -3,7 +3,7 @@ import Link from 'next/link'
 
  import ImageGallery from "../../components/common/ImageGallery.jsx";
  import IncreamentCounter from "../../components/common/Counter.jsx"
-
+ import Image from 'next/image.js';
 import dynamic from 'next/dynamic';
 import './home.css'
 
@@ -99,13 +99,13 @@ const BottomImagesGallery = [
           >
             <source src="https://contents.trinity-metals.com/wp-content/uploads/2025/10/homepage-1-compressed.mp4" type="video/mp4" />
             {/* Fallback image for browsers that don't support video */}
-            <ImageGallery
-              imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/hero-fallback.jpg" 
+            <Image
+              src="https://contents.trinity-metals.com/wp-content/uploads/2025/02/hero-fallback.jpg" 
               alt="Trinity Metals" 
               width={1920}
               height={1080}
-              imageName={'hero-fallback'}
-              customClass={'hero-fallback-image'}
+              
+              className={'hero-fallback-image'}
               
             />
           </video>
@@ -115,10 +115,10 @@ const BottomImagesGallery = [
           <div className="basic-info">
             <h1 className="section-header">
               <span className="welcome-icon">
-                <ImageGallery 
-                  imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/welcome-icon.svg"
+                <Image 
+                  src="https://contents.trinity-metals.com/wp-content/uploads/2025/02/welcome-icon.svg"
                   height={10}
-                  width={36} imageName={undefined} customClass={undefined} alt={undefined}          />
+                  width={36} alt='' className={undefined}         />
               </span>
               {(dict.home.welcome)}
             </h1>
@@ -131,10 +131,10 @@ const BottomImagesGallery = [
                   
                   {(dict.home["get-stated-button"])}
                   <span>
-                    <ImageGallery 
-                      imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/arrow-icon.svg"
+                    <Image 
+                      src="https://contents.trinity-metals.com/wp-content/uploads/2025/02/arrow-icon.svg"
                       height={24}
-                      width={24} imageName={undefined} customClass={undefined} alt={undefined}                 />
+                      width={24} alt='' className={undefined}                />
                   </span>
                 </Link>
               </div>
@@ -143,10 +143,10 @@ const BottomImagesGallery = [
                 <Link href={`/${lng}/projects`} className="view-projects transprent-button">
                   {(dict.home["view-project-button"])}
                   <span>
-                    <ImageGallery 
-                      imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/arrow-icon.svg"
+                    <Image 
+                      src="https://contents.trinity-metals.com/wp-content/uploads/2025/02/arrow-icon.svg"
                       height={24}
-                      width={24} imageName={undefined} customClass={undefined} alt={undefined}               />
+                      width={24} alt='' className={undefined}              />
                   </span>
                 </Link>
               </div>
@@ -192,10 +192,10 @@ const BottomImagesGallery = [
               <div className="buttonElement">
                 <Link href={`${lng}/about`} className="hover-green">
                   <span>{(dict.home["read-more-button"])}</span>
-                  <ImageGallery 
-                    imageUrl='https://contents.trinity-metals.com/wp-content/uploads/2025/02/Arrow2.svg'
-                    width={13} height={13} imageName={undefined} customClass={undefined} 
-                    alt={undefined}                 />
+                  <Image 
+                    src='https://contents.trinity-metals.com/wp-content/uploads/2025/02/Arrow2.svg'
+                    width={13} height={13} alt='' className={undefined} 
+                                  />
                 </Link>
               </div>
             </div>
@@ -213,9 +213,9 @@ const BottomImagesGallery = [
               <div className="section-heading">
                 <h2 className="section-header-2">
                   <span className="welcome-icon">
-                    <ImageGallery 
-                      imageUrl='https://contents.trinity-metals.com/wp-content/uploads/2025/02/welcome-icon2.svg'
-                      width={35.79} height={7} imageName={undefined} customClass={undefined} alt={undefined}              />
+                    <Image 
+                      src='https://contents.trinity-metals.com/wp-content/uploads/2025/02/welcome-icon2.svg'
+                      width={35.79} height={7} alt='' className={undefined}             />
                   </span>
                   {(dict.home["latest-work-section"])}
                 </h2>
@@ -230,9 +230,9 @@ const BottomImagesGallery = [
                 <Link href={`/${lng}/projects`} className="view-projects transprent-button">
                     {(dict.home["view-project-button"])}
                   <span>
-                    <ImageGallery 
-                      imageUrl='https://contents.trinity-metals.com/wp-content/uploads/2025/02/arrow-icon.svg'
-                      width={26} height={25} imageName={undefined} customClass={undefined}     alt={undefined}               />
+                    <Image 
+                      src='https://contents.trinity-metals.com/wp-content/uploads/2025/02/arrow-icon.svg'
+                      width={26} height={25} alt='' className={undefined}                  />
                   </span>
                 </Link>
               </div>
@@ -242,12 +242,12 @@ const BottomImagesGallery = [
               <div className="a-card">
                 <div className="featured-image">
                   <Link href="/our-projects/nyakabingo">
-                    <ImageGallery 
-                      imageUrl='https://contents.trinity-metals.com/wp-content/uploads/2025/02/nyakabingo-mine-min.png.webp'
-                      customClass="card-image"
+                    <Image 
+                      src='https://contents.trinity-metals.com/wp-content/uploads/2025/02/nyakabingo-mine-min.png.webp'
+                      className="card-image"
                       width={412} height={370}
-                       imageName={undefined}      
-                       alt={undefined}              />
+                       alt=''      
+                                   />
                   </Link>  
                 </div>
                 <div className="project-title">
@@ -262,10 +262,10 @@ const BottomImagesGallery = [
               <div className="a-card">
                 <div className="featured-image">
                   <Link href={`/${lng}/projects/rutongo-mine`}>
-                    <ImageGallery 
-                      imageUrl='https://contents.trinity-metals.com/wp-content/uploads/2025/02/musha_mine-min.png.webp'
-                      customClass="card-image"
-                      width={412} height={370} imageName={undefined} alt={undefined}                />
+                    <Image 
+                      src='https://contents.trinity-metals.com/wp-content/uploads/2025/02/musha_mine-min.png.webp'
+                      className="card-image"
+                      width={412} height={370} alt=''              />
                   </Link>  
                 </div>
                 <div className="project-title">
@@ -280,10 +280,10 @@ const BottomImagesGallery = [
               <div className="a-card">
                 <div className="featured-image">
                   <Link href="/our-projects/rutongo">
-                    <ImageGallery 
-                      imageUrl='https://contents.trinity-metals.com/wp-content/uploads/2025/02/rutongo-min.png.webp'
-                      customClass="card-image"
-                      width={412} height={370} imageName={undefined} alt={undefined}          />
+                    <Image 
+                      src='https://contents.trinity-metals.com/wp-content/uploads/2025/02/rutongo-min.png.webp'
+                      className="card-image"
+                      width={412} height={370} alt=''         />
                   </Link>  
                 </div>
                 <div className="project-title">
@@ -307,9 +307,9 @@ const BottomImagesGallery = [
             <div className="col-md-6 Sastainability-right">
               <h2 className="section-header">
                 <span className="welcome-icon">
-                  <ImageGallery 
-                    imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/06/Vector.svg"
-                    width={36} height={6} imageName={undefined} customClass={undefined}  alt={undefined}                />
+                  <Image 
+                    src="https://contents.trinity-metals.com/wp-content/uploads/2025/06/Vector.svg"
+                    width={36} height={6} alt='' className={undefined}                />
                 </span>
                  {(dict.home["sustainability"])}
               </h2>
@@ -329,9 +329,9 @@ const BottomImagesGallery = [
                 <Link href={`/${lng}/sustainability`} className="view-projects transprent-button">
                    {(dict.home["read-more-button"])}
                   <span>
-                    <ImageGallery 
-                      imageUrl='https://contents.trinity-metals.com/wp-content/uploads/2025/10/SVG.svg'
-                      width={26} height={25} imageName={undefined} customClass={undefined} alt={undefined}                 />
+                    <Image 
+                      src='https://contents.trinity-metals.com/wp-content/uploads/2025/10/SVG.svg'
+                      width={26} height={25} alt='' className={undefined}                />
                   </span>
                 </Link>
               </div>
@@ -347,9 +347,9 @@ const BottomImagesGallery = [
             <div className="section-heading">
               <h2 className="section-header-2 with-blue">
                 <span className="welcome-icon-blue me-3">
-                  <ImageGallery 
-                    imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/welcome-icon-blue.svg"
-                    width={36} height={6} imageName={undefined} customClass={undefined} alt={undefined}           />
+                  <Image 
+                    src="https://contents.trinity-metals.com/wp-content/uploads/2025/02/welcome-icon-blue.svg"
+                    width={36} height={6} alt='' className={undefined}          />
                 </span>
                   {(dict.home["blog-post-section"])}
               </h2>
@@ -364,9 +364,9 @@ const BottomImagesGallery = [
               <Link href={`/${lng}/investor/latest-news`} className="explore-more">
                 {(dict.home["read-more-button"])}
                 <span>
-                  <ImageGallery 
-                    imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/arrow-icon.svg"
-                    width={26} height={25} imageName={undefined} customClass={undefined} alt={undefined}                />
+                  <Image 
+                    src="https://contents.trinity-metals.com/wp-content/uploads/2025/02/arrow-icon.svg"
+                    width={26} height={25} alt='' className={undefined}               />
                 </span>
               </Link>
             </div>
@@ -386,9 +386,9 @@ const BottomImagesGallery = [
             <div className="section-heading">
               <h2 className="section-header-2 with-blue">
                 <span className="welcome-icon-blue me-3">
-                  <ImageGallery 
-                    imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/welcome-icon-blue.svg"
-                    width={36} height={8} imageName={undefined} customClass={undefined} alt={undefined}             />
+                  <Image 
+                    src="https://contents.trinity-metals.com/wp-content/uploads/2025/02/welcome-icon-blue.svg"
+                    width={36} height={8} alt='' className={undefined}            />
                 </span>
                 
                 {(dict.home["media-section"])}
@@ -407,9 +407,9 @@ const BottomImagesGallery = [
               <Link href={`/${lng}/investor/gallery/photos`} className="explore-more">
                 {(dict.home["view-gallery-btn"])}
                 <span>
-                  <ImageGallery 
-                    imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/arrow-icon.svg"
-                    width={26} height={25} imageName={undefined} customClass={undefined} alt={undefined}            />
+                  <Image 
+                    src="https://contents.trinity-metals.com/wp-content/uploads/2025/02/arrow-icon.svg"
+                    width={26} height={25} alt='' className={undefined}           />
                 </span>
               </Link>
             </div>
