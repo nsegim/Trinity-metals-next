@@ -3,26 +3,16 @@
 import axios from 'axios';
 
 // Define your base URL
-const BASE_URL = 'https://contents.trinity-metals.com/wp-json/wp/v2/';  // Replace with your actual API base URL
+const BASE_URL = 'https://contents.trinity-metals.com/wp-json/wp/v2/';  
 
 // Create an Axios instance
 const api = axios.create({
-  baseURL: BASE_URL,  // Use your base URL here
+  baseURL: BASE_URL,  
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
-// // You can also create API-specific functions here, for example:
-// export const fetchData = async (endpoint) => {
-//   try {
-//     const response = await api.get(endpoint);  // Replace '/endpoint' with your actual endpoint
-//     return response.data;
-//   } catch (error) {
-//     console.error('Error fetching data:', error);
-//     throw error;
-//   }
-// };
 
 export const fetchData = async (endpoint: string) => {
   try {

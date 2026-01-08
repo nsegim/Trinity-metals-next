@@ -9,13 +9,14 @@ import './styles.css'; // ← your CSS
 
 const ClientSustainability = ({ lng }: { lng: string }) => {
   const { dict, lang } = useTranslation();
-  const currentLang = lang || lng;
 
   const [Documents, setDocuments] = useState<any[]>([]);
   const [Documents2, setDocuments2] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [loadingPdf, setLoadingPdf] = useState(false);
   const [selectedPostUrl, setSelectedPostUrl] = useState<string>('');
+
+  const [data, setData] = useState<{[key: string]: any}>({})
 
   useEffect(() => {
     const fetchReports = async () => {
@@ -33,27 +34,38 @@ const ClientSustainability = ({ lng }: { lng: string }) => {
       }
     };
     fetchReports();
+
   }, []);
 
   useEffect(() => {
     if (!selectedPostUrl) return;
 
-    const downloadPdf = async () => {
-      setLoadingPdf(true);
-      try {
-        const media = await fetchData(`media/${selectedPostUrl}`);
-        if (media?.source_url) {
-          window.open(media.source_url, '_blank');
-        }
-      } catch (err) {
-        console.error('Download failed:', err);
-      } finally {
-        setLoadingPdf(false);
-        setSelectedPostUrl('');
+    const downloadPdf = async (mediaUrl: any) => {
+      // setLoadingPdf(true);
+      if (mediaUrl) {
+           window.open(mediaUrl, '_blank');
       }
+      // try {
+      //   const media = await fetchData(`media/${selectedPostUrl}`);
+      //   if (media?.source_url) {
+      //     window.open(media.source_url, '_blank');
+      //   }
+      // } catch (err) {
+      //   console.error('Download failed:', err);
+      // } finally {
+      //   setLoadingPdf(false);
+      //   setSelectedPostUrl('');
+      // }
     };
-    downloadPdf();
+
+    downloadPdf(selectedPostUrl);
+
+    // console.log('Selected Post URL:', selectedPostUrl);
   }, [selectedPostUrl]);
+
+
+
+
 
   return (
     <>
@@ -243,8 +255,8 @@ const ClientSustainability = ({ lng }: { lng: string }) => {
                   <div className="download-section">
                     <a
                       className="download-button"
-                      onClick={() => setSelectedPostUrl(item.acf.document_uploaded)}
-                      style={{ cursor: 'pointer' }}
+                      onClick={() => setSelectedPostUrl(item.acf.document_uploaded.url)}
+                      style={{ cursor: 'pointer',  caretColor: 'transparent' }}
                     >
                       <span>{loadingPdf ? 'Opening...' : dict['reports']?.['Download-btn']}</span>
                     </a>
@@ -283,9 +295,10 @@ const ClientSustainability = ({ lng }: { lng: string }) => {
                   <div className="download-section">
                     <a
                       className="download-button"
-                      onClick={() => setSelectedPostUrl(item.acf.document_uploaded)}
+                      onClick={() => setSelectedPostUrl(item.acf.document_uploaded.url)}
                       style={{ cursor: 'pointer' }}
-                    >
+                    > 
+                      
                       <span>{loadingPdf ? 'Opening...' : dict['reports']?.['Download-btn']}</span>
                     </a>
                   </div>
