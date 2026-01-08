@@ -1180,6 +1180,10 @@ text-align: center;
   .explore-more{
     padding: 10px;
   }
+  .child-item-wrapper h1, .inner-wrapper .heading, .child-item-wrapper h1{
+    font-size: 30px!important;
+    line-height: 32px!important;
+  }
 }
 
 /* Our Gallery Section Styles */
