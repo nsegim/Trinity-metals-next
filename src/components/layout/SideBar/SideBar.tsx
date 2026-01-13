@@ -14,7 +14,7 @@ import { getFeaturedImage } from '@/lib/extract';
 
 // Props
 
-const SideBar = () => {
+const SideBar = ( {postSlug}) => {
   const { dict, lang } = useTranslation();
 
   const [relatedPosts, setRelatedPosts] = useState<any[]>([]);
@@ -37,7 +37,8 @@ const SideBar = () => {
     };
     fetchPosts();
   }, []);
-
+  
+ 
   // === FETCH FEATURED IMAGES ===
 
   // === FETCH GALLERY ===
@@ -81,15 +82,25 @@ const SideBar = () => {
   // === FILTER & LIMIT POSTS WITH CONTENT (MAX 3) ===
   const featuredPostsWithContent = useMemo(() => {
     if (!Array.isArray(relatedPosts) || relatedPosts.length === 0) return [];
-
+    
     return relatedPosts
       .filter((post) => {
+
+        
+         if(post.slug === postSlug){
+          return false;
+         }
+         
         const content = post?.content?.rendered;
         return content && content.trim() !== "" && content !== "<p></p>";
       })
       .slice(0, 3);
-  }, [relatedPosts]);
 
+     
+
+  }, [relatedPosts, postSlug]);
+
+   console.log('Related Posts:', featuredPostsWithContent);
   // === SEARCH HANDLER (LOCAL ONLY) ===
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

@@ -22,7 +22,7 @@ function ArticleDatails({ slug }: ArticleProps) {
     let featuredImage
 
     if (isLoading || data === null)
-        return <Spinner />
+        return <div style={{display: 'flex', width: '100%', justifyContent: 'center', minHeight: '150px', alignItems: 'center'}}><Spinner /></div> 
     if (data)
         featuredImage = getFeaturedImage(data)
 
@@ -81,7 +81,7 @@ function ArticleDatails({ slug }: ArticleProps) {
 
                         {/* Sidebar */}
                         <div className="col-md-4">
-                            <SideBar
+                            <SideBar postSlug={slug}
                             />
                         </div>
                     </div>
