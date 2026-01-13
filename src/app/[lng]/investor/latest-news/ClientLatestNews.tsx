@@ -171,7 +171,7 @@ const ClientLatestNews = ({ lng }: { lng: string }) => {
 
             {/* Sidebar */}
             <div className="col-md-4">
-              <SideBar
+              <SideBar postSlug=""
               />
             </div>
           </div>
