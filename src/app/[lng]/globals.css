@@ -1447,10 +1447,15 @@ color: var(--trinity-dark);
         width: 100%;
     }
 
-  .team-member-wrapper {
+  
+
+    @media  (min-width: 993px) {
+      .team-member-wrapper {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 30px;
+      
+     }
       
     }
 

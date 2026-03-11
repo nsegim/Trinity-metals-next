@@ -13,7 +13,9 @@ import "../styles.css";
 interface YouTubeVideo {
   snippet: {
     resourceId: { videoId: string };
-    thumbnails: { medium: { url: string } };
+    thumbnails: {
+      standard: any; medium: { url: string } 
+};
     title: string;
   };
 }
@@ -70,6 +72,8 @@ export default function VideoGallery() {
         const videosData = await videosRes.json();
 
         setYoutubeList(videosData.items || []);
+        // console.log("Fetched YouTube Videos:", videosData.items);
+
       } catch (err: any) {
         console.error("YouTube API Error:", err);
         setError(err.message);
@@ -150,7 +154,7 @@ const tabs = [
                 {youtubeList.map((item, index) => (
                   <div key={index} className="image-grid youtube-vid-wrapper">
                     <ImageGallery
-                      imageUrl={item.snippet.thumbnails.medium.url}
+                      imageUrl={item.snippet.thumbnails.standard.url}
                       customClass="gallery-img"
                        width={85}
                         height={76}
