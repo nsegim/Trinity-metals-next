@@ -156,9 +156,9 @@ const tabs = [
                     <ImageGallery
                       imageUrl={item.snippet.thumbnails.standard.url}
                       customClass="gallery-img"
-                       width={85}
-                        height={76}
-                        imageName="Play icon"
+                       width={412}
+                        height={309}
+                        imageName="Video thumbnail"
                         alt={undefined}
                     />
                     <div className="play-video" onClick={(e) => handleVideoPlay(e, item)}>
