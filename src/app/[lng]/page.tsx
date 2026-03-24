@@ -26,6 +26,12 @@ export async function generateMetadata() {
   return {
     title: dict.home.meta.title,
     description: dict.home.meta.description,
+     icons: {
+      icon: "/favicon.ico",
+      shortcut: "/favicon.ico",
+      apple: "/favicon.ico",
+    },
+
     openGraph: {
       title: dict.home.meta.title,
       description: dict.home.meta.description,
