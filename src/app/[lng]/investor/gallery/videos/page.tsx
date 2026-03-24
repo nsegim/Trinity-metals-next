@@ -163,7 +163,7 @@ const tabs = [
                     />
                     <div className="play-video" onClick={(e) => handleVideoPlay(e, item)}>
                       <ImageGallery
-                        // imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Link-e1739190132637.png"
+                        imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Link-e1739190132637.png"
                         customClass="play-video-player"
                         width={85}
                         height={76}
