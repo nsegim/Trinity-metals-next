@@ -119,7 +119,8 @@ const ReUsablePost = memo(({ item, categories, postImages }: ReUsablePostProps) 
   return (
     <div className="grid-item">
       <Image
-        src={`${imageUrl}.webp`}
+        // src={`${imageUrl}.webp`}
+        src={imageUrl || DEFAULT_PLACEHOLDER}
         alt={item?.title?.rendered ? `Image for ${DOMPurify.sanitize(item.title.rendered)}` : 'Post image'}
         className={'featured-image'}
         width={413}

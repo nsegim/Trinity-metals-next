@@ -160,6 +160,18 @@ color: var(--trinity-dark);
 
 }
 
+.page-ellipsis {
+  padding: 0 4px;
+  color: #6b7280;
+  cursor: default;
+  user-select: none;
+}
+
+.page-number.disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
 
 /* Youtube video styles */
 .youtube-vid-wrapper img{

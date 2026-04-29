@@ -1,12 +1,14 @@
 // app/gallery/photos/page.tsx
 'use client';
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import ImageGallery from "@/components/common/ImageGallery";
 import Spinner from "@/components/ui/Spinner/Spinner";
 import ImageLightBox from "@/components/features/LightBox/ImageLightBox";
 import { fetchData } from "../../../../../../lib/config/apiConfig";
 import { useTranslation } from "@/app/context/TranslationContext";
+import DOMPurify from 'dompurify';
+
 import "../styles.css";
 
 interface GalleryImage {
@@ -25,7 +27,6 @@ export default function PhotoGallery() {
   const [selectedGallery, setSelectedGallery] = useState<GalleryImage[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
-  const scrollRef = useRef<HTMLDivElement>(null);
 
   const itemsPerPage = 16;
 
@@ -40,7 +41,7 @@ export default function PhotoGallery() {
           const images = response.map((item: any) =>
             item?._embedded?.["acf:attachment"]?.map((subItem: any) => ({
               link: subItem?.source_url || "",
-              text: "Gallery Image",
+              text: subItem?.caption?.rendered || "",
             })) || []
           );
           setAllImages(images);
@@ -89,8 +90,12 @@ export default function PhotoGallery() {
 
   // Scroll to top
   useEffect(() => {
-    scrollRef.current?.scrollIntoView({ behavior: "smooth" });
+    // scrollRef.current?.scrollIntoView({ behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+      
   }, [currentPage]);
+  
+
 
 const tabs = [
   { key: "all", label: "all" },
@@ -98,6 +103,40 @@ const tabs = [
   { key: "events", label: "events" },
   { key: "sports", label: "sports" },
 ];
+
+
+     // pagination component
+      const getPaginationRange = (currentPage: number, totalPages: number) => {
+      // Always show first, last, current, and one on each side of current
+      const pages: (number | string)[] = [];
+
+      if (totalPages <= 5) {
+        // Not enough pages to need ellipsis
+        return Array.from({ length: totalPages }, (_, i) => i + 1);
+      }
+
+      pages.push(1); // always first
+
+      if (currentPage > 3) {
+        pages.push("..."); // left ellipsis
+      }
+
+      // pages around current
+      const start = Math.max(2, currentPage - 1);
+      const end = Math.min(totalPages - 1, currentPage + 1);
+
+      for (let i = start; i <= end; i++) {
+        pages.push(i);
+      }
+
+      if (currentPage < totalPages - 2) {
+        pages.push("..."); // right ellipsis
+      }
+
+      pages.push(totalPages); // always last
+
+      return pages;
+    };
 
 
   return (
@@ -140,7 +179,7 @@ const tabs = [
       </div>
 
       {/* Gallery */}
-      <div className="photo-gallery-wrapper" ref={scrollRef}>
+      <div className="photo-gallery-wrapper" >
         <div className="photo-gallery-container container">
 
           {/* Filters */}
@@ -181,7 +220,9 @@ const tabs = [
                             height={61}
                             alt={undefined}
                           />
+                          
                         </div>
+                        <div className="image-label">{DOMPurify.sanitize(item.text, { ALLOWED_TAGS: [] }).trim()}</div>
                       </div>
                     ))}
                   </div>
@@ -204,7 +245,8 @@ const tabs = [
               </button>
 
               <div className="page-numbers-wrapper">
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+
+                {/* {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
                   <span
                     key={page}
                     className={`page-number ${currentPage === page ? "active" : ""}`}
@@ -212,7 +254,22 @@ const tabs = [
                   >
                     {page}
                   </span>
-                ))}
+                ))} */}
+                {getPaginationRange(currentPage, totalPages).map((page, index) =>
+                  page === "..." ? (
+                    <span key={`ellipsis-${index}`} className="page-ellipsis">
+                      ...
+                    </span>
+                  ) : (
+                    <span
+                      key={page}
+                      className={`page-number ${currentPage === page ? "active" : ""}`}
+                      onClick={() => setCurrentPage(page as number)}
+                    >
+                      {page}
+                    </span>
+                  )
+                )}
               </div>
 
               <button

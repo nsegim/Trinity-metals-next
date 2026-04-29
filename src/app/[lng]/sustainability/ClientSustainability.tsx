@@ -66,7 +66,6 @@ const ClientSustainability = ({ lng }: { lng: string }) => {
 
 
 
-
   return (
     <>
       {/* Hero */}

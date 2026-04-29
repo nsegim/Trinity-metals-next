@@ -1,7 +1,7 @@
 // app/[lng]/investor-relations/latest-news/ClientLatestNews.tsx
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import SideBar from '@/components/layout/SideBar/SideBar';
 import ReUsablePost from '@/components/common/ReUsablePost';
 import ImageGallery from '@/components/common/ImageGallery';
@@ -20,7 +20,6 @@ const ClientLatestNews = ({ lng }: { lng: string }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [filteredPosts, setFilteredPosts] = useState<any[]>([]);
   const itemsPerPage = 8;
-  const myRef = useRef<HTMLDivElement>(null);
 
   // Fetch all posts
   useEffect(() => {
@@ -36,6 +35,24 @@ const ClientLatestNews = ({ lng }: { lng: string }) => {
     };
     getPosts();
   }, []);
+
+  //check for search query in URL and filter posts
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchQuery = urlParams.get('search?query')?.toLowerCase() || '';
+
+    if (searchQuery) {
+      const filtered = data.filter((post) =>
+        post.title?.rendered?.toLowerCase().includes(searchQuery) ||
+        post.excerpt?.rendered?.toLowerCase().includes(searchQuery)
+      );
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setFilteredPosts(filtered);
+      setCurrentPage(1); // Reset to first page on new search
+    } else {
+      setFilteredPosts(data); // Reset to all posts if no search query
+    }
+  }, [data]);
 
   // Fetch categories & images
   useEffect(() => {
@@ -76,8 +93,12 @@ const ClientLatestNews = ({ lng }: { lng: string }) => {
 
   // Smooth scroll on page change
   useEffect(() => {
-    myRef.current?.scrollIntoView({ behavior: 'smooth' });
+    // myRef.current?.scrollIntoView({ behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
   }, [currentPage]);
+
+
 
   
 
@@ -86,9 +107,9 @@ const ClientLatestNews = ({ lng }: { lng: string }) => {
   }
 
   return (
-    <>
+    < >
       {/* Hero */}
-      <div className="custom-hero">
+      <div className="custom-hero" >
         <div className="child-item-wrapper z-1">
           <h1 className="heading text-uppercase">
             {dict['latest-news']?.['latest-news-page-title']}
@@ -97,7 +118,7 @@ const ClientLatestNews = ({ lng }: { lng: string }) => {
       </div>
 
       {/* News Grid + Sidebar */}
-      <div className="latest-news-wrapper" ref={myRef}>
+      <div className="latest-news-wrapper" >
         <div className="container">
           <div className="row">
             {/* Posts Grid */}

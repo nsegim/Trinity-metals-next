@@ -94,12 +94,7 @@ export default function VideoGallery() {
 
   const handleClosePopup = () => setIsOpen(false);
 
-const tabs = [
-  { key: "all", label: "all" },
-  { key: "visitors", label: "visitors" },
-  { key: "events", label: "events" },
-  { key: "sports", label: "sports" },
-];
+
 
   return (
     <>
@@ -130,7 +125,7 @@ const tabs = [
         <div className="video-gallery-container container">
 
           {/* Filters */}
-          <div className="video-gallery-filters">
+          {/* <div className="video-gallery-filters">
             {tabs.map((tab, index) => (
               <button
                 key={index}
@@ -141,7 +136,7 @@ const tabs = [
 
                </button>
             ))}
-          </div>
+          </div> */}
 
           {/* Videos */}
           <div className="videos-wrapper">

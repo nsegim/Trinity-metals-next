@@ -1,6 +1,8 @@
 
 .sidebar-wrapper{
     background-color: #F2F2F2;
+    position: sticky;
+    top: 10px;
 
 }
 .sidebar-wrapper .contain{

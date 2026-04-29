@@ -22,6 +22,9 @@ const SideBar = ( {postSlug}) => {
   const [allImages, setAllImages] = useState<any[]>([]);
   const [All, setAll] = useState<any[]>([]);
   const [isSinglePost, setIsSinglePost] = useState(false);
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState(""); // 'success' | 'error' | 'loading'
+  const [message, setMessage] = useState("");
   
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -100,19 +103,56 @@ const SideBar = ( {postSlug}) => {
 
   }, [relatedPosts, postSlug]);
 
-   console.log('Related Posts:', featuredPostsWithContent);
+  //  console.log('Related Posts:', featuredPostsWithContent);
+
   // === SEARCH HANDLER (LOCAL ONLY) ===
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (searchQuery.trim() === "") return;
+
+     const searchUrl = `/${lang}/investor/latest-news/?search?query=${encodeURIComponent(searchQuery)}`;
+     window.location.href = searchUrl;
     // console.log("Search query:", searchQuery);
   };
+
+  //Handle newsletter subscription 
+   const handleSubmitNewsletter = async (e) => {
+    e.preventDefault();
+    setStatus("loading");
+
+    const res = await fetch("/api/subscribe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
+
+
+    const data = await res.json();
+     console.log(data)
+
+
+    if (res.ok) {
+      setStatus("success");
+      setMessage("You have successfully subscribed!🎉 check your email to conform");
+      setEmail("");
+      // console.log("Subscription successful:", data);
+    } else {
+      setStatus("error");
+      setMessage(data.error || "Something went wrong.");
+    }
+  };
+
 
   return (
     <div className="sidebar-wrapper">
       <div className="contain">
         <div className="side-bar-wrapper">
-
-          {/* SEARCH */}
+          
+          {isSinglePost ? (
+           <></>
+          ) : (
+            
+            /* SEARCH */
           <div className="about-posts-search">
             <div className="sidebar-headers">
               <h5>{dict['sidebar']?.['search1']}</h5>
@@ -138,6 +178,8 @@ const SideBar = ( {postSlug}) => {
               </form>
             </div>
           </div>
+          ) }
+          
 
           {/* FEATURED POSTS (ONLY ON SINGLE POST PAGE) */}
           {isSinglePost && (
@@ -194,11 +236,18 @@ const SideBar = ( {postSlug}) => {
                 <form className="subscribe-form">
                   <input
                     type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder={dict['sidebar']?.['newsletter-section']?.['input-field']}
                   />
-                  <button type="submit">
+                  <button type="submit" onClick={handleSubmitNewsletter} disabled={status === "loading"}>
                     {dict['sidebar']?.['newsletter-section']?.['subscribe-btn']}
                   </button>
+                  {message != "" ? 
+                    <p className={`mt-2 shadow-sm w-100 newsletter-message ${status === "success" ? "text-success" : "text-danger"}`}>
+                      {message}
+                    </p> : ""
+                  }
                 </form>
               </div>
             </div>

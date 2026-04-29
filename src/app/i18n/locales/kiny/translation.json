@@ -10,7 +10,13 @@
           "our-values":"Indangagaciro",
           "our-strategies":"Ingamba",
           "our-products": "Ibikorwa",
-          "our-leadership":"Ubuyobozi"
+          "our-leadership":"Ubuyobozi",
+
+          "story-strategy": "Inkuru n’Ingamba",
+          "products": "Ibicuruzwa",
+          "leadership": "Ubuyobozi",
+          "governance": "Imiyoborere",
+          "history": "Amateka"
       },
 
       "OurProjects": "Imishinga Dufite",
@@ -22,7 +28,7 @@
         
       },
       "sustainability": "Iterambere Rirambye",
-      "investor-relations": "Ishoramari",
+      "investor-relations": "Itangazamakuru",
       "investor": {
         "reports": "Raporo",
         "latest-news" : "Amakuru Agezweho",
@@ -79,12 +85,12 @@
       "we-are-energy-description1": "Twafashe ingamba zo gukurikirana, kugabanya no gucogoza mu buryo bufatika ibyuka bya carbone no gukoresha uburyo bubungabunga ibidukikije n'ikoranabuhanga mu bucukuzi.",
 
 
-      "blog-post-section": "Inyandiko",
+      "blog-post-section": "Itangazamakuru",
       "latest-articles": "Amakuru Agezweho",
       "date_format": "DD MMMM, YYYY",
 
 
-      "media-section":"Itangazamakuru",
+      "media-section":"Amashusho Yerekanwa",
       "our-gallery": "Ububiko",
       "view-gallery-btn": "Reba Ububiko"
 
@@ -96,6 +102,23 @@
 
   "about-us-page":{
       "about-us-title": "Abo Turi Bo",
+
+      "about-us-subpage-story-strategy": "Inkuru & Ingamba",
+      "about-us-subpage-title-story-strategy": "Inkuru Yacu & Ingamba",
+
+      "about-us-subpage-products": "Ibicuruzwa",
+      "about-us-subpage-title-products": "Ibicuruzwa byacu",
+
+      "about-us-subpage-leadership": "Ubuyobozi",
+      "about-us-subpage-title-leadership": "Ubuyobozi bwacu",
+
+      "about-us-subpage-governance": "Imiyoborere",
+      "about-us-subpage-title-governance": "Imiyoborere y’Ikigo",
+
+      "about-us-subpage-history": "Amateka",
+      "about-us-subpage-title-history": "Amateka yacu",
+
+      
 
      "our-history-section-title": "Amateka Yacu",
       "our-history-top-description": "Trinity Musha Mines Limited [yahoze yitwa Piran Rwanda Ltd], Trinity Nyakabingo Mine Limited [yahoze yitwa Eurotrade International Ltd], na Rutongo Mines Limited byashinzwe nk’ibigo bitatu bitandukanye, byigenga. Yose afite amateka akomeye yo gucukura no gushaka amabuye ya Tin , Tungsten na Tantalum mu Rwanda, kandi yiyemeje gukora ubu bucukuzi mu buryo bukurikije amategeko nk’uko babiherewe uburenganzira na guverinoma y'u Rwanda.",
@@ -393,9 +416,9 @@
   },
    "careers": {
     "careers-title": "Imirimo",
-    "top-title": "Turi Amahitamo meza y'Umukoresha ",
+    "top-title": "Turi amahitamo meza y'Umukoresha ",
     "top-desc1": "Twiyemeje kongerera ubushobozi no guteza imbere abaturage b'aho dukorera binyuze mu guhanga akazi, amahugurwa n'imishinga izamura imibereho myiza.",
-    "top-desc2": "Duha agaciro ihame ry'uburinganire n'ubwuzuzanye kandi duharanira kongera umubare w'ab'igitsinagore bakora mu rwego rw'ubucukuzi, aho nibura bagomba kuba 30% by'abakozi bose bitarenze umwaka wa 2025.",
+    "top-desc2": "Duha agaciro ihame ry'uburinganire n'ubwuzuzanye kandi duharanira kongera umubare w'ab'igitsinagore bakora mu rwego rw'ubucukuzi, aho nibura bagomba kuba 30% by'abakozi bose bitarenze umwaka wa 2026.",
 
     "search-form":{
       "input-title": "Shakisha Akazi",
@@ -404,7 +427,7 @@
       
     },
 
-    "No-position": "Nta mwanya uhari"
+    "No-position": "Nta mwanya ihari"
 
 
 

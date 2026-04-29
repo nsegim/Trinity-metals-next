@@ -73,8 +73,8 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
                 <Link href={`/${lng}/projects/nyakabingo-mine`}>
                   <span className="button-name">{dict.home?.["read-more-button"]}</span>
                   <span className="button-icon">
-                    <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/arrow-icon.svg" height={25}
-        width={26}  imageName={"Read More"} customClass={"Read-more-icon"}  alt={undefined}/>
+                    <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/contact-us-icon.svg" height={14}
+        width={15}  imageName={"Read More"} customClass={"Read-more-icon"}  alt={undefined}/>
                   </span>
                 </Link>
               </div>
@@ -89,8 +89,8 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
                 <Link href={`/${lng}/projects/musha-mine`}>
                   <span className="button-name">{dict.home?.["read-more-button"]}</span>
                   <span className="button-icon">
-                    <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/arrow-icon.svg" height={25}
-        width={26}  imageName={"Read More"} customClass={"Read-more-icon"} alt={undefined}/>
+                    <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/contact-us-icon.svg" height={14}
+        width={15}  imageName={"Read More"} customClass={"Read-more-icon"} alt={undefined}/>
                   </span>
                 </Link>
               </div>
@@ -105,8 +105,8 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
                 <Link href={`/${lng}/projects/rutongo-mine`}>
                   <span className="button-name">{dict.home?.["read-more-button"]}</span>
                   <span className="button-icon">
-                    <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/arrow-icon.svg" height={25}
-        width={26}  imageName={"Read More"} customClass={"Read-more-icon"} alt={undefined}/>
+                    <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/contact-us-icon.svg" height={14}
+        width={15}  imageName={"Read More"} customClass={"Read-more-icon"} alt={undefined}/>
                   </span>
                 </Link>
               </div>
@@ -121,8 +121,8 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
                 <Link href={`/${lng}/projects/lithium`}>
                   <span className="button-name">{dict.home?.["read-more-button"]}</span>
                   <span className="button-icon">
-                    <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/arrow-icon.svg" height={25}
-        width={26}  imageName={"Read More"} customClass={"Read-more-icon"} alt={undefined}/>
+                    <ImageGallery imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/contact-us-icon.svg" height={14}
+        width={15}  imageName={"Read More"} customClass={"Read-more-icon"} alt={undefined}/>
                   </span>
                 </Link>
               </div>

@@ -1,5 +1,5 @@
 import "./modal.css";
-
+import DOMPurify from 'dompurify';
 const TheModal = ({
   clickedImg,
   setClickedImg,
@@ -7,6 +7,7 @@ const TheModal = ({
   handelRotationLeft,
   setClickedImageRenderByApi,
   clickedImageRenderByApi,
+  imageCaption,
 }) => {
   const handleCloseClick = (e) => {
     if (e.target.classList.contains("dismiss")) {
@@ -18,7 +19,13 @@ const TheModal = ({
   return (
     <div className="overlay dismiss" onClick={handleCloseClick}>
       {clickedImg ? (
-        <img src={clickedImg} alt="trinity images" />
+        <>
+          <div className="image-container">
+            <img src={clickedImg} alt="trinity images" />
+            <span className="image-with-caption">{DOMPurify.sanitize(imageCaption, { ALLOWED_TAGS: [] }).trim()}</span>
+          </div>
+          
+        </>
       ) : (
         <img src={clickedImageRenderByApi} alt="trinity images" />
       )}

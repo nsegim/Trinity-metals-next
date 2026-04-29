@@ -22,12 +22,16 @@
         padding-bottom: 80px;
 
     }
-    .histort-content-holder, .image-holder{
-        width: 48%;
+    .histort-content-holder{
+      width: 60%;
     }
-    .histort-content-holder .content-holder{
+     .image-holder{
+        width: 38%;
+    }
+
+    /* .histort-content-holder .content-holder{
         margin-bottom: 50px;
-    }
+    } */
     .image-holder{
         
         position: relative;
@@ -39,7 +43,7 @@
        cursor: pointer;
     }
     .history-image{
-        height: 100%;
+        height: 80%;
         width: 100%;
         object-fit: cover;
     }
@@ -80,7 +84,7 @@
     /* Our Mission and Values styles */
     .our-values-wrapper{
         padding-bottom: 70px;
-        padding-top: 10px;
+        padding-top: 60px;
     }
     .our-mission, .our-vision{
       width: 48.7%;
@@ -96,8 +100,8 @@
     
     }
 
-      .our-mission:hover::after, .our-vision:hover::after{
-        opacity: 0;
+      .our-mission::after, .our-vision::after{
+        opacity: 0
       }
     
     .our-mission{
@@ -134,23 +138,23 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
-        transform: translateY(20px);
+        /* transform: translateY(20px); */
         transition: transform .3s ease-in-out;
     }
     
-    .our-mission:hover{
+    .our-mission{
         background-image: none;
         background-color: var(--trinity-blue)!important;
     }
     
-    .our-vision:hover{
+    .our-vision{
         background-image: none;
         background-color: var(--trinity-green)!important;
     }
     .our-values-wrapper .text-description{
         width: 80%;
         color: var(--trinity-white);
-        opacity: 0;
+        opacity: 1;
     }
     .our-vision:hover .text-description, .our-mission:hover .text-description{
         opacity: 1;
@@ -158,7 +162,7 @@
     }
     .our-vision:hover .icon-box, .our-mission:hover .icon-box{
         
-        transform: translateY(0px);
+        /* transform: translateY(0px); */
     }
     
     /* Our values section styles */
@@ -166,7 +170,7 @@
        background-color: var(--trinity-green);
         min-height: 522px;
         display: flex;
-        
+        padding: 30px 10px!important;
         align-items: center;
     }
     .our-values-holder{
@@ -375,7 +379,8 @@
     
     /* Our Product section styles */
     .our-products-section{
-       min-height: 691px;
+       /* min-height: 691px; */
+       padding: 60px 0px;
        display: flex;
        justify-content: center;
        align-items: center;
@@ -430,9 +435,18 @@
     
     }
     @media(max-width: 767px){
+
+        .values-section .inner-contentWrapper{
+            padding: 20px;
+        }
         .histort-content-holder, .image-holder {
             width: 100%!important;
         }
+          .section-heading{
+            font-size: 30px;
+            line-height: 36.13px;
+        }
+        
         .history-section-wrapper{
             padding-top: 40px;
             padding-bottom: 40px;
@@ -440,15 +454,15 @@
             padding-right: 15px;
         }
         .history-section-wrapper .row{
-            gap: 40px;
+            gap: 35px;
         }
         .our-mission, .our-vision{
             width: 100%;
         }
 
         .our-values-wrapper{
-            padding-bottom: 15px;
-    
+            padding-bottom: 30px;
+            padding-top: 30px;
             padding-left: 27px;
             padding-right: 27px;
         }
@@ -495,7 +509,7 @@
         }
         .our-products-section .first-container{
             flex-direction: column;
-            padding-top: 40px;
+            padding-top: 10px;
             
         }
         .second-container{
@@ -505,4 +519,50 @@
             width: 100%;
             
         }
+
+        .our-products-section{
+            padding: 30px 15px;
+        }
+
+        .single-product .product-image{
+            height: 100%;
+  
+        }
+        .description-text{
+           margin-bottom: 0;
+        }
+
+        
     }
+
+
+
+    /* Governance section styles */
+    .skeleton {
+  background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 4px;
+}
+
+.skeleton-image {
+  height: 330px;
+  width: 100%;
+}
+
+.skeleton-text {
+  height: 18px;
+  width: 80%;
+  margin-top: 12px;
+}
+
+.skeleton-text-short {
+  height: 14px;
+  width: 50%;
+  margin-top: 8px;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

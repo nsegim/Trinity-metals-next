@@ -6,6 +6,7 @@ import { getDictionary } from '@/app/i18n/dictionaries';
 import { Locale } from '@/app/i18n/config';
 import { Metadata } from 'next';
 import ClientAbout from './ClientAbout'; // ← Client wrapper for modals + scroll
+import Governance from './governance/page';
 
 
 
@@ -48,7 +49,9 @@ export default async function AboutPage({
 
   return (
       <>
-          <ClientAbout initialData={data} initialError={error} lng={lng} />
+          {/* <ClientAbout initialData={data} initialError={error} lng={lng} /> */}
+          
+
        </>
   );
 }

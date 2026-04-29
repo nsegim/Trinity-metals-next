@@ -68,7 +68,7 @@ const SiteHeader = () => {
       </div>
       <div className="container the_header">
         <div className="site-logo">
-          <Link href="/">
+          <Link href={`/${currentLanng}`}>
             <ImageGallery imageName={undefined}
               imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/site-logo1.png"
               customClass="site-image-logo" width={148.740234375} height={69.51000213623047}

@@ -44,9 +44,9 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
   const productsRef = useRef<HTMLDivElement>(null);
 
   // scrollToSection — CORRECT
-  const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
-    ref.current?.scrollIntoView({ behavior: 'smooth' });
-  };
+  // const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
+  //   ref.current?.scrollIntoView({ behavior: 'smooth' });
+  // };
 
   // ... (useEffect for window location hash remains the same) ...
   useEffect(() => { /* ... */ }, []);
@@ -146,14 +146,14 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
               <div className="general-button justify-content-left">
                 <a href="#" className="hover-green" onClick={(e) => { e.preventDefault(); setModalShow(true); }}>
                   <span>{d['home']?.['read-more-button']}</span>
-                  <ImageGallery
+                  {/* <ImageGallery
                     imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Arrow2.svg"
                     height={19}
                     alt={undefined}
                     width={13}
                     imageName="Read More Arrow"
                     customClass="Read-more-icon"
-                  />
+                  /> */}
                 </a>
               </div>
             </div>
@@ -390,14 +390,14 @@ const ClientAbout = ({ initialData, initialError, lng }: ClientAboutProps) => {
           <div className="general-button justify-content-center">
             <Link href={`/${currentLang}/our-leadership`} className="hover-green">
               <span>{d['about-us-page']?.['view-all-team-button']}</span>
-              <ImageGallery
+              {/* <ImageGallery
                 imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Arrow2.svg"
                 height={19}
                 width={13}
                 imageName="View All Team Arrow"
                 customClass="Read-more-icon"
                 alt={undefined}
-              />
+              /> */}
             </Link>
           </div>
         </div>

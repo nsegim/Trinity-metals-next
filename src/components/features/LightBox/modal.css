@@ -27,6 +27,24 @@
     z-index: 999;
     cursor: pointer;
   }
+
+  .overlay .image-container {
+    position: relative;
+    display: flex;
+  }
+
+  .overlay .image-container .image-with-caption {
+    position: absolute;
+    bottom: 20;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    color: #ffffff;
+    font-size: 14px;
+    z-index: 999;
+    text-align: center;
+  }
+
   .overlay-arrows_left {
     display: flex;
     background-color: #34393b;

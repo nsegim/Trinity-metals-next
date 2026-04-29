@@ -55,7 +55,16 @@
 .newsletter-form {
   display: flex;
   gap: 15px;
+  position: relative;
 }
+.newsletter-message{
+      position: absolute;
+    bottom: -55%;
+    background: #fff;
+    padding: 4px 16px;
+    border-radius: 4px;
+}
+
 .newsletter-form .mb-3 {
   width: 46%;
 }
@@ -63,7 +72,7 @@
   background-color: transparent;
   border: 1.4px solid #8bcee8!important;
   padding: 15.5px 20px 13.1px 20px;
-
+  color: #fff;
   border-radius: 5px;
 }
 .newsletter-form .email-field::placeholder {
@@ -232,6 +241,10 @@ line-height: 15.85px;
   }
 }
 @media(max-width: 767px){
+
+  .newsletter-message{
+    right: 0;
+  }
 
   /* .footer{
     flex-direction: column-reverse;

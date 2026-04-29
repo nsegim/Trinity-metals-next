@@ -1,11 +1,11 @@
 
 "use client"
-import { Form, Button } from "react-bootstrap";
 import { useTranslation } from "@/app/context/TranslationContext";
 import "./footer.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ImageGallery from "../../common/ImageGallery";
+import NewsletterForm from "@/components/ui/NewsletterForm";
 
 const SiteFooter = () => {
   const {dict, lang} = useTranslation()
@@ -21,28 +21,8 @@ const SiteFooter = () => {
               <div className="the-newsLetter">
                 <h2 className="footer-heading">{(dict.footer["subscribe-newsletter"])}</h2>
 
-                <div className="formWrapper">
-                  <Form className="newsletter-form">
-                    <Form.Group
-                      className="mb-3"
-                      controlId="exampleForm.ControlInput1"
-                    >
-                      <Form.Control
-                        type="email"
-                        placeholder={(dict.footer["your-email"])}
-
-                        className="email-field"
-                      />
-                    </Form.Group>
-
-                    <Button
-                      variant="primary"
-                      type="submit"
-                      className="newsletterSubmitBtn"
-                    >
-                      {(dict.footer.subscribe)}
-                    </Button>
-                  </Form>
+                <div className="formWrapper ">
+                  <NewsletterForm />
                 </div>
               </div>
               <div className="include-location d-flex">
@@ -194,7 +174,7 @@ const SiteFooter = () => {
       </div>
       <div className="bottom-section">
         <div className="container copyright">
-          <p>Copyright © TRINITY METALS 2026 All Right Reserved </p>
+          <p>Copyright © TRINITY METALS 2026 All Rights Reserved</p>
            <Link href={`/${lang}/disclaimer`} className="footer-links">Disclaimer</Link>
           
         </div>

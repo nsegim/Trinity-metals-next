@@ -132,7 +132,7 @@ const BottomImagesGallery = [
             <p className="section-sub-desc">{(dict.home["min-description"])}</p>
 
             <div className="info-buttons">
-              <div className="button-element">
+              {/* <div className="button-element">
                 <Link href="#sectionRef"className="get-started">
                   
                   {(dict.home["get-stated-button"])}
@@ -143,17 +143,17 @@ const BottomImagesGallery = [
                       width={24} alt='' className={undefined}                />
                   </span>
                 </Link>
-              </div>
+              </div> */}
 
               <div className="button-element">
                 <Link href={`/${lng}/projects`} className="view-projects transprent-button">
                   {(dict.home["view-project-button"])}
-                  <span>
+                  {/* <span>
                     <Image 
                       src="https://contents.trinity-metals.com/wp-content/uploads/2025/02/arrow-icon.svg"
                       height={24}
                       width={24} alt='' className={undefined}              />
-                  </span>
+                  </span> */}
                 </Link>
               </div>
             </div>
@@ -162,7 +162,7 @@ const BottomImagesGallery = [
         <div className="coverage-precentages-wrapper">
           <div className="leadership-counter-wrapper">
             <div className="leadership-counter">
-              <IncreamentCounter start={0} end={75} speed={20} />%
+              <IncreamentCounter start={0} end={75} speed={10} />%
             </div>
             <p className="leader-text">
               {(dict.home["rwandan-leadership"])}
@@ -170,7 +170,7 @@ const BottomImagesGallery = [
           </div>
           <div className="workforce-counter-wrapper">
             <div className="workforce-counter">
-              <IncreamentCounter start={0} end={99} speed={50} />%
+              <IncreamentCounter start={0} end={99} speed={10} />%
             </div>
             <p className="workforce-text">
               {(dict.home["rwandan-workforce"])}           
@@ -198,10 +198,10 @@ const BottomImagesGallery = [
               <div className="buttonElement">
                 <Link href={`${lng}/about`} className="hover-green">
                   <span>{(dict.home["read-more-button"])}</span>
-                  <Image 
+                  {/* <Image 
                     src='https://contents.trinity-metals.com/wp-content/uploads/2025/02/Arrow2.svg'
                     width={13} height={13} alt='' className={undefined} 
-                                  />
+                                  /> */}
                 </Link>
               </div>
             </div>
@@ -236,9 +236,9 @@ const BottomImagesGallery = [
                 <Link href={`/${lng}/projects`} className="view-projects transprent-button">
                     {(dict.home["view-project-button"])}
                   <span>
-                    <Image 
+                    {/* <Image 
                       src='https://contents.trinity-metals.com/wp-content/uploads/2025/02/arrow-icon.svg'
-                      width={26} height={25} alt='' className={undefined}                  />
+                      width={26} height={25} alt='' className={undefined}                  /> */}
                   </span>
                 </Link>
               </div>
@@ -247,7 +247,7 @@ const BottomImagesGallery = [
             <div className="cards-wrapper d-flex">
               <div className="a-card">
                 <div className="featured-image">
-                  <Link href="/our-projects/nyakabingo">
+                  <Link href={`/${lng}/projects/nyakabingo-mine`}>
                     <Image 
                       src='https://contents.trinity-metals.com/wp-content/uploads/2025/02/nyakabingo-mine-min.png.webp'
                       className="card-image"
@@ -267,7 +267,7 @@ const BottomImagesGallery = [
               
               <div className="a-card">
                 <div className="featured-image">
-                  <Link href={`/${lng}/projects/rutongo-mine`}>
+                  <Link href={`/${lng}/projects/musha-mine`}>
                     <Image 
                       src='https://contents.trinity-metals.com/wp-content/uploads/2025/02/musha_mine-min.png.webp'
                       className="card-image"
@@ -285,7 +285,7 @@ const BottomImagesGallery = [
               
               <div className="a-card">
                 <div className="featured-image">
-                  <Link href="/our-projects/rutongo">
+                  <Link href={`/${lng}/projects/rutongo-mine`}>
                     <Image 
                       src='https://contents.trinity-metals.com/wp-content/uploads/2025/02/rutongo-min.png.webp'
                       className="card-image"
@@ -293,7 +293,7 @@ const BottomImagesGallery = [
                   </Link>  
                 </div>
                 <div className="project-title">
-                  <Link href="/our-projects/rutongo">
+                  <Link href={`/${lng}/projects/rutongo-mine`}>
                     <span>
                        {(dict.home["rutongo-mine"])}
                     </span>
@@ -325,19 +325,19 @@ const BottomImagesGallery = [
               </h3>
 
               <div className="text-content002">
-                <p className=""> {(dict.home["we-are-energy-description"])}</p>
+                {/* <p className=""> {(dict.home["we-are-energy-description"])}</p> */}
                 <p className="">
                    {(dict.home["we-are-energy-description1"])}
                 </p>
               </div>
 
               <div className="button-element">
-                <Link href={`/${lng}/sustainability`} className="view-projects transprent-button">
+                <Link href={`/${lng}/sustainability`} className="view-projects transprent-button" scroll={true}>
                    {(dict.home["read-more-button"])}
                   <span>
-                    <Image 
+                    {/* <Image 
                       src='https://contents.trinity-metals.com/wp-content/uploads/2025/10/SVG.svg'
-                      width={26} height={25} alt='' className={undefined}                />
+                      width={26} height={25} alt='' className={undefined}                /> */}
                   </span>
                 </Link>
               </div>
@@ -357,7 +357,8 @@ const BottomImagesGallery = [
                     src="https://contents.trinity-metals.com/wp-content/uploads/2025/02/welcome-icon-blue.svg"
                     width={36} height={6} alt='' className={undefined}          />
                 </span>
-                  {(dict.home["blog-post-section"])}
+                  {(dict.home["blog-post-section"])} 
+                  
               </h2>
               <h3 className="heading">
                 <span>
@@ -370,9 +371,9 @@ const BottomImagesGallery = [
               <Link href={`/${lng}/investor/latest-news`} className="explore-more">
                 {(dict.home["read-more-button"])}
                 <span>
-                  <Image 
+                  {/* <Image 
                     src="https://contents.trinity-metals.com/wp-content/uploads/2025/02/arrow-icon.svg"
-                    width={26} height={25} alt='' className={undefined}               />
+                    width={26} height={25} alt='' className={undefined}               /> */}
                 </span>
               </Link>
             </div>
@@ -413,9 +414,9 @@ const BottomImagesGallery = [
               <Link href={`/${lng}/investor/gallery/photos`} className="explore-more">
                 {(dict.home["view-gallery-btn"])}
                 <span>
-                  <Image 
+                  {/* <Image 
                     src="https://contents.trinity-metals.com/wp-content/uploads/2025/02/arrow-icon.svg"
-                    width={26} height={25} alt='' className={undefined}           />
+                    width={26} height={25} alt='' className={undefined}           /> */}
                 </span>
               </Link>
             </div>

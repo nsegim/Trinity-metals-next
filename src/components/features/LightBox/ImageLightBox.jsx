@@ -8,11 +8,13 @@ const ImageLightBox = ({ images, renderImage }) => {
   const [clickedImg, setClickedImg] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
   const [clickedImageRenderByApi, setClickedImageRenderByApi] = useState(null);
+  const [imageCaption, setImageCaption] = useState("");
 
   const handleClick = (item, index) => {
     setCurrentIndex(index);
     setClickedImg(item.link);
     setClickedImageRenderByApi(item?.guid?.rendered);
+    setImageCaption(item?.text || ""); // Set caption if available
 
   };
 
@@ -69,6 +71,7 @@ const ImageLightBox = ({ images, renderImage }) => {
           handelRotationRight={handleRotationRight}
           setClickedImg={setClickedImg}
           setClickedImageRenderByApi={setClickedImageRenderByApi}
+          imageCaption={imageCaption}
         />
       )}
     </div>

@@ -13,13 +13,13 @@ const RoutesConfig = () => {
        [
             { name: (dict.header.home), path:`/${currentLang}/` },
             { 
-                name: (dict.header["about-us"]), path:`/${currentLang}/about`,
+                name: (dict.header["about-us"]), path:``,
                 children: [
-                    { name: (dict.header.about["our-history"]), path:`/${currentLang}/about#our-history` },
-                    { name: (dict.header.about["our-values"]), path:`/${currentLang}/about/#our-values` },
-                    { name: (dict.header.about["our-strategies"]), path:`/${currentLang}/about/#our-strategies` }, 
-                    { name: (dict.header.about["our-products"]), path:`/${currentLang}/about/#our-products`},
-                    { name: (dict.header.about["our-leadership"]), path:`/${currentLang}/our-leadership` }
+                    { name: (dict.header.about["story-strategy"]), path:`/${currentLang}/about/story-&-strategy` },
+                    { name: (dict.header.about["products"]), path:`/${currentLang}/about/products` },
+                    { name: (dict.header.about["leadership"]), path:`/${currentLang}/our-leadership` }, 
+                    { name: (dict.header.about["governance"]), path:`/${currentLang}/about/governance`},
+                    { name: (dict.header.about["history"]), path:`/${currentLang}/about/history` }
                     
                 ]
             },
