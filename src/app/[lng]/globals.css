@@ -310,7 +310,7 @@ text-align: left;
 }
 
 
-    .about-hero-section, .history-hero, .story-strategy-hero, .products-hero{
+    .about-hero-section, .history-hero, .story-strategy-hero, .products-hero, .sastain-hero{
         margin-top: -60px;
         min-height: 500px;
         background-repeat: no-repeat;
@@ -322,10 +322,14 @@ text-align: left;
         position: relative;
     }
 
-     .about-hero-section{
+   
+     .leadership-hero{
         background-image: url('https://contents.trinity-metals.com/wp-content/uploads/2025/04/IMG_6887-scaled.jpg');
-        background-position: center calc(60% - 0px);
+        background-position: center calc(70% - 0px);
+     }
 
+     .sastain-hero{
+        background-image: url('https://contents.trinity-metals.com/wp-content/uploads/2025/02/Sustainabilty.webp')!important;
      }
 
      .history-hero{

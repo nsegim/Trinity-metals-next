@@ -69,7 +69,7 @@ const ClientSustainability = ({ lng }: { lng: string }) => {
   return (
     <>
       {/* Hero */}
-      <div className="about-hero-section">
+      <div className="about-hero-section sastain-hero">
         <div className="inner-wrapper">
           <h1 className="heading text-uppercase">
             {dict['Sustainability']?.['sustainability-page-title']}

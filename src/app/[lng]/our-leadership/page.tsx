@@ -199,7 +199,7 @@ export default function Page() {
   return (
     <>
       {/* Hero */}
-      <div className="about-hero-section">
+      <div className="about-hero-section leadership-hero">
         <div className="inner-wrapper">
           <h1 className="heading text-uppercase">
             {dict?.['our-leadership']?.['our-leadership-title']}
