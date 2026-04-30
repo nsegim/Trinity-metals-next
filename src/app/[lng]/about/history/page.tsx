@@ -27,8 +27,8 @@ export default async function History({
       </div>
       {/* History */}
       <div className="container history-section-wrapper"  id="our-history">
-        <div className="row justify-content-between">
-          <div className="col-md-6 image-holder">
+        <div className="row justify-content-center align-items-center">
+          {/* <div className="col-md-6 image-holder">
             <ImageGallery
               imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/06/tyu.webp"
               customClass="history-image"
@@ -37,7 +37,7 @@ export default async function History({
               width={610}
               imageName="Nyakabingo site"
             />
-          </div>
+          </div> */}
           <div className="col-md-6 histort-content-holder">
             <div className="content-holder">
               <h2 className="section-heading">{dict['about-us-page']?.['our-history-section-title']}</h2>

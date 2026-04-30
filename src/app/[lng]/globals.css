@@ -323,23 +323,35 @@ text-align: left;
     }
 
      .about-hero-section{
-        background-image: url('https://contents.trinity-metals.com/wp-content/uploads/2025/02/about-us-hero.webp');
+        background-image: url('https://contents.trinity-metals.com/wp-content/uploads/2025/04/IMG_6887-scaled.jpg');
+        background-position: center calc(60% - 0px);
 
      }
 
      .history-hero{
-        background-image: url('https://contents.trinity-metals.com/wp-content/uploads/2022/09/TEAM-IMAGE_Facing-backward_1A1A6940-scaled.jpg');
+        background-image: url('https://contents.trinity-metals.com/wp-content/uploads/2024/01/TrinityHistory.jpg');
+        /* background-position: center calc(40% - 0px); */
      }
     
      .story-strategy-hero{
-        background-image: url('https://contents.trinity-metals.com/wp-content/uploads/2023/04/VEL_8705-scaled.jpg');
-        /* background-position: center calc(0% - 0px); */
+        background-image: url('https://contents.trinity-metals.com/wp-content/uploads/2025/06/bb.webp');
+        background-position: center calc(60% - 0px);
      }
       
      .products-hero{
         background-image: url('https://contents.trinity-metals.com/wp-content/uploads/2025/02/Mine-filter.webp');
         background-position: center calc(70% - 0px);
      }
+
+     .Governance-section{
+    background-image: url('https://contents.trinity-metals.com/wp-content/uploads/2025/06/Governance.webp');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-top: unset!important;
+        margin-top: -60px!important;
+
+}
 
     .about-hero-section::after{
       position: absolute;
@@ -488,6 +500,13 @@ text-align: left;
 color: var(--trinity-white);
 
 }
+.section-sub-desc1{
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 29.5px;
+  margin-bottom: 0;
+  color: var(--trinity-white);
+}
 
 
 .info-buttons{
@@ -580,7 +599,11 @@ text-decoration: none;
     padding-top: 30px;
     padding-bottom: 20px;
   }
+  .section-sub-desc1{
+    width: 60%;
+  }
 }
+
 .leadership-counter-wrapper .leadership-counter, .workforce-counter-wrapper .workforce-counter {
   text-align: center;
 
@@ -1387,6 +1410,7 @@ color: var(--trinity-dark);
   overflow: hidden;
   background: #fff;
   text-align: center;
+  height: 100%;
 }
 
 .article .featured-image {
@@ -1419,6 +1443,10 @@ color: var(--trinity-dark);
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.article-content{
+  color: var(--trinity-dark);
 }
 
 .category {
@@ -1512,7 +1540,7 @@ color: var(--trinity-dark);
 
     @media(max-width: 992px) AND (min-width: 768px){
         .histort-content-holder, .image-holder {
-            width: 50%;
+            width: 80%;
         }
         .our-values-wrapper .icon-box{
             transform: translateY(50px);
@@ -1750,7 +1778,7 @@ color: var(--trinity-dark);
   margin-bottom: 20px;
   line-height: 1.6;
 }
-
+.cookie-modal .cancel-btn{color: var(--trinity-dark);}
 /* ── Cookie Categories ── */
 .cookie-category {
   border: 1px solid #e5e7eb;

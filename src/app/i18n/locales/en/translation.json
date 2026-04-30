@@ -53,6 +53,7 @@
       "welcome": "WELCOME TO TRINITY METALS",
       "welcome-description": "We are enabling a better future.<br/> 3 Minerals, 3 Mines, One Company",
       "min-description": "We are a responsible producer of essential technology metals",
+      "min-description1": "Global Conflict-Free Mining",
       "get-stated-button": "Get Started",
       "view-project-button": "View Project",
 
@@ -195,7 +196,7 @@
   "our-project-page": {
 
         "projects-title": "Projects",
-        "projects-sub-title": "Projects",
+        "projects-sub-title": "3 Minerals, 3 Mines, One Company",
         "project-description-1": "Trinity Metals has three mining projects operated as subsidiaries in Rwanda – Rutongo Mines, Nyakabingo Mine, and Musha Mines. <br>They compromise of three primary mining sites with several satellite mining sites located in close proximity to the primary sites.",
         "project-description-2": "Our mining sites operate to national and international mining regulations and uphold strict ESG standards. We do not use toxic or environmentally damaging chemical processes on our mines, nor do the mines produce any such material.",
         "project-description-3": "Our production is certified “conflict-free” – our mines are fully compliant with conflict minerals audit requirements under OECD guidelines.",

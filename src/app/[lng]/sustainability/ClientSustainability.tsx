@@ -207,25 +207,7 @@ const ClientSustainability = ({ lng }: { lng: string }) => {
 
       <div className="yellow-bg"></div>
 
-      {/* Governance */}
-      <div className="the-project-hero-section-wrapper Governance-section"></div>
-      <div className="project-content-wrapper pb-5">
-        <div className="container d-flex justify-content-center">
-          <div className="information-project">
-            <div className="project-title-element">
-              <h2>{dict['Sustainability']?.['governance']}</h2>
-              <div className="project-brief2 pt-3">
-                <h4>{dict['Sustainability']?.['governance-subtitle1']}</h4>
-                <p>{dict['Sustainability']?.['governance-desc1']}</p>
-                <h4>{dict['Sustainability']?.['governance-subtitle2']}</h4>
-                <p>{dict['Sustainability']?.['governance-desc2']}</p>
-                <h4>{dict['Sustainability']?.['governance-subtitle3']}</h4>
-                <p>{dict['Sustainability']?.['governance-desc3']}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+     
 
       {/* Diligence Reports */}
       <div className="policies-section-wrapper1">

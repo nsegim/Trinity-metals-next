@@ -154,7 +154,7 @@ export default function CookieConsent() {
             <div className="modal-footer">
               <button
                 onClick={() => setShowModal(false)}
-                className="btn-outline"
+                className="btn-outline cancel-btn"
               >
                 Cancel
               </button>

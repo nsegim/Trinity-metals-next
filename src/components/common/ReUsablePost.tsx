@@ -52,6 +52,7 @@ interface ReUsablePostProps {
 
 const ReUsablePost = memo(({ item, categories, postImages }: ReUsablePostProps) => {
   const { dict, lang } = useTranslation();
+  const [hasInternalLink, setHasInternalLink] = React.useState(false);
 
   // Memoized sanitized content renderer
   const reRenderContent = useMemo(() => {
@@ -87,6 +88,9 @@ const ReUsablePost = memo(({ item, categories, postImages }: ReUsablePostProps) 
     const isExternalLink = !hasContent && item?.meta?._links_to;
 
     if (isExternalLink) {
+      // eslint-disable-next-line react-hooks/set-state-in-render
+      setHasInternalLink(false);
+
       return (
         <a
           href={item.meta._links_to}
@@ -98,6 +102,8 @@ const ReUsablePost = memo(({ item, categories, postImages }: ReUsablePostProps) 
         </a>
       );
     } else if (hasContent) {
+      // eslint-disable-next-line react-hooks/set-state-in-render
+      setHasInternalLink(true);
       return (
         <Link href={`/${lang}/post/${item.slug}`} className="read-more-btn">
           <span>{dict.home?.["read-more-button"] || 'Read More'}</span>
@@ -117,48 +123,46 @@ const ReUsablePost = memo(({ item, categories, postImages }: ReUsablePostProps) 
   }
 
   return (
-    <div className="grid-item">
-      <Image
-        // src={`${imageUrl}.webp`}
-        src={imageUrl || DEFAULT_PLACEHOLDER}
-        alt={item?.title?.rendered ? `Image for ${DOMPurify.sanitize(item.title.rendered)}` : 'Post image'}
-        className={'featured-image'}
-        width={413}
-        height={390}
-        // onError={(e) => {
-        //   const target = e.target as HTMLImageElement;
-        //   if (target.src !== DEFAULT_PLACEHOLDER) {
-        //     target.src = DEFAULT_PLACEHOLDER;
-        //   }
-        // }}
+    <Link href={hasInternalLink ? `/${lang}/post/${item.slug}` : item?.meta?._links_to || '#'} className="image-link">
+        <div className="grid-item">
+        
+          <Image
+            // src={`${imageUrl}.webp`}
+            src={imageUrl || DEFAULT_PLACEHOLDER}
+            alt={item?.title?.rendered ? `Image for ${DOMPurify.sanitize(item.title.rendered)}` : 'Post image'}
+            className={'featured-image'}
+            width={413}
+            height={390}
+            
 
-        // width={413}
-        // height={390}
-
-      />
-      <p className="article_date">{formattedDate}</p>
-      <div className="rt-holder">
-        <h2 className="article-title">
-          {reRenderContent(item?.title?.rendered)}
-        </h2>
-        <div className="card-bottom-elements">
-          <div className="category-holder">
-            <OptimizedImageGallery
-              imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Category-Icon.svg"
-              customClass="category-icon"
-              alt="Category"
-               width={19}
-              height={18}
-           
-            />
-            <span className="category">{categoryName}</span>
+          />
+          <p className="article_date">{formattedDate}</p>
+          <div className="rt-holder">
+            <h2 className="article-title">
+              {reRenderContent(item?.title?.rendered)}
+            </h2>
+            <div className="card-bottom-elements">
+              <div className="category-holder">
+                <OptimizedImageGallery
+                  imageUrl="https://contents.trinity-metals.com/wp-content/uploads/2025/02/Category-Icon.svg"
+                  customClass="category-icon"
+                  alt="Category"
+                  width={19}
+                  height={18}
+              
+                />
+                <span className="category">{categoryName}</span>
+              </div>
+              <div className="read-more-btn-wrapper">
+              <div className="read-more-btn">
+                <span>{dict.home?.["read-more-button"] || 'Read More'}</span>
+              </div>
+              </div>
+            </div>
           </div>
-          <div className="read-more-btn-wrapper">
-            {ReadMoreLink}
-          </div>
-        </div>
       </div>
-    </div>
+    </Link>
+   
   );
 });
 

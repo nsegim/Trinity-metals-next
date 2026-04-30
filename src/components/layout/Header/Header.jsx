@@ -39,9 +39,9 @@ const SiteHeader = () => {
           <div className="right-tools">
              <LanguageSwitcher />
             <div className="social-links">
-                <Link href={`/${lang}/careers`} className="careerBtn">
+                {/* <Link href={`/${lang}/careers`} className="careerBtn">
                   {(dict.header.careers)}
-                </Link>
+                </Link> */}
                 <ul className="social-icon">
                   <li>
                     <a href="https://x.com/Trinity_Metals" target="_blank">

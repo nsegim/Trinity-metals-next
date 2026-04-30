@@ -344,14 +344,7 @@ color: var(--trinity-white)!important;
   gap: 30px;
 }
 }
-.Governance-section{
-    background-image: url(https://contents.trinity-metals.com/wp-content/uploads/2025/06/Governance.webp);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        margin-top: unset!important;
 
-}
 
 
 @media (min-width: 768px) {

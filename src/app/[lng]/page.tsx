@@ -131,6 +131,8 @@ const BottomImagesGallery = [
             <h2 dangerouslySetInnerHTML={{ __html: (dict.home["welcome-description"]) }} className="section-desc" />
             <p className="section-sub-desc">{(dict.home["min-description"])}</p>
 
+            <p className="section-sub-desc1">{(dict.home["min-description1"])}</p>
+
             <div className="info-buttons">
               {/* <div className="button-element">
                 <Link href="#sectionRef"className="get-started">
@@ -196,7 +198,7 @@ const BottomImagesGallery = [
                     <AboutTabs dict={dict} />
 
               <div className="buttonElement">
-                <Link href={`${lng}/about`} className="hover-green">
+                <Link href={`${lng}/about/story-&-strategy`} className="hover-green">
                   <span>{(dict.home["read-more-button"])}</span>
                   {/* <Image 
                     src='https://contents.trinity-metals.com/wp-content/uploads/2025/02/Arrow2.svg'

@@ -18,6 +18,7 @@
 /out/
 /app.js
 /server.js
+/env.local
 
 # production
 /build

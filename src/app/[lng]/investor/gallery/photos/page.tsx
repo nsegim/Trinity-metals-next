@@ -28,7 +28,7 @@ export default function PhotoGallery() {
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
 
-  const itemsPerPage = 16;
+  const itemsPerPage = 24;
 
   // Fetch gallery
   useEffect(() => {
@@ -183,7 +183,7 @@ const tabs = [
         <div className="photo-gallery-container container">
 
           {/* Filters */}
-          <div className="photo-gallery-filters">
+          {/* <div className="photo-gallery-filters">
             {
            
             tabs.map((tab, index) => (
@@ -197,7 +197,7 @@ const tabs = [
                 {dict.Tabs[tab.label]}
               </button>
             ))}
-          </div>
+          </div> */}
 
           {/* Images */}
           <div className="photos-wrapper">

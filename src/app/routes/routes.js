@@ -40,7 +40,7 @@ const RoutesConfig = () => {
             { 
                 name: (dict.header["investor-relations"]), path:`/${currentLang}/investor`,
                 children: [
-                    { name: (dict.header.investor.reports), path:`/${currentLang}/investor/reports` },
+                    // { name: (dict.header.investor.reports), path:`/${currentLang}/investor/reports` },
                     { name: (dict.header.investor["latest-news"]), path:`/${currentLang}/investor/latest-news` },
                     { name: (dict.header.investor.gallery), path:`` ,
                        children: [
