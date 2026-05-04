@@ -505,11 +505,13 @@ color: var(--trinity-white);
 
 }
 .section-sub-desc1{
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 29.5px;
-  margin-bottom: 0;
-  color: var(--trinity-white);
+    
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  /* margin-bottom: 0; */
+  text-transform: uppercase;
+  color: var(--trinity-yellow);
 }
 
 
