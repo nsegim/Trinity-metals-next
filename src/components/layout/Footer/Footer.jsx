@@ -51,9 +51,9 @@ const SiteFooter = () => {
                             <li>
                               <Link href={`/${lang}/sustainability`} className="footer-links"> {(dict.header.sustainability)}</Link>
                             </li>
-                            <li>
+                            {/* <li>
                               <Link href={`/${lang}/careers`} className="footer-links"> {(dict.header.careers)}</Link>
-                            </li>
+                            </li> */}
                           </ul>
                         </div>
                       </div>
