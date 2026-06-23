@@ -1548,9 +1548,9 @@ color: var(--trinity-dark);
         .histort-content-holder, .image-holder {
             width: 80%;
         }
-        .our-values-wrapper .icon-box{
+        /* .our-values-wrapper .icon-box{
             transform: translateY(50px);
-        }
+        } */
         .inner-container, .our-products-section {
             padding-top: 40px;
             padding-bottom: 40px;
