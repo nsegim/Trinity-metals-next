@@ -75,7 +75,7 @@ export default async function RootLayout({
           
         </Script>
       </head>
-      <body className={`${montserrat.variable} font-sans`}>
+      <body className={`${montserrat.variable} font-sans`} suppressHydrationWarning={true}>
         <ScrollToTop />
         <TranslationProvider dict={dict} lang={lng}>
            

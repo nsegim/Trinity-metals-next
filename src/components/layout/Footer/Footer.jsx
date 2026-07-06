@@ -36,7 +36,7 @@ const SiteFooter = () => {
                               <Link href={`/${lang}`} className="footer-links">{(dict.header.home)}</Link>
                             </li>
                             <li>
-                              <Link href={`/${lang}/about`} className="footer-links"> {(dict.header["about-us"])}</Link>
+                              <Link href={`/${lang}/about/story-&-strategy`} className="footer-links"> {(dict.header["about-us"])}</Link>
                             </li>
                             <li>
                               <Link href={`/${lang}/investor/latest-news`} className="footer-links">{(dict.header.investor["latest-news"])}</Link>
