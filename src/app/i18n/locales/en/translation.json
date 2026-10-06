@@ -76,7 +76,7 @@
       "our-project": "Our Projects",
       "trinity-Nyakabingo-mine":"Trinity Nyakabingo Mine",
       "trinity-musha-mine":"Trinity Musha Mines",
-      "rutongo-mine": "Rutongo Mines",
+      "rutongo-mine": "Trinity Rutongo Mines",
 
 
 
@@ -120,7 +120,10 @@
 
       
       "our-history-section-title": "Our History",
-      "our-history-top-description": "Trinity Musha Mines Limited [formerly Piran Rwanda Ltd], Trinity Nyakabingo Mine Limited [formerly Eurotrade International Ltd], and Rutongo Mines Limited are established as three separate, privately held companies. They all have a strong track record of mining and exploration of tin, tungsten and/or tantalum in Rwanda and are committed to incorporating responsible mining practices into assets previously acquired from the Rwandan government.",
+      "our-history-bold-prefix": "Trinity Metals",
+      "our-history-top-description": "Limited [formerly Piran Rwanda Ltd], Trinity Nyakabingo Mine Limited [formerly Eurotrade International Ltd], and Rutongo Mines Limited are established as three separate, privately held companies. They all have a strong track record of mining and exploration of tin, tungsten and/or tantalum in Rwanda and are committed to incorporating responsible mining practices into assets previously acquired from the Rwandan government.",
+      "our-history-top-description-1": "The Rutongo, Musha, and Nyakabingo Mines have a strong track record in mining and exploration of tin, tungsten, and tantalum in Rwanda. Together, they are committed to applying responsible and sustainable mining practices to the assets previously acquired from the Government of Rwanda.",
+
       "our-history-sub-desc": "In May 2022, the three companies’ shareholders joined forces to form Trinity Metals Limited (“The Group”) under equity backing from Techmet, a UK-based private industrial company working to secure the technology metal supply chain in a world with rapidly increasing demand. ",
       "our-history-popup-top-desc": "Trinity Musha Mines Limited [formerly Piran Rwanda Ltd], Trinity Nyakabingo Mine Limited [formerly Eurotrade International Ltd], and Rutongo Mines Limited are established as three separate, privately held companies. They all have a strong track record of mining and exploration of tin, tungsten and/or tantalum in Rwanda and are committed to incorporating responsible mining practices into assets previously acquired from the Rwandan government.",
       "our-history-popup-desc" : "In May 2022, the three companies’ shareholders joined forces to form Trinity Metals Limited (“The Group”) under equity backing from Techmet, a UK-based private industrial company working to secure the technology metal supply chain in a world with rapidly increasing demand.  Techmet, Trinity Metals’ majority shareholder, works with a number of investment partners including the US Development Finance Corporation (DFC) to fund its portfolio. Additional shareholders include Piran Resources, the parent company of Piran Rwanda Limited and the Rwandan Government, represented by Agaciro Development Fund. ",
@@ -165,7 +168,7 @@
 
 
 
-      "executive-management-team-section-title": "Executive Management Team",
+      "executive-management-team-section-title": "Trinity Metals Rwanda Executive Team",
       "view-all-team-button": "View All Team",
 
 
@@ -189,8 +192,8 @@
 
   "our-leadership":{
     "our-leadership-title": "Our Leadership",
-    "board-members": "Trinity Metals Group Board Members",
-    "executive-management": "Executive Management Team"
+    "board-members": "Trinity Metals Board Members",
+    "executive-management": "Trinity Metals Rwanda Executive Team"
   },
 
   "our-project-page": {
@@ -206,14 +209,14 @@
         "project-sites": {
             "trinity-nyakabingo-mine": "Trinity Nyakabingo Mine",
             "trinity-musha-mines": "Trinity Musha Mines",
-            "trinity-rutongo-mines": "Rutongo Mines",
+            "trinity-rutongo-mines": "Trinity Rutongo Mines",
             "LITHIUM-EXPLORATION": "Lithium Exploration"
 
 
         },
 
         "rutongo-mines": {
-            "rutongo-title" :"Rutongo Mines",
+            "rutongo-title" :"Trinity Rutongo Mines",
             "satellite-mines": "Rutongo Satellite Mines",
             "satellite-mines-achievement": "6 Mines",
 
@@ -361,7 +364,7 @@
    
     "governance-desc1": "At Trinity Metals, we believe strong corporate governance is more than a responsibility, it’s a driving force behind our ethical business practices and long-term success. We lead with integrity, ensuring transparency and accountability in everything we do. Our governance framework reflects our deep commitment to our core values, empowering sound decision-making that supports sustainable growth and protects the interests of our people, partners, communities, and planet. By integrating Environmental, Social, and Governance (ESG) principles into our operations, we go beyond compliance—creating real, lasting value and reinforcing our role as a trusted and responsible industry leader.",
     "governance-subtitle2":"Traceability",
-    "governance-desc2":"We take pride in ensuring that every mineral we produce is 100% conflict-free, fully traceable, and responsibly sourced from our own licensed concessions. From the moment it leaves the ground to the point it reaches the market, our minerals are never blended or traded from external sources—guaranteeing full transparency and control throughout the supply chain. Our vertically integrated operations give us unmatched oversight, reinforcing our commitment to ethical sourcing. We work closely with RCS Global through its Better Mining Program, an industry-leading initiative recognized by the Responsible Minerals Initiative (RMI). In line with global best practices, we publish annual due diligence reports based on the OECD Framework, underscoring our dedication to integrity, accountability, and sustainable mining.",
+    "governance-desc2":"We take pride in ensuring that every mineral we produce is 100% conflict-free, fully traceable, and responsibly sourced from our own licensed concessions. From the moment it leaves the ground to the point it reaches the market, our minerals are never blended or traded from external sources—guaranteeing full transparency and control throughout the supply chain. Our vertically integrated operations give us unmatched oversight, reinforcing our commitment to ethical sourcing. We work closely with SLR Consulting through its Better Mining Program, an industry-leading initiative recognized by the Responsible Minerals Initiative (RMI). In line with global best practices, we publish annual due diligence reports based on the OECD Framework, underscoring our dedication to integrity, accountability, and sustainable mining.",
     
     "governance-subtitle3": "Board of Directors ",
     "governance-desc3": "Our Board of Directors is a driving force behind our commitment to responsible leadership and ethical excellence. With a clear strategic vision and unwavering oversight, the Board ensures that every aspect of our business meets the highest ethical and regulatory standards. Backed by dedicated committees, the Audit Committee for financial integrity, the Remuneration Committee for fair and performance-driven rewards, and the SHECS Committee for Safety, Health, Environment, Community, and Security, we maintain strong governance that champions accountability, protects our stakeholders, and fuels sustainable growth. This structure empowers us to lead with purpose and deliver meaningful impact across every level of our operations.",

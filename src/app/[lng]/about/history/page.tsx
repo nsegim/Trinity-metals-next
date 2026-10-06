@@ -43,7 +43,17 @@ export default async function History({
               <h2 className="section-heading">{dict['about-us-page']?.['our-history-section-title']}</h2>
              
               <div className="text-content">
-                    <p className="fw-bold">{dict['about-us-page']?.['our-history-popup-top-desc']}</p>
+                   <ul>
+                    <li>
+                      
+
+                      <p><span className="fw-bold">{dict['about-us-page']?.['our-history-bold-prefix']}</span> {dict['about-us-page']?.['our-history-top-description']}</p>
+                    </li>
+                    <li>
+                      <p>{dict['about-us-page']?.['our-history-top-description-1']}</p>
+                    </li>
+                   </ul>
+                    {/* <p className="fw-bold">{dict['about-us-page']?.['our-history-popup-top-desc']}</p> */}
                     <p>{dict['about-us-page']?.['our-history-popup-desc']}</p>
                     <p>{dict['about-us-page']?.['our-history-popup-desc1']}</p>
                     <p>{dict['about-us-page']?.['our-history-popup-desc2']}</p>

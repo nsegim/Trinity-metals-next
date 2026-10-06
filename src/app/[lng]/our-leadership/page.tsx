@@ -121,7 +121,7 @@ export default function Page() {
     currentLang === 'kiny'
       ? managementMembers.kiny
       : [...managementMembers.en].reverse();
-
+  console.log('displayManagement:', displayManagement);
   // ✅ Reusable member card
   const MemberCard = ({ item }: { item: TeamMember }) => (
     <div key={item.id} className="single-team-member">
@@ -265,3 +265,8 @@ export default function Page() {
     </>
   );
 }
+
+
+
+
+
