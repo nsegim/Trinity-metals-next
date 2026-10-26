@@ -37,7 +37,7 @@ export default async function page({ params }: MushaPageProps) {
       {/* Hero section with video */}
       <div className="the-project-hero-section-wrapper">
         <video autoPlay muted loop playsInline className="hero-video">
-          <source src="https://contents.trinity-metals.com/wp-content/uploads/2025/06/musha-1.mp4" type="video/mp4" />
+          <source src="https://contents.trinity-metals.com/wp-content/uploads/2026/10/musha-1.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
